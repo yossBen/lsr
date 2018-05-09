@@ -1,0 +1,27 @@
+<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<lnt = 'http://www.lasecurecrute.fr/jahia/nt/1.0'>
+<lmix = 'http://www.lasecurecrute.fr/jahia/mix/1.0'>
+
+[lmix:recherche] > jmix:droppableContent mixin
+
+[lmix:lsrOffresOptions] mixin
+ extends=jnt:virtualsite
+ itemtype=options
+- idLumesse (string)
+- pageResultat (weakreference, picker[type='page'])
+- pageFichePoste (weakreference, picker[type='page'])
+
+[lnt:blocRecherche] > jnt:content, lmix:recherche , mix:title
+
+[lnt:resultatRecherche] > jnt:content, lmix:recherche , mix:title
+
+[lnt:blocOffres] > jnt:content, lmix:recherche , mix:title
+- nombre (long) = 4 mandatory
+
+[lnt:dernieresOffres] > jnt:content, lmix:recherche , mix:title
+- nombre (long) = 2 mandatory
+- typesContrat (string, choicelist[choiceListContractType]) multiple
+- metiers (string, choicelist[choiceListJobFamily]) multiple
+
+[lnt:fichePoste] > jnt:content, lmix:recherche

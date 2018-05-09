@@ -1,0 +1,15 @@
+package fr.lsr.jahia.modules.utils;
+
+public enum Lov {
+	JOB_FAMILY("Famille de metiers interne"), REGION("Region@France"), REGIME("Regime"), TYPE_ORGANISME("TypeOrganisme"), ORGANISME("Organisme"), CLASSIFICATION("GrilleClassification"), CONTRACT_TYPE(
+			"ContractType"), COEFFICIENT_RG("Coefficient RG"), NIVEAU_RG("Niveau RG"), CURRENCY("Currency"), COMPENSATION_PERIOD("CompensationPeriod");
+	private String name;
+
+	Lov(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+}

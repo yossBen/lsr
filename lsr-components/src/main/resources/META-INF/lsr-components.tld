@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <taglib xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
 	version="2.0">
-
 	<description> </description>
 	<display-name>LSR Component Functions</display-name>
 	<tlib-version>1.0</tlib-version>
@@ -68,13 +66,31 @@
 		<path>/META-INF/tags/showPagination.tag</path>
 	</tag-file>
 	<function>
-		<name>getAdvertisements</name>
+		<name>getLastAdvertisements</name>
 		<function-class>fr.lsr.jahia.modules.tags.LsrTagUtils</function-class>
-		<function-signature>fr.lsr.jahia.modules.utils.Pair getAdvertisements(java.lang.String,java.lang.String[],java.lang.String[],java.lang.String[],java.lang.String[],java.lang.String[],java.lang.String[],int,int)</function-signature>
+		<function-signature>java.util.List getLastAdvertisements(java.lang.String[],java.lang.String[],int)</function-signature>
 	</function>
+	<function>
+		<name>getLovById</name>
+		<function-class>fr.lsr.jahia.modules.tags.LsrTagUtils</function-class>
+		<function-signature>java.lang.String[] getLovById(java.lang.String,java.lang.String[])</function-signature>
+	</function>
+
 	<function>
 		<name>getAdvertisementById</name>
 		<function-class>fr.lsr.jahia.modules.tags.LsrTagUtils</function-class>
 		<function-signature>fr.lsr.jahia.modules.services.impl.FoAdvertServiceImpl.Advertisement getAdvertisementById(java.lang.String)</function-signature>
+	</function>
+	<function>
+		<name>getAdvertisements</name>
+		<function-class>fr.lsr.jahia.modules.tags.LsrTagUtils</function-class>
+		<function-signature>fr.lsr.jahia.modules.utils.Pair getAdvertisements(java.lang.String[], java.lang.String[], java.lang.String[], java.lang.String[], java.lang.String[], java.lang.String[], int,
+			int)
+		</function-signature>
+	</function>
+	<function>
+		<name>getRegionsByIds</name>
+		<function-class>fr.lsr.jahia.modules.tags.LsrTagUtils</function-class>
+		<function-signature>java.lang.String[] getRegionsByIds(java.lang.String[])</function-signature>
 	</function>
 </taglib>

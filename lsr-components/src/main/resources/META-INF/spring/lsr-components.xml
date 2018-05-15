@@ -25,4 +25,12 @@
 	<bean class="fr.lsr.jahia.modules.initializers.ChoiceListJobFamilyInitializers">
 		<property name="key" value="choiceListJobFamily" />
 	</bean>
+
+	<bean class="fr.lsr.jahia.modules.action.SendOfferToFriendAction">
+		<property name="name" value="sendOfferToFriendAction" />
+		<property name="requireAuthenticatedUser" value="false" />
+		<property name="from" value="NePasRepondre@laSecuRecrute.fr" />
+		<property name="mailService" ref="MailService" />
+		<property name="bodyMailTemplate" value="/mails/templates/body.vm" />
+	</bean>
 </beans>

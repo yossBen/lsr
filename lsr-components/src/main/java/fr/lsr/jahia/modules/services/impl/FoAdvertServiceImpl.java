@@ -2,6 +2,7 @@ package fr.lsr.jahia.modules.services.impl;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -66,9 +67,9 @@ public class FoAdvertServiceImpl implements FoAdvertService {
 
 	public void start() throws MalformedURLException, IOException {
 		JahiaTemplatesPackage templatePackage = ServicesRegistry.getInstance().getJahiaTemplateManagerService().getTemplatePackageById(Constants.TEMPLATE_PACKAGE_NAME);
-		Resource wsdl = templatePackage.getResource(wsdlPath);
+		URL url = templatePackage.getBundle().getEntry(wsdlPath);
 
-		FoAdvertWebService_Service foWebService_Service = new FoAdvertWebService_Service(wsdl.getFile().toURI().toURL(), new QName("http://ws.mrted.com/", "FoAdvertWebService"));
+		FoAdvertWebService_Service foWebService_Service = new FoAdvertWebService_Service(url);
 		foWebService_Service.setHandlerResolver(headerHandlerResolver);
 		this.foAdvertWebService = foWebService_Service.getFoAdvertWebServicePort();
 

@@ -1,7 +1,9 @@
 package fr.lsr.jahia.modules.services.impl;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 import javax.xml.namespace.QName;
@@ -56,8 +58,8 @@ public class LovServiceImpl implements LovService {
 
 	public void start() throws MalformedURLException, IOException {
 		JahiaTemplatesPackage templatePackage = ServicesRegistry.getInstance().getJahiaTemplateManagerService().getTemplatePackageById(Constants.TEMPLATE_PACKAGE_NAME);
-		Resource wsdl = templatePackage.getResource(wsdlPath);
-		LovWebService_Service lovWebService_Service = new LovWebService_Service(wsdl.getFile().toURI().toURL(), new QName("http://ws.mrted.com/", "LovWebService"));
+		URL url = templatePackage.getBundle().getEntry(wsdlPath);
+		LovWebService_Service lovWebService_Service = new LovWebService_Service(url);
 		lovWebService_Service.setHandlerResolver(headerHandlerResolver);
 
 		lovWebService = lovWebService_Service.getLovWebServicePort();
@@ -79,6 +81,17 @@ public class LovServiceImpl implements LovService {
 			ehCache.put(new Element(lov.getName(), new ModuleClassLoaderAwareCacheEntry(lovs, lov.getName())));
 		}
 		return lovs;
+	}
+
+	@Override
+	public LovDescendantDto getLovById(Lov lov, Long id) {
+		List<LovDescendantDto> lovs = getLovs(lov);
+		for (LovDescendantDto l : lovs) {
+			if (l.getLovId().equals(id)) {
+				return l;
+			}
+		}
+		return null;
 	}
 
 	public void flushCache() {

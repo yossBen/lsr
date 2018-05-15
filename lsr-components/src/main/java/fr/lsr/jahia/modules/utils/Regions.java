@@ -39,4 +39,13 @@ public enum Regions {
 	public String getCodes() {
 		return codes;
 	}
+
+	public static Regions getRegionByCode(String code) {
+		for (Regions r : Regions.values()) {
+			if (r.getCodes().equals(code)) {
+				return r;
+			}
+		}
+		return null;
+	}
 }

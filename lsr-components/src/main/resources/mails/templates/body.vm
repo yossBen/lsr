@@ -1,0 +1,13 @@
+#* @vtlvariable name="formNode" type="org.jahia.services.content.JCRNodeWrapper" *#
+#* @vtlvariable name="formDatas" type="java.util.Map" *#
+#* @vtlvariable name="bundle" type="java.util.ResourceBundle" *#
+#* @vtlvariable name="helper" type="org.jahia.modules.formbuilder.helper.FormBuilderHelper" *#
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>$subject</title>
+</head>
+<body>
+$body
+</body>
+</html>

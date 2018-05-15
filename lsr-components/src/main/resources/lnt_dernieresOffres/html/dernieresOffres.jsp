@@ -22,11 +22,12 @@
 	<c:set var="jobsFamilyList" value="${jobsFamilyList}${!loop.first ? ',' : ''}${item.string}" />
 </c:forEach>
 
-<c:set var="number" value="${!empty number ? number.long : 2  }"></c:set>
-<c:set var="searchResult" value="${lsr:getAdvertisements(null,fn:split(jobsFamilyList,','),null,fn:split(contractTypesList,','),null,null,null, 0 , number)}" />
+<c:set var="number" value="${!empty number ? number.long : 4}" />
+<c:set var="searchResult" value="${lsr:getLastAdvertisements(fn:split(jobsFamilyList,','),fn:split(contractTypesList,','),number)}" />
+
 <section class="bloc-offres" role="contentinfo" aria-label="Consultez les dernières offres">
 	<h2 class="bloc-titre">${title.string}</h2>
-	<c:forEach items="${searchResult.value}" var="adv">
+	<c:forEach items="${searchResult}" var="adv">
 		<div class="offre col-lg-12">
 			<div class="recruteur">${adv.organisme}</div>
 			<div class="titreoffre">

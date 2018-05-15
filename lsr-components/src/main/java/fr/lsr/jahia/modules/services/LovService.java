@@ -14,4 +14,6 @@ public interface LovService {
 	Regions[] getRegions();
 
 	List<LovDescendantDto> getLovs(Lov lov);
+
+	LovDescendantDto getLovById(Lov lov, Long id);
 }

@@ -2,15 +2,18 @@ package fr.lsr.jahia.modules.services.impl;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Date;
 import java.util.GregorianCalendar;
+
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.namespace.QName;
+
 import org.jahia.data.templates.JahiaTemplatesPackage;
 import org.jahia.registries.ServicesRegistry;
 import org.springframework.core.io.Resource;
+
 import com.mrted.ws.DeliveryFrequency;
 import com.mrted.ws.LangCode;
 import com.mrted.ws.SearchAgentDto;
@@ -50,9 +53,9 @@ public class SearchAgentServiceImpl implements SearchAgentService {
 
 	public void start() throws MalformedURLException, IOException {
 		JahiaTemplatesPackage templatePackage = ServicesRegistry.getInstance().getJahiaTemplateManagerService().getTemplatePackageById(Constants.TEMPLATE_PACKAGE_NAME);
-		Resource wsdl = templatePackage.getResource(wsdlPath);
+		URL url = templatePackage.getBundle().getEntry(wsdlPath);
 
-		SearchAgentWebService_Service searchAgentWebService_Service = new SearchAgentWebService_Service(wsdl.getFile().toURI().toURL(), new QName("http://ws.mrted.com/", "SearchAgentWebService"));
+		SearchAgentWebService_Service searchAgentWebService_Service = new SearchAgentWebService_Service(url);
 		searchAgentWebService_Service.setHandlerResolver(headerHandlerResolver);
 		searchAgentWebService = searchAgentWebService_Service.getSearchAgentWebServicePort();
 	}

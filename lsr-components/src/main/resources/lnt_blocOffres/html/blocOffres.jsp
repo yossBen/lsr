@@ -9,6 +9,9 @@
 <%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions"%>
 <%@ taglib uri="http://www.LaSecuRecrute.fr/lsr-components/tags" prefix="lsr"%>
 
+<template:addResources type="javascript" resources="jquery.validate.js" />
+<template:addResources type="javascript" resources="lst-components.js" />
+
 <jcr:nodeProperty node="${currentNode.resolveSite}" name="pageFichePoste" var="pageFichePoste" />
 <jcr:nodeProperty node="${currentNode.resolveSite}" name="pageResultat" var="pageResultat" />
 <jcr:nodeProperty node="${currentNode}" name="jcr:title" var="title" />
@@ -17,7 +20,7 @@
 <c:set var="nombre" value="${!empty nombre ? nombre.long : 4  }" />
 <c:set var="classCol" value="${nombre mod 4 == 0 ?  'col-lg-3' : 'col-lg-4'}" />
 
-<c:set var="searchResult" value="${lsr:getAdvertisements(null,null,null,null,null,null,null, 0 , nombre)}" />
+<c:set var="searchResult" value="${lsr:getAdvertisements(null,null,null,null,null,null,0,nombre)}" />
 <section class="bloc-offres" role="contentinfo" aria-label="Consultez les dernières offres">
 	<h2 class="bloc-titre">${title.string}</h2>
 	<c:forEach items="${searchResult.value}" var="adv">
@@ -55,8 +58,8 @@
 							<i class="fa fa-linkedin"></i>
 						</a>
 					</li>
-					<li>
-						<a href="#">
+					<li onclick="changeOfferUrl('<c:url value="${url.server}${pageFichePoste.node.url}" />?posteId=${adv.id}');">
+						<a href="javascript:void(0);" data-toggle="modal" data-target="#modalSendMail">
 							<i class="fa fa-envelope"></i>
 						</a>
 					</li>
@@ -68,3 +71,4 @@
 		<a href="${pageResultat.node.url}" class="btoffres" role="link" aria-label="Voir toutes les offres">Voir toutes les offres</a>
 	</div>
 </section>
+<%@include file="../../common/popin.jsp"%>

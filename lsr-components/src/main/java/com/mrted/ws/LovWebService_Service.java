@@ -17,7 +17,7 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "LovWebService", targetNamespace = "http://ws.mrted.com/", wsdlLocation = "file:/B:/Projets/ucanss/lsr-components/src/main/resources/wsdl/LOV.xml")
+@WebServiceClient(name = "LovWebService", targetNamespace = "http://ws.mrted.com/")
 public class LovWebService_Service
     extends Service
 {
@@ -29,11 +29,6 @@ public class LovWebService_Service
     static {
         URL url = null;
         WebServiceException e = null;
-        try {
-            url = new URL("file:/B:/Projets/ucanss/lsr-components/src/main/resources/wsdl/LOV.xml");
-        } catch (MalformedURLException ex) {
-            e = new WebServiceException(ex);
-        }
         LOVWEBSERVICE_WSDL_LOCATION = url;
         LOVWEBSERVICE_EXCEPTION = e;
     }

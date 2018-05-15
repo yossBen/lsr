@@ -21,7 +21,6 @@
 				<label for="jobFamilySelect" id="jobFamilyLabel" class="control-label">Famille de métiers</label>
 				<div>
 					<select class="selectpicker show-menu-arrow form-control" id="jobFamilySelect" aria-labelledby="jobFamilyLabel" onchange="$('#jobFamilySelectHidden').val($(this).val());" multiple>
-						<option value=""></option>
 						<c:forEach items="${lovBean.jobFamily}" var="item">
 							<c:forEach items="${fn:split(filtersParams , ',')}" var="filter">
 								<c:if test="${filter eq item.lovId}">
@@ -41,7 +40,6 @@
 			<div class="form-group">
 				<label id="typeOrganismeLabel" for="typeOrganismeSelect" class="control-label">Type d'organisme</label>
 				<select id="typeOrganismeSelect" class="selectpicker show-menu-arrow form-control" aria-labelledby="typeOrganismeLabel" onchange="$('#typeOrganismeSelectHidden').val($(this).val());" multiple>
-					<option value=""></option>
 					<c:forEach items="${lovBean.typeOrganisme}" var="item">
 						<c:forEach items="${fn:split(filtersParams , ',')}" var="filter">
 							<c:if test="${filter eq item.lovId}">
@@ -55,13 +53,11 @@
 				<input id="typeOrganismeSelectHidden" type="hidden" value="${filtersParams}" name="typeOrganisme">
 			</div>
 		</div>
-
 		<c:set var="filtersParams" value="${fn:escapeXml(param['contractType'])}"></c:set>
 		<div class="${classCol} paddno">
 			<div class="form-group">
 				<label for="contractTypeSelect" id="contractTypeLabel" class="control-label">Type de contrat</label>
 				<select id="contractTypeSelect" class="selectpicker show-menu-arrow form-control" aria-labelledby="contractTypeLabel" onchange="$('#contractTypeSelectHidden').val($(this).val());" multiple>
-					<option value=""></option>
 					<c:forEach items="${lovBean.contractType}" var="item">
 						<c:forEach items="${fn:split(filtersParams , ',')}" var="filter">
 							<c:if test="${filter eq  item.lovId}">
@@ -81,7 +77,6 @@
 				<label for="regionSelect" id="regionLabel" class="control-label">Région</label>
 				<div>
 					<select id="regionSelect" class="selectpicker show-menu-arrow form-control" aria-labelledby="regionLabel" onchange="$('#regionSelectHidden').val($(this).val());" multiple>
-						<option value=""></option>
 						<c:forEach items="${lovBean.region}" var="item">
 							<c:forEach items="${fn:split(filtersParams , ',')}" var="filter">
 								<c:if test="${filter eq item.codes}">
@@ -101,3 +96,4 @@
 		</div>
 	</form>
 </section>
+<c:set var="pageRechercheSession" value="${renderContext.mainResource.node.url}" scope="session" />

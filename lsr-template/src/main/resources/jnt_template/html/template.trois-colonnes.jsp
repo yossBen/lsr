@@ -39,7 +39,7 @@
 <body role="document">
 	<header role="banner"> <template:area path="header" /> </header>
 	<div class="container">
-		<div class="row cinq-br">
+		<div class="row jecherche">
 			<div class="col-lg-9">
 				<template:area path="file-d-ariane" />
 				<template:area path="gauche" />

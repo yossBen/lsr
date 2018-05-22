@@ -1,0 +1,10 @@
+<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<snt = 'http://www.ucanss.fr/jahia/nt/1.0'>
+<smix = 'http://www.ucanss.fr/jahia/mix/1.0'>
+
+[smix:component]  > jmix:droppableContent mixin
+
+[snt:actualite] > jnt:content, smix:component
+- contenu (string,richtext) mandatory
+- date (date) mandatory

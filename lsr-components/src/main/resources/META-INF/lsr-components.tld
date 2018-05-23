@@ -93,4 +93,14 @@
 		<function-class>fr.lsr.jahia.modules.tags.LsrTagUtils</function-class>
 		<function-signature>java.lang.String[] getRegionsByIds(java.lang.String[])</function-signature>
 	</function>
+	<function>
+		<name>randomInt</name>
+		<function-class>fr.lsr.jahia.modules.tags.LsrTagUtils</function-class>
+		<function-signature>int randomInt(java.lang.Integer)</function-signature>
+	</function>
+	<function>
+		<name>countAdvertisements</name>
+		<function-class>fr.lsr.jahia.modules.tags.LsrTagUtils</function-class>
+		<function-signature>java.lang.Integer countAdvertisements()</function-signature>
+	</function>
 </taglib>

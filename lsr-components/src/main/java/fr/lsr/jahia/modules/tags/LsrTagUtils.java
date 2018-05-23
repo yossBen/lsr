@@ -48,6 +48,17 @@ public class LsrTagUtils {
 		return toReturn;
 	}
 
+	public static Integer countAdvertisements() {
+		Integer count = null;
+		try {
+			Pair<Integer, List<Advertisement>> p = FoAdvertServiceImpl.getInstance().getAdvertisements(null, null, null, null, null, null, null, 0, 1);
+			count = p.getKey();
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage(), e);
+		}
+		return count;
+	}
+
 	public static String[] getLovById(String lovName, String[] ids) {
 		String[] list = null;
 		if (ids != null) {
@@ -77,6 +88,13 @@ public class LsrTagUtils {
 			}
 		}
 		return list;
+	}
+
+	public static int randomInt(final Integer length) {
+		if (length != null && length > 0) {
+			return (int) (Math.random() * length);
+		}
+		return 0;
 	}
 
 	public static Advertisement getAdvertisementById(String offerId) {

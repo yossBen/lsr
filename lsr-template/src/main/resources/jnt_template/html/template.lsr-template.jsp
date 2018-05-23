@@ -37,7 +37,15 @@
 </head>
 
 <body role="document">
-	<header role="banner"> <template:area path="header" /> </header>
+	<header role="banner">
+	<div class="container-fluid">
+		<div class="container">
+			<div class="row headbandeau">
+				<template:area path="header" />
+			</div>
+		</div>
+	</div>
+	</header>
 	<div class="container">
 		<div class="bodywrapper">
 			<template:area path="pagecontent" />

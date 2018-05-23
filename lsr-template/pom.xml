@@ -39,7 +39,7 @@
 				<configuration>
 					<instructions>
 						<Jahia-Module-Type>templatesSet</Jahia-Module-Type>
-						<Jahia-Depends>default,ucanss-common</Jahia-Depends>
+						<Jahia-Depends>default,ucanss-common,lsr-components</Jahia-Depends>
 					</instructions>
 				</configuration>
 			</plugin>

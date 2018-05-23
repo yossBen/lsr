@@ -42,7 +42,6 @@
                           j:limitedAbsoluteAreaEdit="false"
                           j:numberOfItems="1"
                           jcr:primaryType="jnt:absoluteArea"/>
- 
                         </header>
                         <footer jcr:primaryType="jnt:contentList">
                             <footer j:level="0"

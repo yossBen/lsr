@@ -5,12 +5,15 @@
 
 [lmix:recherche] > jmix:droppableContent mixin
 
+[lmix:composantsLsr] > jmix:droppableContent mixin
+
 [lmix:lsrOffresOptions] mixin
  extends=jnt:virtualsite
  itemtype=options
 - idLumesse (string)
 - pageResultat (weakreference, picker[type='page'])
 - pageFichePoste (weakreference, picker[type='page'])
+- pageRechercheSimple (weakreference, picker[type='page'])
 
 [lnt:blocRecherche] > jnt:content, lmix:recherche , mix:title
 
@@ -25,3 +28,10 @@
 - metiers (string, choicelist[choiceListJobFamily]) multiple
 
 [lnt:fichePoste] > jnt:content, lmix:recherche
+
+[lnt:nombreOffres] > jnt:content
+
+[lnt:imageDynamique] > jnt:content, lmix:composantsLsr
+- imagesHome (weakreference, picker[type='image']) multiple
+- imagesSite (weakreference, picker[type='image']) multiple
++ nombreOffres (lnt:nombreOffres) = lnt:nombreOffres autocreated

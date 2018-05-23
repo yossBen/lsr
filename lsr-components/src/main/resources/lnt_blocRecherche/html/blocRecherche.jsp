@@ -7,6 +7,7 @@
 
 <jsp:useBean id="lovBean" scope="page" class="fr.lsr.jahia.modules.bean.LovBean" />
 <jcr:nodeProperty node="${currentNode.resolveSite}" name="pageResultat" var="pageResultat" />
+<jcr:nodeProperty node="${currentNode.resolveSite}" name="pageRechercheSimple" var="pageRechercheSimple" />
 <jcr:nodeProperty node="${currentNode}" name="jcr:title" var="title" />
 <jcr:nodeProperty node="${currentNode}" name="displayResultat" var="displayResultat" />
 
@@ -96,4 +97,4 @@
 		</div>
 	</form>
 </section>
-<c:set var="pageRechercheSession" value="${renderContext.mainResource.node.url}" scope="session" />
+<c:set var="pageRechercheSession" value="${pageRechercheSimple.node.url}" scope="session" />

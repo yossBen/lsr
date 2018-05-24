@@ -293,7 +293,7 @@
  </binding>
  <service name='SearchAgentWebService'>
   <port binding='tns:SearchAgentWebServiceBinding' name='SearchAgentWebServicePort'>
-   <soap:address location='https://api3.lumesse-talenthub.com:443/talenthub/SearchAgentWebService?api_key=yauwsvaqkvwdmxfat8488fyx'/>
+   <soap:address location='https://api3.lumesse-talenthub.com/CareerPortal/SOAP/SearchAgent?api_key=yauwsvaqkvwdmxfat8488fyx'/>
   </port>
  </service>
 </definitions>

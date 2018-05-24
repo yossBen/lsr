@@ -87,6 +87,25 @@ public class FoAdvertServiceImpl implements FoAdvertService {
 	public Pair<Integer, List<Advertisement>> getAdvertisements(String keywords, List<Long> jobFamilys, List<Long> typeOrganismes, List<Long> contractTypes, List<Long> regions,
 			List<Long> classifications, List<Long> regimes, int firstResult, int maxResults) {
 		Pair<Integer, List<Advertisement>> toReturn = null;
+		SearchCriteriaDto searchCriteriaDto = createSearchCriteriaDto(keywords, jobFamilys, typeOrganismes, contractTypes, regions, classifications, regimes);
+		SortingDetailsDto sortingDetailsDto = new SortingDetailsDto();
+		sortingDetailsDto.setColumnName(Constants.SORTING_COLUMN);
+		sortingDetailsDto.setSortType(SortType.DESCENDING);
+		AdvertisementResultDto advertisementResultDto = foAdvertWebService.getAdvertisements(firstResult, maxResults, searchCriteriaDto, sortingDetailsDto, LangCode.FR);
+		if (advertisementResultDto != null && advertisementResultDto.getAdvertisements() != null) {
+			List<Advertisement> list = new ArrayList<>();
+			for (AdvertisementDto adDto : advertisementResultDto.getAdvertisements().getAdvertisement()) {
+				list.add(new Advertisement(adDto));
+			}
+			toReturn = new Pair<Integer, List<Advertisement>>(advertisementResultDto.getTotalResults(), list);
+		}
+		return toReturn;
+	}
+
+	@Override
+	public SearchCriteriaDto createSearchCriteriaDto(String keywords, List<Long> jobFamilys, List<Long> typeOrganismes, List<Long> contractTypes, List<Long> regions, List<Long> classifications,
+			List<Long> regimes) {
+		Pair<Integer, List<Advertisement>> toReturn = null;
 		SearchCriteriaDto searchCriteriaDto = new SearchCriteriaDto();
 		if (StringUtils.isNotBlank(keywords)) {
 			searchCriteriaDto.setKeywords(keywords);
@@ -124,18 +143,8 @@ public class FoAdvertServiceImpl implements FoAdvertService {
 				searchCriteriaDto.getOrganizationIds().getOrganizationId().add(orgId);
 			}
 		}
-		SortingDetailsDto sortingDetailsDto = new SortingDetailsDto();
-		sortingDetailsDto.setColumnName(Constants.SORTING_COLUMN);
-		sortingDetailsDto.setSortType(SortType.DESCENDING);
-		AdvertisementResultDto advertisementResultDto = foAdvertWebService.getAdvertisements(firstResult, maxResults, searchCriteriaDto, sortingDetailsDto, LangCode.FR);
-		if (advertisementResultDto != null && advertisementResultDto.getAdvertisements() != null) {
-			List<Advertisement> list = new ArrayList<>();
-			for (AdvertisementDto adDto : advertisementResultDto.getAdvertisements().getAdvertisement()) {
-				list.add(new Advertisement(adDto));
-			}
-			toReturn = new Pair<Integer, List<Advertisement>>(advertisementResultDto.getTotalResults(), list);
-		}
-		return toReturn;
+
+		return searchCriteriaDto;
 	}
 
 	private void addGroup(SearchCriteriaDto searchCriteriaDto, List<Long> lovs) {

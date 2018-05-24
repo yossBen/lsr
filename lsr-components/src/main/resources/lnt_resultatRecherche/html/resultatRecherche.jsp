@@ -9,6 +9,7 @@
 
 <%@ taglib uri="http://www.LaSecuRecrute.fr/lsr-components/tags" prefix="lsr"%>
 <jcr:nodeProperty node="${currentNode.resolveSite}" name="pageFichePoste" var="pageFichePoste" />
+<template:addResources type="javascript" resources="lst-components.js" />
 
 <c:set var="jobFamilys" value="${!empty param['jobFamily'] ? fn:split(fn:escapeXml(param['jobFamily']),',') : null}" />
 <c:set var="typeOrganismes" value="${!empty param['typeOrganisme'] ? fn:split(fn:escapeXml(param['typeOrganisme']),',') : null}" />
@@ -39,38 +40,32 @@
 				<ul>
 					<c:if test="${!empty regimes}">
 						<li>
-							<b>Régime :</b>
-							${fn:join(lsr:getLovById(REGIME,regimes), ', ')}
+							<b>Régime :</b> ${fn:join(lsr:getLovById(REGIME,regimes), ', ')}
 						</li>
 					</c:if>
 					<c:if test="${!empty typeOrganismes}">
 						<li>
-							<b>Organisme :</b>
-							${fn:join(lsr:getLovById(TYPE_ORGANISME,typeOrganismes), ', ')}
+							<b>Organisme :</b> ${fn:join(lsr:getLovById(TYPE_ORGANISME,typeOrganismes), ', ')}
 						</li>
 					</c:if>
 					<c:if test="${!empty contractTypes}">
 						<li>
-							<b>Type de contrat :</b>
-							${fn:join(lsr:getLovById(CONTRACT_TYPE,contractTypes), ', ')}
+							<b>Type de contrat :</b> ${fn:join(lsr:getLovById(CONTRACT_TYPE,contractTypes), ', ')}
 						</li>
 					</c:if>
 					<c:if test="${!empty classifications}">
 						<li>
-							<b>Grille de classification :</b>
-							${fn:join(lsr:getLovById(CLASSIFICATION,classifications), ', ')}
+							<b>Grille de classification :</b> ${fn:join(lsr:getLovById(CLASSIFICATION,classifications), ', ')}
 						</li>
 					</c:if>
 					<c:if test="${!empty regions}">
 						<li>
-							<b>Région :</b>
-							${fn:join(lsr:getRegionsByIds(regions), ', ')}
+							<b>Région :</b> ${fn:join(lsr:getRegionsByIds(regions), ', ')}
 						</li>
 					</c:if>
 					<c:if test="${!empty keywords}">
 						<li>
-							<b>Mots clés :</b>
-							${keywords}
+							<b>Mots clés :</b> ${keywords}
 						</li>
 					</c:if>
 				</ul>
@@ -141,14 +136,48 @@
 		</c:if>
 		<div class="clearfix"></div>
 		<div class="row ">
-			<div class="col-lg-12">
+			<div class="col-lg-6">
 				<a class="bt" href="${pageRechercheSession}">Nouvelle recherche</a>
-				<!-- 				<button type="button" class="bt">Nouvelle recherche</button>
- -->
+			</div>
+			<div class="col-lg-6">
+				<button type="button" class="bt blanc" data-toggle="modal" data-target="#modalAlerte">Créer une alerte mail</button>
 			</div>
 		</div>
 	</div>
 </section>
+
 <%--Display Pagination--%>
 <lsr:showPagination count="${searchResult.key}" pageSize="${pageSize}" />
+
+<%-- set la query string en session --%>
 <c:set var="searchQuerySession" value="${pageContext.request.queryString}" scope="session" />
+
+<!-- POPIN Creation d'alerte-->
+<div class="modal fade" id="modalAlerte" tabindex="-1" role="dialog" aria-labelledby="modalAlerteLabel">
+	<div class="modal-dialog" role="document">
+		<form id="createAlerteForm" data-query="${searchQuerySession}" action="<c:url value='${url.base}${currentNode.path}'/>.createAlerteAction.do">
+			<div class="modal-content">
+				<div class="modal-body">
+					<label for="email">E-mail:</label>
+					<input type="text" style="width: 100%; height: 30px;" placeholder="Entrez votre email" name="email">
+					<label for="vDeliveryFrequency">Recevoir les offres:</label>
+					<input type="radio" name="frequency" value="ONCE_A_DAY" id="vDeliveryFrequency1">
+					<label for="vDeliveryFrequency1">Une fois par jour</label>
+					<input type="radio" name="frequency" value="ONCE_A_WEEK" id="vDeliveryFrequency7">
+					<label for="vDeliveryFrequency7">Une fois par semaine</label> <label for="expiration">Validité de l'agent de recherche:</label>
+					<input type="radio" name="expiration" value="15" id="expiration15">
+					<label for="expiration15" class="SA-smalltext">2 semaines</label>
+					<input type="radio" name="expiration" value="30" id="expiration30">
+					<label for="expiration30" class="SA-smalltext">1 mois</label>
+					<input type="radio" name="expiration" value="90" id="expiration90">
+					<label for="expiration90" class="SA-smalltext">3 mois</label>
+					<input type="radio" name="expiration" value="180" id="expiration180">
+					<label for="expiration180" class="SA-smalltext">6 mois</label>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary">Confirmer</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

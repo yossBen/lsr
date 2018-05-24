@@ -5,6 +5,8 @@
 <%@ taglib prefix="jcr" uri="http://www.jahia.org/tags/jcr"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
+<template:addResources type="javascript" resources="lst-components.js" />
+
 <jsp:useBean id="lovBean" scope="page" class="fr.lsr.jahia.modules.bean.LovBean" />
 <jcr:nodeProperty node="${currentNode.resolveSite}" name="pageResultat" var="pageResultat" />
 <jcr:nodeProperty node="${currentNode}" name="jcr:title" var="title" />
@@ -15,7 +17,7 @@
 		<h1>${title.string}</h1>
 	</div>
 	<div class="row">
-		<form action="<c:url value='${!empty pageResultat ? pageResultat.node.url : renderContext.mainResource.node.url}'/>" method="get">
+		<form id="advancedSearch" action="<c:url value='${!empty pageResultat ? pageResultat.node.url : renderContext.mainResource.node.url}'/>" method="get">
 			<div class="col-sm-12">
 				<h3>Type d'organisme</h3>
 			</div>
@@ -143,7 +145,7 @@
 			<div class="row ">
 				<div class="col-lg-6 col-lg-offset-6">
 					<div class="col-lg-6 nopadd">
-						<button type="button" class="bt">Créer une alerte mail</button>
+						<button type="button" class="bt" onclick="createAlertEmail();">Créer une alerte mail</button>
 					</div>
 					<div class="col-lg-6 nopadd">
 						<button type="submit" role="button" class="bt">Rechercher</button>

@@ -16,6 +16,7 @@
 
 	<bean id="searchAgentService" class="fr.lsr.jahia.modules.services.impl.SearchAgentServiceImpl" factory-method="getInstance" init-method="start">
 		<property name="headerHandlerResolver" ref="headerHandlerResolver" />
+		<property name="foAdvertService" ref="foAdvertService" />
 		<property name="wsdlPath" value="/wsdl/SearchAgent.xml" />
 	</bean>
 
@@ -24,6 +25,12 @@
 	</bean>
 	<bean class="fr.lsr.jahia.modules.initializers.ChoiceListJobFamilyInitializers">
 		<property name="key" value="choiceListJobFamily" />
+	</bean>
+
+	<bean class="fr.lsr.jahia.modules.action.CreateAlerteAction">
+		<property name="name" value="createAlerteAction" />
+		<property name="requireAuthenticatedUser" value="false" />
+		<property name="searchAgentService" ref="searchAgentService" />
 	</bean>
 
 	<bean class="fr.lsr.jahia.modules.action.SendOfferToFriendAction">

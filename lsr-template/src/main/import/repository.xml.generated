@@ -42,6 +42,16 @@
                           j:limitedAbsoluteAreaEdit="false"
                           j:numberOfItems="1"
                           jcr:primaryType="jnt:absoluteArea"/>
+                            <Menu_x0020_LSR j:maxDepth="2"
+                                  j:menuItemView="menuElement"
+                                  j:startLevel="0"
+                                  j:view="lsr"
+                                  jcr:mixinTypes="jmix:renderable"
+                                  jcr:primaryType="jnt:navMenu">
+                                <j:translation_fr jcr:language="fr"
+                                       jcr:primaryType="jnt:translation"
+                                       jcr:title="Menu LSR"/>
+                            </Menu_x0020_LSR>
                         </header>
                         <footer jcr:primaryType="jnt:contentList">
                             <footer j:level="0"

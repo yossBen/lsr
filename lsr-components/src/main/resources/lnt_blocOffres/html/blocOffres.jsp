@@ -9,7 +9,6 @@
 <%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions"%>
 <%@ taglib uri="http://www.LaSecuRecrute.fr/lsr-components/tags" prefix="lsr"%>
 
-<template:addResources type="javascript" resources="jquery.validate.js" />
 <template:addResources type="javascript" resources="lst-components.js" />
 
 <jcr:nodeProperty node="${currentNode.resolveSite}" name="pageFichePoste" var="pageFichePoste" />

@@ -37,7 +37,7 @@
                             </pagecontent>
                         </home>
                         <header jcr:primaryType="jnt:contentList">
-                            <header j:allowedTypes="lnt:imageDynamique"
+                            <header j:allowedTypes="lnt:bandeauHeader"
                           j:level="0"
                           j:limitedAbsoluteAreaEdit="false"
                           j:numberOfItems="1"

@@ -31,7 +31,8 @@
 
 [lnt:nombreOffres] > jnt:content
 
-[lnt:imageDynamique] > jnt:content, lmix:composantsLsr
+[lnt:bandeauHeader] > jnt:content, lmix:composantsLsr
 - imagesHome (weakreference, picker[type='image']) multiple
 - imagesSite (weakreference, picker[type='image']) multiple
+- urlEspacePerso (weakreference, picker[type='page'])
 + nombreOffres (lnt:nombreOffres) = lnt:nombreOffres autocreated

@@ -37,38 +37,41 @@
 		<c:if test="${!empty regimes or !empty typeOrganismes or !empty contractTypes or !empty regions or !empty keywords}">
 			<div class="criteres">
 				<h3>Critères de recherche</h3>
-				<ul>
-					<c:if test="${!empty regimes}">
-						<li>
-							<b>Régime :</b> ${fn:join(lsr:getLovById(REGIME,regimes), ', ')}
-						</li>
-					</c:if>
-					<c:if test="${!empty typeOrganismes}">
-						<li>
-							<b>Organisme :</b> ${fn:join(lsr:getLovById(TYPE_ORGANISME,typeOrganismes), ', ')}
-						</li>
-					</c:if>
-					<c:if test="${!empty contractTypes}">
-						<li>
-							<b>Type de contrat :</b> ${fn:join(lsr:getLovById(CONTRACT_TYPE,contractTypes), ', ')}
-						</li>
-					</c:if>
-					<c:if test="${!empty classifications}">
-						<li>
-							<b>Grille de classification :</b> ${fn:join(lsr:getLovById(CLASSIFICATION,classifications), ', ')}
-						</li>
-					</c:if>
-					<c:if test="${!empty regions}">
-						<li>
-							<b>Région :</b> ${fn:join(lsr:getRegionsByIds(regions), ', ')}
-						</li>
-					</c:if>
-					<c:if test="${!empty keywords}">
-						<li>
-							<b>Mots clés :</b> ${keywords}
-						</li>
-					</c:if>
-				</ul>
+				<c:set var="criterias">
+					<ul>
+						<c:if test="${!empty regimes}">
+							<li>
+								<b>Régime :</b> ${fn:join(lsr:getLovById(REGIME,regimes), ', ')}
+							</li>
+						</c:if>
+						<c:if test="${!empty typeOrganismes}">
+							<li>
+								<b>Organisme :</b> ${fn:join(lsr:getLovById(TYPE_ORGANISME,typeOrganismes), ', ')}
+							</li>
+						</c:if>
+						<c:if test="${!empty contractTypes}">
+							<li>
+								<b>Type de contrat :</b> ${fn:join(lsr:getLovById(CONTRACT_TYPE,contractTypes), ', ')}
+							</li>
+						</c:if>
+						<c:if test="${!empty classifications}">
+							<li>
+								<b>Grille de classification :</b> ${fn:join(lsr:getLovById(CLASSIFICATION,classifications), ', ')}
+							</li>
+						</c:if>
+						<c:if test="${!empty regions}">
+							<li>
+								<b>Région :</b> ${fn:join(lsr:getRegionsByIds(regions), ', ')}
+							</li>
+						</c:if>
+						<c:if test="${!empty keywords}">
+							<li>
+								<b>Mots clés :</b> ${keywords}
+							</li>
+						</c:if>
+					</ul>
+				</c:set>
+				${criterias}
 			</div>
 		</c:if>
 	</div>
@@ -158,6 +161,10 @@
 		<form id="createAlerteForm" data-query="${searchQuerySession}" action="<c:url value='${url.base}${currentNode.path}'/>.createAlerteAction.do">
 			<div class="modal-content">
 				<div class="modal-body">
+					<div>
+						<p>critères de recherche :</p>
+						${criterias}
+					</div>
 					<label for="email">E-mail:</label>
 					<input type="text" style="width: 100%; height: 30px;" placeholder="Entrez votre email" name="email">
 					<label for="vDeliveryFrequency">Recevoir les offres:</label>

@@ -7,7 +7,6 @@
 <nav class="nav-bottom" role="navigation">
 	<template:include view="hidden.lsr-simple">
 		<template:param name="class" value="nav navbar-nav" />
-		<template:param name="linkClass" value="dropdown-toggle" />
 		<template:param name="id" value="menumob" />
 	</template:include>
 </nav>

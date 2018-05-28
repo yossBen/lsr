@@ -39,7 +39,16 @@
 </head>
 
 <body role="document">
-	<header role="banner"> <template:area path="header" /> </header>
+	<header role="banner">
+	<div class="container-fluid">
+		<div class="container ${renderContext.editMode ? 'edit' : ''}">
+			<div class="row headbandeau">
+				<template:area path="header" moduleType="absoluteArea" level="0" />
+				<template:area path="menu" />
+			</div>
+		</div>
+	</div>
+	</header>
 	<div class="container">
 		<div class="row jecherche">
 			<div class="col-lg-9">
@@ -52,6 +61,6 @@
 			</div>
 		</div>
 	</div>
-	<footer> <template:area path="footer" /> </footer>
+	<footer> <template:area path="footer" moduleType="absoluteArea" level="0" /> </footer>
 </body>
 </html>

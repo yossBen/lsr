@@ -1,10 +1,23 @@
-<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
 <jmix = 'http://www.jahia.org/jahia/mix/1.0'>
-<snt = 'http://www.ucanss.fr/jahia/nt/1.0'>
+<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
 <smix = 'http://www.ucanss.fr/jahia/mix/1.0'>
+<snt = 'http://www.ucanss.fr/jahia/nt/1.0'>
 
-[smix:component]  > jmix:droppableContent mixin
+[smix:component] > jmix:droppableContent mixin
 
-[snt:actualite] > jnt:content, smix:component
-- contenu (string,richtext) mandatory
-- date (date) mandatory
+[snt:footer] > jnt:content , smix:component
+ - logoucanss (weakreference, picker[type='image']) mandatory
+ - logoseculavieenplus (weakreference, picker[type='image']) mandatory
+ - texte (string) mandatory
+ + * (snt:link)
+ + share (snt:share)
+
+[snt:share] > jnt:content
+ - facebookLink (string)
+ - twitterLink (string)
+ - viadeoLink (string)
+ - linkedinLink (string)
+
+[snt:link] > jnt:content
+ - texte (string) mandatory
+ - link (weakreference, picker[type='page'])

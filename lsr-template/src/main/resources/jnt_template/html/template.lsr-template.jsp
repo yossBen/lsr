@@ -44,15 +44,18 @@
 		<div class="container ${renderContext.editMode ? 'edit' : ''}">
 			<div class="row headbandeau">
 				<template:area path="header" />
+				<template:area path="menu" />
 			</div>
 		</div>
 	</div>
 	</header>
+	<main role="main">
 	<div class="container">
-		<div class="bodywrapper">
+		<div class="row home">
 			<template:area path="pagecontent" />
 		</div>
 	</div>
+	</main>
 	<footer> <template:area path="footer" /> </footer>
 </body>
 </html>

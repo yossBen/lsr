@@ -4,7 +4,13 @@
 <lmix = 'http://www.lasecurecrute.fr/jahia/mix/1.0'>
 
 [lmix:recherche] > jmix:droppableContent mixin
+[lmix:raisons] > jmix:droppableContent mixin
+[lmix:jesuis] > jmix:droppableContent mixin
+[lmix:jepostule] > jmix:droppableContent mixin
+[lmix:actualite] > jmix:droppableContent mixin
 [lmix:composantslsr] > jmix:droppableContent mixin
+
+[lmix:metier] > jmix:droppableContent mixin
 
 [lmix:lsrOffresOptions] mixin
  extends=jnt:virtualsite
@@ -28,10 +34,76 @@
 
 [lnt:fichePoste] > jnt:content, lmix:recherche
 
+[lnt:blocRaisons] > jnt:content, lmix:raisons , mix:title
+ + * (lnt:raison)
+
+[lnt:raison] > jnt:content, lmix:raisons
+ - titre (string, choicelist[resourceBundle])  < 'contribuer', 'construire', 'acceder', 'rejoindre', 'evoluer'
+ - texte (string)
+ - link (weakreference, picker[type='page']) mandatory
+
+[lnt:jesuis] > jnt:content, lmix:jesuis
+ - titre (string, choicelist[resourceBundle])  < 'etudiant', 'experimente', 'jeune-diplome', 'salarie-de-l-institution'
+ - texte (string, richtext)
+ - link (weakreference, picker[type='page']) mandatory
+ + *(lnt:bouton)
+
+[lnt:bouton] > jnt:content
+ - titre (string)
+ - texte (string, richtext)
+
+[lnt:jepostule] > jnt:content, lmix:jepostule
+ - titre (string, choicelist[resourceBundle])  < 'evolution', 'parcours-daccueil', 'processus-de-recrutement', 'renumeration'
+ - texte (string, richtext)
+ - link (weakreference, picker[type='page']) mandatory
+ + *(lnt:etape)
+
+[lnt:etape] > jnt:content
+ - titre (string, choicelist[resourceBundle])  < 'candidature', 'preselection', 'entretien', 'decision', 'developpement', 'mobilite', 'devenir'
+ - picto (weakreference, picker[type='image'])
+ - texte (string, richtext)
+
+[lnt:actualite] > jnt:content, lmix:actualite , mix:title
+ - datePublication (date, datepicker) mandatory
+ - image (weakreference, picker[type='image']) mandatory
+ - chapeau (string) mandatory
+ - corps (string, richtext)
+ + * (lnt:image)
+
+[lnt:image] >  jnt:content
+ - image (weakreference, picker[type='image'])
+
+[lnt:dernieresActualites] > jnt:content, lmix:actualite , mix:title
+ - nombre (long) = 3 mandatory
+ - pageToutesActus (weakreference, picker[type='page']) mandatory
+
+[lnt:actualitealaune] >  jnt:content, lmix:actualite
+ - actu (weakreference, picker[type='page'])
+
+//[lnt:article] > jnt:content, lmix:actualite
+
+[lnt:famillemetier] > jnt:content, lmix:metier, mix:title
+ - image (weakreference, picker[type='image'])
+ - texte (string, richtext)
+ + *(lnt:metier)
+
+[lnt:metier] > jnt:content, lmix:metier, mix:title
+ - texte (string, richtext)
+ - video (string)
+ - doc (weakreference, picker[type='file'])
+ + *(lnt:sousblocmetier)
+
+[lnt:sousblocmetier] > jnt:content, mix:title
+ - texte (string, richtext)
+
+[lnt:metiercaroussel] > jnt:content, lmix:metier
+
 [lnt:nombreOffres] > jnt:content
 
 [lnt:bandeauHeader] > jnt:content, lmix:composantslsr
-- imagesHome (weakreference, picker[type='image']) multiple
-- imagesSite (weakreference, picker[type='image']) multiple
-- urlEspacePerso (weakreference, picker[type='page'])
-+ nombreOffres (lnt:nombreOffres) = lnt:nombreOffres autocreated
+ - imagesHome (weakreference, picker[type='image']) multiple
+ - imagesSite (weakreference, picker[type='image']) multiple
+ - urlEspacePerso (weakreference, picker[type='page'])
+ + nombreOffres (lnt:nombreOffres) = lnt:nombreOffres autocreated
+
+

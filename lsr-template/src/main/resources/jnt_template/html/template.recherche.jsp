@@ -26,6 +26,8 @@
 <template:addResources type="javascript" resources="bootstrap.min.js" />
 <template:addResources type="javascript" resources="bootstrap-select.js" />
 <template:addResources type="javascript" resources="script.js" />
+<template:addResources type="javascript" resources="jquery.validate.js" />
+
 <template:addResources type="css" resources="master.css" />
 <template:addResources type="css" resources="base-secu.css" />
 <template:addResources type="css" resources="custom.css" />

@@ -41,7 +41,7 @@
 <body role="document">
 	<header role="banner">
 	<div class="container-fluid">
-		<div class="container">
+		<div class="container ${renderContext.editMode ? 'edit' : ''}">
 			<div class="row headbandeau">
 				<template:area path="header" />
 			</div>

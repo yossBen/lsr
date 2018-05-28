@@ -4,8 +4,7 @@
 <lmix = 'http://www.lasecurecrute.fr/jahia/mix/1.0'>
 
 [lmix:recherche] > jmix:droppableContent mixin
-
-[lmix:composantsLsr] > jmix:droppableContent mixin
+[lmix:composantslsr] > jmix:droppableContent mixin
 
 [lmix:lsrOffresOptions] mixin
  extends=jnt:virtualsite
@@ -31,7 +30,7 @@
 
 [lnt:nombreOffres] > jnt:content
 
-[lnt:bandeauHeader] > jnt:content, lmix:composantsLsr
+[lnt:bandeauHeader] > jnt:content, lmix:composantslsr
 - imagesHome (weakreference, picker[type='image']) multiple
 - imagesSite (weakreference, picker[type='image']) multiple
 - urlEspacePerso (weakreference, picker[type='page'])

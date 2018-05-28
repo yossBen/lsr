@@ -49,6 +49,7 @@
                                   jcr:mixinTypes="jmix:renderable"
                                   jcr:primaryType="jnt:navMenu">
                                 <j:translation_fr jcr:language="fr"
+                                       jcr:mixinTypes="mix:title"
                                        jcr:primaryType="jnt:translation"
                                        jcr:title="Menu LSR"/>
                             </Menu_x0020_LSR>
@@ -91,12 +92,9 @@
                     </base>
                 </templates>
                 
-                <home changefreq="monthly"
-               j:isHomePage="true"
+                <home j:isHomePage="true"
                j:templateName="home"
-               jcr:mixinTypes="cmix:sitemap"
-               jcr:primaryType="jnt:page"
-               priority="0.5">
+               jcr:primaryType="jnt:page">
                     <j:translation_en jcr:language="en"
                               jcr:mixinTypes="mix:title"
                               jcr:primaryType="jnt:translation"

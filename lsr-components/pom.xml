@@ -11,7 +11,7 @@
 	<groupId>fr.lsr.jahia.modules</groupId>
 	<artifactId>lsr-components</artifactId>
 	<name>Jahia LSR Components Module</name>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.3-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 	<description>This is the custom profile module (Template Jahia LSR) for running on a Digital Experience Manager server.</description>
 

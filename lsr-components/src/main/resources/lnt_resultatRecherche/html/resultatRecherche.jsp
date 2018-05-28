@@ -162,6 +162,14 @@
 	<div class="modal-dialog" role="document">
 		<form id="createAlerteForm" data-query="${searchQuerySession}" action="<c:url value='${url.base}${currentNode.path}'/>.createAlerteAction.do">
 			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">
+						<b>Créer une alerte mail</b>
+					</h4>
+				</div>
 				<div class="modal-body">
 					<div class="criteres">
 						<h3>critères de recherche :</h3>
@@ -174,24 +182,41 @@
 							Aucun critére n'est sélectionné 
 							</c:otherwise>
 						</c:choose>
-
 					</div>
-					<label for="email">E-mail:</label>
-					<input type="text" style="width: 100%; height: 30px;" placeholder="Entrez votre email" name="email">
-					<label for="vDeliveryFrequency">Recevoir les offres:</label>
-					<input type="radio" name="frequency" value="ONCE_A_DAY" id="vDeliveryFrequency1">
-					<label for="vDeliveryFrequency1">Une fois par jour</label>
-					<input type="radio" name="frequency" value="ONCE_A_WEEK" id="vDeliveryFrequency7">
-					<label for="vDeliveryFrequency7">Une fois par semaine</label>
-					<label for="expiration">Validité de l'agent de recherche:</label>
-					<input type="radio" name="expiration" value="15" id="expiration15">
-					<label for="expiration15" class="SA-smalltext">2 semaines</label>
-					<input type="radio" name="expiration" value="30" id="expiration30">
-					<label for="expiration30" class="SA-smalltext">1 mois</label>
-					<input type="radio" name="expiration" value="90" id="expiration90">
-					<label for="expiration90" class="SA-smalltext">3 mois</label>
-					<input type="radio" name="expiration" value="180" id="expiration180">
-					<label for="expiration180" class="SA-smalltext">6 mois</label>
+					<div>
+						<label class="titre" for="email">E-mail:</label>
+						<input type="text" style="width: 100%; height: 30px;" placeholder="Entrez votre email" name="email">
+					</div>
+					<div>
+						<label class="titre" for="vDeliveryFrequency">Recevoir les offres:</label>
+						<label class="iptlabel">
+							<input type="radio" name="frequency" value="ONCE_A_DAY" id="vDeliveryFrequency1">
+							Une fois par jour
+						</label>
+						<label class="iptlabel">
+							<input type="radio" name="frequency" value="ONCE_A_WEEK" id="vDeliveryFrequency7">
+							Une fois par semaine
+						</label>
+					</div>
+					<div>
+						<label class="titre" for="expiration">Validité de l'agent de recherche:</label>
+						<label class="iptlabel">
+							<input type="radio" name="expiration" value="15" id="expiration15">
+							2 semaines
+						</label>
+						<label class="iptlabel">
+							<input type="radio" name="expiration" value="30" id="expiration30">
+							1 mois
+						</label>
+						<label class="iptlabel">
+							<input type="radio" name="expiration" value="90" id="expiration90">
+							3 mois
+						</label>
+						<label class="iptlabel">
+							<input type="radio" name="expiration" value="180" id="expiration180">
+							6 mois
+						</label>
+					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="submit" class="btn btn-primary">Confirmer</button>

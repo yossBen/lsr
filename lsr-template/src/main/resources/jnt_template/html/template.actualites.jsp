@@ -47,17 +47,19 @@
 		</div>
 	</div>
 	</header>
+	<main role="main">
 	<div class="container">
 		<div class="row actu">
 			<div class="col-lg-9 col-md-8 col-sm-12">
 				<template:area path="file-d-ariane" />
 				<template:area path="pagecontent" />
 			</div>
-			<div class="col-lg-3 nopadd">
+			<div class="-lg-3 col-md-4 col-sm-12 nopadd">
 				<template:area path="droite" />
 			</div>
 		</div>
 	</div>
-	<footer> <template:area path="footer" moduleType="absoluteArea" level="0" /> </footer>
+	</main>
+	<footer role="contentinfo"> <template:area path="footer" moduleType="absoluteArea" level="0" /> </footer>
 </body>
 </html>

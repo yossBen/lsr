@@ -1,90 +1,41 @@
-<section class="bloc-offres" role="contentinfo" aria-label="Consultez les dernières offres">
-            <h2 class="bloc-titre">Consultez les dernières offres</h2>
-            <div class="offre col-lg-4 col-md-6 col-xs-12">
-              <div class="recruteur">Assurance Maladie</div>
-              <div class="titreoffre">Administrateur<br>réseaux H/F</div>
-              <div class="extrait">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</div>
-              <div class="ensavoirplus"><a href="">Lire le descriptif</a></div>
-              <div class="bloc-social">
-                <ul class="iconsocial">
-                  <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                  <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                  <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                  <li><a href=""><i class="fa fa-envelope"></i></a></li>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><b>Créer une alerte mail</b></h4>
+      </div>
+      <div class="modal-body">
+        <div class="criteres">
+                <h3>Critères de recherche</h3>
+                <ul>
+                  <li><b>Régime</b> : Régime général, Régime des ARS</li>
+                  <li><b>Organisme</b> : ACOSS, Ucanss</li>
+                  <li><b>Type de contrat</b> : CDI, CDD</li>
+                  <li><b>Grille de classification</b> : Employés et cadres</li>
+                  <li><b>Région</b> : Île-de-France</li>
+                  <li><b>Mots clés</b> : Informatique, service</li>
                 </ul>
-              </div>
-            </div>
-            <div class="offre col-lg-4 col-md-6 col-xs-12">
-              <div class="recruteur">Assurance Maladie</div>
-              <div class="titreoffre">Administrateur<br>réseaux H/F</div>
-              <div class="extrait">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</div>
-              <div class="ensavoirplus"><a href="">Lire le descriptif</a></div>
-              <div class="bloc-social">
-                <ul class="iconsocial">
-                  <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                  <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                  <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                  <li><a href=""><i class="fa fa-envelope"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="offre col-lg-4 col-md-6 col-xs-12">
-              <div class="recruteur">Assurance Maladie</div>
-              <div class="titreoffre">Administrateur<br>réseaux H/F</div>
-              <div class="extrait">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</div>
-              <div class="ensavoirplus"><a href="">Lire le descriptif</a></div>
-              <div class="bloc-social">
-                <ul class="iconsocial">
-                  <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                  <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                  <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                  <li><a href=""><i class="fa fa-envelope"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="offre col-lg-4 col-md-6 col-xs-12">
-              <div class="recruteur">Assurance Maladie</div>
-              <div class="titreoffre">Administrateur<br>réseaux H/F</div>
-              <div class="extrait">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</div>
-              <div class="ensavoirplus"><a href="">Lire le descriptif</a></div>
-              <div class="bloc-social">
-                <ul class="iconsocial">
-                  <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                  <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                  <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                  <li><a href=""><i class="fa fa-envelope"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="offre col-lg-4 col-md-6 col-xs-12">
-              <div class="recruteur">Assurance Maladie</div>
-              <div class="titreoffre">Administrateur<br>réseaux H/F</div>
-              <div class="extrait">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</div>
-              <div class="ensavoirplus"><a href="">Lire le descriptif</a></div>
-              <div class="bloc-social">
-                <ul class="iconsocial">
-                  <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                  <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                  <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                  <li><a href=""><i class="fa fa-envelope"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="offre col-lg-4 col-md-6 col-xs-12">
-              <div class="recruteur">Assurance Maladie</div>
-              <div class="titreoffre">Administrateur<br>réseaux H/F</div>
-              <div class="extrait">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</div>
-              <div class="ensavoirplus"><a href="">Lire le descriptif</a></div>
-              <div class="bloc-social">
-                <ul class="iconsocial">
-                  <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                  <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                  <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                  <li><a href=""><i class="fa fa-envelope"></i></a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-12 touteslesoffres">
-                <a href="" class="btoffres" role="link" aria-label="Voir toutes les offres">Voir toutes les offres</a>
-            </div>
-          </section>
+        </div>
+
+        <label class="titre">E-mail:</label>
+        <input type="" style="width: 100%; height: 30px;" placeholder="Entrez votre email" name="">
+        <label class="error">Ce champs obligatoire ...</label>
+
+        <label class="titre">Recevoir les offres:</label>
+        <label class="iptlabel"><input type="radio" value="">Une fois par jour</label>
+        <label class="iptlabel"><input type="radio" value="">Une fois par semaine</label>
+
+        <label class="titre">Validité de l'agent de recherche:</label>
+        <label class="iptlabel"><input type="radio" value="">2 semaines</label>
+        <label class="iptlabel"><input type="radio" value="">1 mois</label>
+        <label class="iptlabel"><input type="radio" value="">3 mois</label>
+        <label class="iptlabel"><input type="radio" value="">6 mois</label>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Confirmer</button>
+      </div>
+    </div>
+  </div>
+</div>

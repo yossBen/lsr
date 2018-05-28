@@ -8,22 +8,6 @@
                     j:title="Template Jahia Ucanss"
                     jcr:mixinTypes="jmix:hasExternalProviderExtension"
                     jcr:primaryType="jnt:module">
-                <sources jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
-                  jcr:primaryType="jnt:moduleVersionFolder"
-                  j:staticMountPointProviderKey="module-lsr-template-1.0-SNAPSHOT">
-                    <src jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
-                        <main jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
-                            <resources jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
-                                <jnt_template jcr:primaryType="jnt:nodeTypeFolder">
-                                    <html jcr:primaryType="jnt:templateTypeFolder">
-                                        <template.jepostule.jsp jcr:primaryType="jnt:viewFile"/>
-                                        <template.jesuis.jsp jcr:primaryType="jnt:viewFile"/>
-                                    </html>
-                                </jnt_template>
-                            </resources>
-                        </main>
-                    </src>
-                </sources>
                 
                 <portlets jcr:primaryType="jnt:portletFolder"/>
                 <files jcr:primaryType="jnt:folder"/>
@@ -74,8 +58,7 @@
                           jcr:primaryType="jnt:absoluteArea"/>
                         </header>
                         <footer jcr:primaryType="jnt:contentList">
-                            <footer j:allowedTypes=""
-                          j:level="0"
+                            <footer j:level="0"
                           j:limitedAbsoluteAreaEdit="false"
                           jcr:primaryType="jnt:absoluteArea"/>
                         </footer>
@@ -161,18 +144,21 @@
                                      jcr:primaryType="jnt:contentReference"/>
                             </menu>
                         </page-je-postule>
-                        <page-actualites j:hiddenTemplate="false"
-                                j:view="actualites"
-                                jcr:primaryType="jnt:pageTemplate">
+                        <page-actualite j:hiddenTemplate="false"
+                               j:view="actualites"
+                               jcr:primaryType="jnt:pageTemplate">
                             <j:translation_fr jcr:language="fr"
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
-                                    jcr:title="Page actualités"/>
+                                    jcr:title="Page actualité"/>
                             <menu jcr:primaryType="jnt:contentList">
                                 <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
                                      jcr:primaryType="jnt:contentReference"/>
                             </menu>
-                        </page-actualites>
+                            <pagecontent jcr:primaryType="jnt:contentList">
+                                <Actualite j:allowedTypes="snt:actualite" jcr:primaryType="jnt:area"/>
+                            </pagecontent>
+                        </page-actualite>
                     </base>
                 </templates>
                 

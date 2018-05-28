@@ -73,6 +73,13 @@ function createAlertEmail() {
 				required : "Ce champ est obligatoire"
 			}
 		},
+		errorPlacement : function(error, element) {
+			var parent = element.closest("div");
+			if (parent.find('label.error').length == 0) {
+				parent.append(error);
+			}
+			return true;
+		},
 		submitHandler : function(form) {
 			// setup some local variables
 			var $form = $(form);

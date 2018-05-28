@@ -7,8 +7,7 @@
 <%@ taglib uri="http://www.jahia.org/tags/utilityLib" prefix="utility"%>
 <%@ taglib uri="http://www.jahia.org/tags/uiComponentsLib" prefix="ui"%>
 <%@ taglib uri="http://www.LaSecuRecrute.fr/lsr-components/tags" prefix="lsr"%>
-<%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
+<%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions"%>
 <jcr:nodeProperty node="${currentNode}" name="actu" var="actu" />
 
-<template:module node="${actu.node}" view ="alaune" />
-
+<template:module node="${actu.node}" view="alaune" />

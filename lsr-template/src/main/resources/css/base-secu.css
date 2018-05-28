@@ -995,7 +995,7 @@ select.bs-select-hidden, select.selectpicker { display: none !important; }
 .modal .modal-body label.titre { font-weight: 700; font-size: 17px; color: #666666; display: block; margin: 5px 0; text-align: left; width: 100%; }
 .modal .modal-body label.checkbox-inline { color: #666666; font-size: 15px; font-weight: 400; float: left; width: auto; display: inline-block; }
 .modal .modal-body input[type="checkbox"], .modal .modal-body input[type="radio"] { height: 12px; margin-right: 5px; }
-.modal .modal-body .error { font-weight: 400; font-size: 15px; color: #CC3333; display: block; margin: 5px 0; text-align: left; width: 100%; }
+.modal .modal-body label.error { font-weight: 400; font-size: 15px; color: #CC3333; display: block; margin: 5px 0; text-align: left; width: 100%; }
 .modal .modal-body .iptlabel { font-size: 15px; line-height: 18px; color: #666666; font-weight: 400; display: inline-block; width: auto; }
 .modal .modal-body .iptlabel input[type="checkbox"], .modal .modal-body .iptlabel input[type="radio"] { height: 12px; margin-right: 5px; }
 

@@ -21,3 +21,14 @@
 [snt:link] > jnt:content
  - texte (string) mandatory
  - link (weakreference, picker[type='page'])
+
+[snt:actualite] > jnt:content, smix:component , mix:title
+ - image (weakreference, picker[type='image'])
+ - corps (string, richtext)
+ 
+[snt:dernieresActualites] > jnt:content, smix:component , mix:title
+ - nombre (long) = 3 mandatory
+ - pageToutesActus (weakreference, picker[type='page']) mandatory
+
+[snt:actualitealaune] >  jnt:content
+ - actu (weakreference, picker[type='page'])

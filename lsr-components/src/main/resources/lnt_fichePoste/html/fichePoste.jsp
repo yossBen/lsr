@@ -74,7 +74,6 @@
 								href="https://emea3.recruitmentplatform.com/appproc/index.cfm?event=createSessionAfterSessionClear&jobboard=0&bSessionClear=true&nProfileIdFoundInAGP=&ID=${currentNode.resolveSite.properties['idLumesse'].string}&nPTID=${offer.id}">
 								<fmt:message key="offer.postulate.label" />
 							</a>
-							<a href="#" class="bt blanc">Enregistrer</a>
 							<!-- Button ou a href les deux marches <a href="" class="bt blanc">Envoyer par mail</a> -->
 							<button type="button" class="bt blanc" data-toggle="modal" data-target="#modalSendMail">Envoyer par mail</button>
 							<a href="" class="bt blanc" onclick="javascript:window.print();">Imprimer</a>
@@ -92,9 +91,6 @@
 								href="https://emea3.recruitmentplatform.com/appproc/index.cfm?event=createSessionAfterSessionClear&jobboard=0&bSessionClear=true&nProfileIdFoundInAGP=&ID=${currentNode.resolveSite.properties['idLumesse'].string}&nPTID=${offer.id}">
 								<fmt:message key="offer.postulate.label" />
 							</a>
-						</div>
-						<div class="col-md-3 col-sm-6">
-							<a href="#" class="bt blanc">Enregistrer</a>
 						</div>
 						<div class="col-md-3 col-sm-6">
 							<button type="button" class="bt blanc" data-toggle="modal" data-target="#modalSendMail">Envoyer par mail</button>

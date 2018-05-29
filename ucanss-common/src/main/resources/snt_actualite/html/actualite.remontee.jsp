@@ -9,19 +9,16 @@
 <%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions"%>
 
 <template:include view="hidden.header" />
-<section class="bloc-a-la-une">
-	<div class="bloc-titre">A la une</div>
-	<div class="bloc-une">
-		<div class="col-une">
-			<img src="${image.node.url}" width="400" alt="${titre.string}" align="left" />
-		</div>
-		<div class="col-une contenu">
-			<h1>${titre.string}</h1>
-			<div class="date">
+<article class="actu" role="article">
+	<a href="${currentPage.url}" role="link" title="${titre.string}">
+		<div class="image" style="background-image:url('${image.node.url}');"></div>
+		<div class="contenu">
+			<div class="date-contenu">
 				<fmt:formatDate value="${lastPublished.time}" pattern="dd MMMMMMMMMM yyyy" />
 			</div>
-			<div class="contenu-art">${chapeau.string}${functions:abbreviate(corps.string ,500,-1,'...')}</div>
-			<a href="${currentPage.url}" class="lire" role="link" title="${titre.string}">Lire l’article</a>
+			<h3>${titre.string}</h3>
+			<div class="desc">${functions:removeHtmlTags(chapeau.string)}</div>
+			<%-- <span>Lire l'article</span> --%>
 		</div>
-	</div>
-</section>
+	</a>
+</article>

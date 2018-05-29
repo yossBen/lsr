@@ -22,13 +22,14 @@
  - texte (string) mandatory
  - link (weakreference, picker[type='page'])
 
-[snt:actualite] > jnt:content, smix:component , mix:title
+[snt:actualite] > jnt:content, smix:component, mix:title
  - image (weakreference, picker[type='image'])
+ - chapeau (string, richtext) mandatory
  - corps (string, richtext)
  
 [snt:dernieresActualites] > jnt:content, smix:component , mix:title
  - nombre (long) = 3 mandatory
- - pageToutesActus (weakreference, picker[type='page']) mandatory
+ - pageToutesActus (weakreference, picker[type='page'])
 
-[snt:actualitealaune] >  jnt:content
+[snt:actualitealaune] >  jnt:content,smix:component
  - actu (weakreference, picker[type='page'])

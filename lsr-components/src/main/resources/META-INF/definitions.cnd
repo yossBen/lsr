@@ -73,15 +73,6 @@
 [lnt:image] >  jnt:content
  - image (weakreference, picker[type='image'])
 
-[lnt:dernieresActualites] > jnt:content , mix:title
- - nombre (long) = 3 mandatory
- - pageToutesActus (weakreference, picker[type='page']) mandatory
-
-[lnt:actualitealaune] >  jnt:content
- - actu (weakreference, picker[type='page'])
-
-//[lnt:article] > jnt:content, lmix:actualite
-
 [lnt:famillemetier] > jnt:content, lmix:metier, mix:title
  - image (weakreference, picker[type='image'])
  - texte (string, richtext)

@@ -2,180 +2,181 @@
 <content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
     <modules jcr:primaryType="jnt:modules">
         <lsr-template j:dependencies="default lsr-components ucanss-common"
-                      j:installedModules="lsr-template"
-                      j:modulePriority="0"
-                      j:moduleType="templatesSet"
-                      j:title="Template Jahia Ucanss"
-                      jcr:mixinTypes="jmix:hasExternalProviderExtension"
-                      jcr:primaryType="jnt:module">
-
-            <portlets jcr:primaryType="jnt:portletFolder"/>
-            <files jcr:primaryType="jnt:folder"/>
-            <contents jcr:primaryType="jnt:contentFolder"/>
-            <templates jcr:primaryType="jnt:templatesFolder">
-                <files jcr:primaryType="jnt:folder">
-                    <themes jcr:primaryType="jnt:folder">
-                        <default jcr:primaryType="jnt:folder"/>
-                    </themes>
-                </files>
+                    j:installedModules="lsr-template"
+                    j:modulePriority="0"
+                    j:moduleType="templatesSet"
+                    j:title="Template Jahia Ucanss"
+                    jcr:mixinTypes="jmix:hasExternalProviderExtension"
+                    jcr:primaryType="jnt:module">
+                
+                <portlets jcr:primaryType="jnt:portletFolder"/>
+                <files jcr:primaryType="jnt:folder"/>
                 <contents jcr:primaryType="jnt:contentFolder"/>
-                <base j:view="lsr-template"
-                      jcr:mixinTypes="jmix:theme"
-                      jcr:primaryType="jnt:template">
-                    <home jcr:primaryType="jnt:pageTemplate">
-                        <j:translation_fr jcr:language="fr"
+                <templates jcr:primaryType="jnt:templatesFolder">
+                    <files jcr:primaryType="jnt:folder">
+                        <themes jcr:primaryType="jnt:folder">
+                            <default jcr:primaryType="jnt:folder"/>
+                        </themes>
+                    </files>
+                    <contents jcr:primaryType="jnt:contentFolder"/>
+                    <base j:view="lsr-template"
+                  jcr:mixinTypes="jmix:theme"
+                  jcr:primaryType="jnt:template">
+                        <home jcr:primaryType="jnt:pageTemplate">
+                            <j:translation_fr jcr:language="fr"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Accueil"/>
+                            <header jcr:primaryType="jnt:contentList"/>
+                            <footer jcr:primaryType="jnt:contentList"/>
+                            <pagecontent jcr:primaryType="jnt:contentList">
+                                <MOTEUR_x0020_DE_x0020_RECHERCHE jcr:primaryType="jnt:area"/>
+                                <METIERS jcr:primaryType="jnt:area"/>
+                                <DERNIERES_x0020_OFFRES jcr:primaryType="jnt:area"/>
+                                <BONNES_x0020_RAISONS jcr:primaryType="jnt:area"/>
+                                <ACTUALITES jcr:primaryType="jnt:area"/>
+                            </pagecontent>
+                            <menu jcr:primaryType="jnt:contentList">
+                                <Menu_x0020_LSR j:maxDepth="2"
+                                     j:menuItemView="menuElement"
+                                     j:startLevel="0"
+                                     j:view="lsr"
+                                     jcr:mixinTypes="jmix:renderable"
+                                     jcr:primaryType="jnt:navMenu">
+                                    <j:translation_fr jcr:language="fr"
                                           jcr:mixinTypes="mix:title"
                                           jcr:primaryType="jnt:translation"
-                                          jcr:title="Accueil"/>
-                        <header jcr:primaryType="jnt:contentList"/>
-                        <footer jcr:primaryType="jnt:contentList"/>
-                        <pagecontent jcr:primaryType="jnt:contentList">
-                            <MOTEUR_x0020_DE_x0020_RECHERCHE jcr:primaryType="jnt:area"/>
-                            <METIERS jcr:primaryType="jnt:area"/>
-                            <DERNIERES_x0020_OFFRES jcr:primaryType="jnt:area"/>
-                            <BONNES_x0020_RAISONS jcr:primaryType="jnt:area"/>
-                            <ACTUALITES jcr:primaryType="jnt:area"/>
-                        </pagecontent>
-                        <menu jcr:primaryType="jnt:contentList">
-                            <Menu_x0020_LSR j:maxDepth="2"
-                                            j:menuItemView="menuElement"
-                                            j:startLevel="0"
-                                            j:view="lsr"
-                                            jcr:mixinTypes="jmix:renderable"
-                                            jcr:primaryType="jnt:navMenu">
-                                <j:translation_fr jcr:language="fr"
-                                                  jcr:mixinTypes="mix:title"
-                                                  jcr:primaryType="jnt:translation"
-                                                  jcr:title="Menu LSR"/>
-                            </Menu_x0020_LSR>
-                        </menu>
-                    </home>
-                    <header jcr:primaryType="jnt:contentList">
-                        <header j:allowedTypes="lnt:bandeauHeader"
-                                j:level="0"
-                                j:limitedAbsoluteAreaEdit="false"
-                                j:numberOfItems="1"
-                                jcr:primaryType="jnt:absoluteArea"/>
-                    </header>
-                    <footer jcr:primaryType="jnt:contentList">
-                        <footer       j:level="0"
-                                j:limitedAbsoluteAreaEdit="false"
-                                jcr:primaryType="jnt:absoluteArea"/>
-                    </footer>
-                    <simple j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
-                        <j:translation_fr jcr:language="fr"
-                                          jcr:mixinTypes="mix:title"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="Simple"/>
-                        <menu jcr:primaryType="jnt:contentList">
-                            <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                            jcr:primaryType="jnt:contentReference"/>
-                        </menu>
-                    </simple>
-                    <trois-colonnes j:hiddenTemplate="false"
-                                    j:view="trois-colonnes"
+                                          jcr:title="Menu LSR"/>
+                                </Menu_x0020_LSR>
+                            </menu>
+                        </home>
+                        <header jcr:primaryType="jnt:contentList">
+                            <header j:allowedTypes="lnt:bandeauHeader"
+                          j:level="0"
+                          j:limitedAbsoluteAreaEdit="false"
+                          j:numberOfItems="1"
+                          jcr:primaryType="jnt:absoluteArea"/>
+                        </header>
+                        <footer jcr:primaryType="jnt:contentList">
+                            <footer j:level="0"
+                          j:limitedAbsoluteAreaEdit="false"
+                          jcr:primaryType="jnt:absoluteArea"/>
+                        </footer>
+                        <simple j:hiddenTemplate="false" jcr:primaryType="jnt:pageTemplate">
+                            <j:translation_fr jcr:language="fr"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Simple"/>
+                            <menu jcr:primaryType="jnt:contentList">
+                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
+                                     jcr:primaryType="jnt:contentReference"/>
+                            </menu>
+                        </simple>
+                        <page-recherche--page-resultat-de j:hiddenTemplate="false"
+                                                 j:view="recherche"
+                                                 jcr:primaryType="jnt:pageTemplate">
+                            <j:translation_fr jcr:language="fr"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Page Recherche / Page Résultat de recherche"/>
+                            <menu jcr:primaryType="jnt:contentList">
+                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
+                                     jcr:primaryType="jnt:contentReference"/>
+                            </menu>
+                        </page-recherche--page-resultat-de>
+                        <page-fiche-de-poste j:hiddenTemplate="false"
+                                    j:view="fiche_poste"
                                     jcr:primaryType="jnt:pageTemplate">
-                        <j:translation_fr jcr:language="fr"
-                                          jcr:mixinTypes="mix:title"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="Trois Colonnes"/>
-                        <menu jcr:primaryType="jnt:contentList">
-                            <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                            jcr:primaryType="jnt:contentReference"/>
-                        </menu>
-                    </trois-colonnes>
-                    <page-recherche--page-resultat-de j:hiddenTemplate="false"
-                                                      j:view="recherche"
-                                                      jcr:primaryType="jnt:pageTemplate">
-                        <j:translation_fr jcr:language="fr"
-                                          jcr:mixinTypes="mix:title"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="Page Recherche / Page Résultat de recherche"/>
-                        <menu jcr:primaryType="jnt:contentList">
-                            <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                            jcr:primaryType="jnt:contentReference"/>
-                        </menu>
-                    </page-recherche--page-resultat-de>
-                    <page-fiche-de-poste j:hiddenTemplate="false"
-                                         j:view="fiche_poste"
-                                         jcr:primaryType="jnt:pageTemplate">
-                        <j:translation_fr jcr:language="fr"
-                                          jcr:mixinTypes="mix:title"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="Page fiche de poste"/>
-                        <menu jcr:primaryType="jnt:contentList">
-                            <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                            jcr:primaryType="jnt:contentReference"/>
-                        </menu>
-                    </page-fiche-de-poste>
-                    <page-5-raisons j:hiddenTemplate="false"
-                                    j:view="raison"
-                                    jcr:primaryType="jnt:pageTemplate">
-                        <j:translation_fr jcr:language="fr"
-                                          jcr:mixinTypes="mix:title"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="Page 5 raisons"/>
-                        <menu jcr:primaryType="jnt:contentList">
-                            <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                            jcr:primaryType="jnt:contentReference"/>
-                        </menu>
-                    </page-5-raisons>
-                    <page-je-suis j:hiddenTemplate="false"
-                                  j:view="jesuis"
-                                  jcr:primaryType="jnt:pageTemplate">
-                        <j:translation_fr jcr:language="fr"
-                                          jcr:mixinTypes="mix:title"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="Page je suis"/>
-                        <menu jcr:primaryType="jnt:contentList">
-                            <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                            jcr:primaryType="jnt:contentReference"/>
-                        </menu>
-                    </page-je-suis>
-                    <page-je-postule j:hiddenTemplate="false"
-                                     j:view="jepostule"
-                                     jcr:primaryType="jnt:pageTemplate">
-                        <j:translation_fr jcr:language="fr"
-                                          jcr:mixinTypes="mix:title"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="Page je postule"/>
-                        <menu jcr:primaryType="jnt:contentList">
-                            <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                            jcr:primaryType="jnt:contentReference"/>
-                        </menu>
-                    </page-je-postule>
-                    <page-actualite j:hiddenTemplate="false"
-                                    j:view="actualites"
-                                    jcr:primaryType="jnt:pageTemplate">
-                        <j:translation_fr jcr:language="fr"
-                                          jcr:mixinTypes="mix:title"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="Page actualité"/>
-                        <menu jcr:primaryType="jnt:contentList">
-                            <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                            jcr:primaryType="jnt:contentReference"/>
-                        </menu>
+                            <j:translation_fr jcr:language="fr"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Page fiche de poste"/>
+                            <menu jcr:primaryType="jnt:contentList">
+                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
+                                     jcr:primaryType="jnt:contentReference"/>
+                            </menu>
+                        </page-fiche-de-poste>
+                        <page-5-raisons j:hiddenTemplate="false"
+                               j:view="raison"
+                               jcr:primaryType="jnt:pageTemplate">
+                            <j:translation_fr jcr:language="fr"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Page 5 raisons"/>
+                            <menu jcr:primaryType="jnt:contentList">
+                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
+                                     jcr:primaryType="jnt:contentReference"/>
+                            </menu>
+                        </page-5-raisons>
+                        <page-je-suis j:hiddenTemplate="false"
+                             j:view="jesuis"
+                             jcr:primaryType="jnt:pageTemplate">
+                            <j:translation_fr jcr:language="fr"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Page je suis"/>
+                            <menu jcr:primaryType="jnt:contentList">
+                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
+                                     jcr:primaryType="jnt:contentReference"/>
+                            </menu>
+                        </page-je-suis>
+                        <page-je-postule j:hiddenTemplate="false"
+                                j:view="jepostule"
+                                jcr:primaryType="jnt:pageTemplate">
+                            <j:translation_fr jcr:language="fr"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Page je postule"/>
+                            <menu jcr:primaryType="jnt:contentList">
+                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
+                                     jcr:primaryType="jnt:contentReference"/>
+                            </menu>
+                        </page-je-postule>
+                        <page-actualite j:hiddenTemplate="false"
+                               j:view="actualites"
+                               jcr:primaryType="jnt:pageTemplate">
+                            <j:translation_fr jcr:language="fr"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Page actualité"/>
+                            <menu jcr:primaryType="jnt:contentList">
+                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
+                                     jcr:primaryType="jnt:contentReference"/>
+                            </menu>
                             <pagecontent jcr:primaryType="jnt:contentList">
                                 <Actualite j:allowedTypes="snt:actualite snt:actualitealaune"
                                 j:numberOfItems="1"
                                 jcr:primaryType="jnt:area"/>
-                                <Toutes_x0020_les_x0020_actualites j:allowedTypes="snt:dernieresActualites" jcr:primaryType="jnt:area"/>
+                                <Dernieres_x0020_actualites j:allowedTypes="snt:dernieresActualites"
+                                                 j:level="1"
+                                                 j:limitedAbsoluteAreaEdit="false"
+                                                 jcr:primaryType="jnt:absoluteArea"/>
                             </pagecontent>
-                    </page-actualite>
-                </base>
-            </templates>
-
-            <home changefreq="monthly"
-               j:isHomePage="true"
-                  j:templateName="home"
-                  jcr:mixinTypes="cmix:sitemap"
-               jcr:primaryType="jnt:page"
-               priority="0.5">
-                <j:translation_en jcr:language="en"
-                                  jcr:mixinTypes="mix:title"
-                                  jcr:primaryType="jnt:translation"
-                                  jcr:title="Home"/>
-            </home>
-        </lsr-template>
+                            <droite jcr:primaryType="jnt:contentList">
+                                <Colonne_x0020_droite j:allowedTypes="lnt:blocRecherche lnt:dernieresOffres"
+                                           j:level="1"
+                                           j:limitedAbsoluteAreaEdit="false"
+                                           jcr:primaryType="jnt:absoluteArea"/>
+                            </droite>
+                        </page-actualite>
+                        <file-d-ariane jcr:primaryType="jnt:contentList">
+                            <file-d-ariane j:allowedTypes="jnt:pageBreadcrumb"
+                                 j:level="0"
+                                 j:limitedAbsoluteAreaEdit="false"
+                                 j:numberOfItems="1"
+                                 jcr:primaryType="jnt:absoluteArea"/>
+                        </file-d-ariane>
+                    </base>
+                </templates>
+                
+                <home j:isHomePage="true"
+               j:templateName="home"
+               jcr:primaryType="jnt:page">
+                    <j:translation_en jcr:language="en"
+                              jcr:mixinTypes="mix:title"
+                              jcr:primaryType="jnt:translation"
+                              jcr:title="Home"/>
+                </home>
+            </lsr-template>
     </modules>
 </content>

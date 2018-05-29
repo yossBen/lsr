@@ -11,7 +11,7 @@
 	<groupId>fr.ucanss.jahia.modules</groupId>
 	<artifactId>ucanss-common</artifactId>
 	<name>Jahia Ucanss Common Module</name>
-	<version>1.3-SNAPSHOT</version>
+	<version>1.0-SNAPSHOT</version>
 	<packaging>bundle</packaging>
 	<description>This is the custom profile module (Template Jahia UCANSS) for running on a Digital Experience Manager server.</description>
 

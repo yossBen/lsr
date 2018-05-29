@@ -52,6 +52,7 @@
 	<main role="main">
 	<div class="container">
 		<div class="row home">
+			<template:area path="file-d-ariane" />
 			<template:area path="pagecontent" />
 		</div>
 	</div>

@@ -51,10 +51,10 @@
 	<div class="container">
 		<div class="row actu">
 			<div class="col-lg-9 col-md-8 col-sm-12">
-				<template:area path="file-d-ariane" />
+				<template:area path="file-d-ariane" moduleType="absoluteArea" level="0" />
 				<template:area path="pagecontent" />
 			</div>
-			<div class="-lg-3 col-md-4 col-sm-12 nopadd">
+			<div class="col-lg-3 col-md-4 col-sm-12 nopadd">
 				<template:area path="droite" />
 			</div>
 		</div>

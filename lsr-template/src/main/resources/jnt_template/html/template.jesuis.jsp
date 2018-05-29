@@ -50,7 +50,7 @@
 	<div class="container">
 		<div class="row jesuis">
 			<div class="col-lg-9 col-md-8 col-sm-12">
-				<template:area path="file-d-ariane" />
+				<template:area path="file-d-ariane" moduleType="absoluteArea" level="0" />
 				<template:area path="pagecontent" />
 			</div>
 			<div class="col-lg-3 nopadd">

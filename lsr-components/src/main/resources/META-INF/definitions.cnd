@@ -97,4 +97,17 @@
  - urlEspacePerso (weakreference, picker[type='page'])
  + nombreOffres (lnt:nombreOffres) = lnt:nombreOffres autocreated
 
+[lnt:actu] > jnt:content, lmix:actualite, mix:title
+ - image (weakreference, picker[type='image'])
+ - chapeau (string, richtext) mandatory
+ - corps (string, richtext)
+ 
+[lnt:dernieresActus] > jnt:content, lmix:actualite , mix:title
+ - nombre (long) = 3 mandatory
+ - pageToutesActus (weakreference, picker[type='page'])
 
+[lnt:toutesActus] > jnt:content, lmix:actualite , mix:title
+ - nombre (long) = 6 mandatory
+
+[lnt:actualaune] >  jnt:content,smix:component
+ - actu (weakreference, picker[type='page'])

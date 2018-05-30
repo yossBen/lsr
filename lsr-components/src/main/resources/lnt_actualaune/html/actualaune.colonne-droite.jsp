@@ -10,10 +10,10 @@
 <jcr:nodeProperty node="${currentNode}" name="actu" var="actuPage" />
 <c:choose>
 	<c:when test="${!empty actuPage and !empty actuPage.node}">
-		<c:set var="nodes" value="${jcr:getDescendantNodes(actuPage.node,'snt:actualite')}" />
+		<c:set var="nodes" value="${jcr:getDescendantNodes(actuPage.node,'lnt:actu')}" />
 	</c:when>
 	<c:otherwise>
-		<jcr:sql var="query" sql="select * from [snt:actualite] where isdescendantnode('${currentNode.resolveSite.path}')   order by [j:lastPublished] desc" limit="1" />
+		<jcr:sql var="query" sql="select * from [lnt:actu] where isdescendantnode('${currentNode.resolveSite.path}')   order by [j:lastPublished] desc" limit="1" />
 		<c:set var="nodes" value="${query.nodes}" />
 	</c:otherwise>
 </c:choose>
@@ -22,5 +22,5 @@
 	<c:forEach items="${nodes}" var="item" begin="0" end="0">
 		<c:set var="actuAlaune" value="${item}" />
 	</c:forEach>
-	<template:module node="${actuAlaune}" view="alaune" editable="false" />
+	<template:module node="${actuAlaune}" view="colonne-droite" editable="false" />
 </c:if>

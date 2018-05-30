@@ -132,22 +132,52 @@
                                      jcr:primaryType="jnt:contentReference"/>
                             </menu>
                         </page-je-postule>
+                        <file-d-ariane jcr:primaryType="jnt:contentList">
+                            <file-d-ariane j:allowedTypes="jnt:pageBreadcrumb"
+                                 j:level="0"
+                                 j:limitedAbsoluteAreaEdit="false"
+                                 j:numberOfItems="1"
+                                 jcr:primaryType="jnt:absoluteArea"/>
+                        </file-d-ariane>
+                        <page-toutes-les-actualites j:hiddenTemplate="false"
+                                           j:view="actualites"
+                                           jcr:primaryType="jnt:pageTemplate">
+                            <j:translation_fr jcr:language="fr"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Page Toutes les actualités"/>
+                            <menu jcr:primaryType="jnt:contentList">
+                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
+                                     jcr:primaryType="jnt:contentReference"/>
+                            </menu>
+                            <pagecontent jcr:primaryType="jnt:contentList">
+                                <Toutes_x0020_les_x0020_actualites j:allowedTypes="lnt:toutesActus"
+                                                        j:numberOfItems="1"
+                                                        jcr:primaryType="jnt:area"/>
+                            </pagecontent>
+                            <droite jcr:primaryType="jnt:contentList">
+                                <Colonne_x0020_droite j:allowedTypes="lnt:blocRecherche lnt:dernieresOffres"
+                                           j:level="1"
+                                           j:limitedAbsoluteAreaEdit="false"
+                                           jcr:primaryType="jnt:absoluteArea"/>
+                            </droite>
+                        </page-toutes-les-actualites>
                         <page-actualite j:hiddenTemplate="false"
                                j:view="actualites"
                                jcr:primaryType="jnt:pageTemplate">
                             <j:translation_fr jcr:language="fr"
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
-                                    jcr:title="Page actualité"/>
+                                    jcr:title="Page Actualité"/>
                             <menu jcr:primaryType="jnt:contentList">
                                 <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
                                      jcr:primaryType="jnt:contentReference"/>
                             </menu>
                             <pagecontent jcr:primaryType="jnt:contentList">
-                                <Actualite j:allowedTypes="snt:actualite snt:actualitealaune"
+                                <Actualite j:allowedTypes="lnt:actu lnt:actualaune lnt:toutesActus"
                                 j:numberOfItems="1"
                                 jcr:primaryType="jnt:area"/>
-                                <Dernieres_x0020_actualites j:allowedTypes="snt:dernieresActualites"
+                                <Dernieres_x0020_actualites j:allowedTypes="lnt:dernieresActus"
                                                  j:level="1"
                                                  j:limitedAbsoluteAreaEdit="false"
                                                  jcr:primaryType="jnt:absoluteArea"/>
@@ -159,19 +189,15 @@
                                            jcr:primaryType="jnt:absoluteArea"/>
                             </droite>
                         </page-actualite>
-                        <file-d-ariane jcr:primaryType="jnt:contentList">
-                            <file-d-ariane j:allowedTypes="jnt:pageBreadcrumb"
-                                 j:level="0"
-                                 j:limitedAbsoluteAreaEdit="false"
-                                 j:numberOfItems="1"
-                                 jcr:primaryType="jnt:absoluteArea"/>
-                        </file-d-ariane>
                     </base>
                 </templates>
                 
-                <home j:isHomePage="true"
+                <home changefreq="monthly"
+               j:isHomePage="true"
                j:templateName="home"
-               jcr:primaryType="jnt:page">
+               jcr:mixinTypes="cmix:sitemap"
+               jcr:primaryType="jnt:page"
+               priority="0.5">
                     <j:translation_en jcr:language="en"
                               jcr:mixinTypes="mix:title"
                               jcr:primaryType="jnt:translation"

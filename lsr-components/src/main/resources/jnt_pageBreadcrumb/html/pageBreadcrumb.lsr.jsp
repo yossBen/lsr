@@ -33,7 +33,7 @@
 				</c:choose>
 				<c:if test="${displayPage}">
 					<li>
-						<c:choose>
+						<%-- <c:choose>
 							<c:when test="${renderContext.mainResource.node.path ne pageNode.path || displayLinkOnCurrentPage.boolean}">
 								<a href="<c:url value='${pageNode.url}'/>">
 									<c:out value="${pageNode.properties['jcr:title'].string}" />
@@ -42,7 +42,8 @@
 							<c:otherwise>
 								<c:out value="${pageNode.properties['jcr:title'].string}" />
 							</c:otherwise>
-						</c:choose>
+						</c:choose> --%>
+						<c:out value="${pageNode.properties['jcr:title'].string}" />
 					</li>
 				</c:if>
 			</c:forEach>

@@ -1,19 +1,16 @@
 package fr.lsr.jahia.modules.services.impl;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
-
-import javax.xml.namespace.QName;
 
 import org.jahia.data.templates.JahiaTemplatesPackage;
 import org.jahia.registries.ServicesRegistry;
 import org.jahia.services.cache.CacheHelper;
 import org.jahia.services.cache.ModuleClassLoaderAwareCacheEntry;
 import org.jahia.services.cache.ehcache.EhCacheProvider;
-import org.springframework.core.io.Resource;
 
 import com.mrted.ws.LangCode;
 import com.mrted.ws.LovDescendantDto;
@@ -33,6 +30,7 @@ import net.sf.ehcache.Element;
 public class LovServiceImpl implements LovService {
 	private LovWebService lovWebService;
 	private static final String LOV_WS_CACHES = "LOV_WS_CACHES";
+	private final static Long[] CONTRACT_TYPE_INTERNE = new Long[] { 11623l, 9876l, 10129l };
 	private EhCacheProvider cacheProvider;
 	private Ehcache ehCache;
 	private String wsdlPath;
@@ -112,5 +110,30 @@ public class LovServiceImpl implements LovService {
 
 	public void setHeaderHandlerResolver(HeaderHandlerResolver headerHandlerResolver) {
 		this.headerHandlerResolver = headerHandlerResolver;
+	}
+
+	/**
+	 * Get que les types de contrats internes
+	 * 
+	 * @return liste des types de contrats
+	 */
+	public List<LovDescendantDto> getContractTypeExterne() {
+		List<LovDescendantDto> toReturn = new ArrayList<>();
+		List<LovDescendantDto> lovs = getLovs(Lov.CONTRACT_TYPE);
+		if (lovs != null) {
+			for (LovDescendantDto lov : lovs) {
+				boolean isInterne = false;
+				for (Long lovId : LovServiceImpl.CONTRACT_TYPE_INTERNE) {
+					if (lovId.equals(lov.getLovId())) {
+						isInterne = true;
+						break;
+					}
+				}
+				if (!isInterne) {
+					toReturn.add(lov);
+				}
+			}
+		}
+		return toReturn;
 	}
 }

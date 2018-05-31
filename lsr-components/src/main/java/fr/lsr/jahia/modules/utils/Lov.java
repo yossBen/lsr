@@ -1,8 +1,9 @@
 package fr.lsr.jahia.modules.utils;
 
 public enum Lov {
-	JOB_FAMILY("Famille de metiers interne"), REGION("Region@France"), REGIME("Regime"), TYPE_ORGANISME("TypeOrganisme"), ORGANISME("Organisme"), CLASSIFICATION("GrilleClassification"), CONTRACT_TYPE(
-			"ContractType"), COEFFICIENT_RG("Coefficient RG"), NIVEAU_RG("Niveau RG"), CURRENCY("Currency"), COMPENSATION_PERIOD("CompensationPeriod");
+	JOB_FAMILY("Famille de metiers interne"), JOB_FAMILY_EXTERNE("Domaine de mtiers externe"), REGION("Region@France"), REGIME("Regime"), TYPE_ORGANISME("TypeOrganisme"), ORGANISME(
+			"Organisme"), CLASSIFICATION(
+					"GrilleClassification"), CONTRACT_TYPE("ContractType"), COEFFICIENT_RG("Coefficient RG"), NIVEAU_RG("Niveau RG"), CURRENCY("Currency"), COMPENSATION_PERIOD("CompensationPeriod");
 	private String name;
 
 	Lov(String name) {

@@ -59,7 +59,7 @@
 			<div class="form-group">
 				<label for="contractTypeSelect" id="contractTypeLabel" class="control-label">Type de contrat</label>
 				<select id="contractTypeSelect" class="selectpicker show-menu-arrow form-control" aria-labelledby="contractTypeLabel" onchange="$('#contractTypeSelectHidden').val($(this).val());" multiple>
-					<c:forEach items="${lovBean.contractType}" var="item">
+					<c:forEach items="${lovBean.contractTypeExterne}" var="item">
 						<c:forEach items="${fn:split(filtersParams , ',')}" var="filter">
 							<c:if test="${filter eq  item.lovId}">
 								<c:set var="selected" value="selected" />

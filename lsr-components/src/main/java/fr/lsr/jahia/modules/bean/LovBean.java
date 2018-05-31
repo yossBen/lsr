@@ -3,7 +3,6 @@ package fr.lsr.jahia.modules.bean;
 import java.util.List;
 
 import com.mrted.ws.LovDescendantDto;
-
 import fr.lsr.jahia.modules.services.impl.LovServiceImpl;
 import fr.lsr.jahia.modules.utils.Lov;
 import fr.lsr.jahia.modules.utils.Regions;
@@ -17,11 +16,17 @@ public class LovBean {
 	}
 
 	public List<LovDescendantDto> getJobFamily() {
-		return LovServiceImpl.getInstance().getLovs(Lov.JOB_FAMILY);
+		List<LovDescendantDto> lovs = LovServiceImpl.getInstance().getLovs(Lov.JOB_FAMILY_EXTERNE);
+		lovs.addAll(LovServiceImpl.getInstance().getLovs(Lov.JOB_FAMILY));
+		return lovs;
 	}
 
 	public List<LovDescendantDto> getContractType() {
 		return LovServiceImpl.getInstance().getLovs(Lov.CONTRACT_TYPE);
+	}
+
+	public List<LovDescendantDto> getContractTypeExterne() {
+		return LovServiceImpl.getInstance().getContractTypeExterne();
 	}
 
 	public List<LovDescendantDto> getTypeOrganisme() {

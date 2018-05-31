@@ -8,24 +8,7 @@
                     j:title="Template Jahia Ucanss"
                     jcr:mixinTypes="jmix:hasExternalProviderExtension"
                     jcr:primaryType="jnt:module">
-                 <sources jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
-                     jcr:primaryType="jnt:moduleVersionFolder"
-                     j:staticMountPointProviderKey="module-lsr-template-1.0-SNAPSHOT">
-                <src jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
-                    <main jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
-                        <resources jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
-                            <jnt_template jcr:mixinTypes="jmix:sourceControl"
-                                   jcr:primaryType="jnt:nodeTypeFolder">
-                                <html jcr:mixinTypes="jmix:sourceControl"
-                              jcr:primaryType="jnt:templateTypeFolder">
-                                    <template.jepostule.jsp jcr:primaryType="jnt:viewFile"/>
-                                    <template.jesuis.jsp jcr:primaryType="jnt:viewFile"/>
-                                </html>
-                            </jnt_template>
-                        </resources>
-                    </main>
-                </src>
-            </sources>
+                
                 <portlets jcr:primaryType="jnt:portletFolder"/>
                 <files jcr:primaryType="jnt:folder"/>
                 <contents jcr:primaryType="jnt:contentFolder"/>
@@ -95,7 +78,7 @@
                             <j:translation_fr jcr:language="fr"
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
-                                    jcr:title="Page Recherche / Page Résultat de recherche"/>
+                                    jcr:title="Page Recherche / Page RÃ©sultat de recherche"/>
                             <menu jcr:primaryType="jnt:contentList">
                                 <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
                                      jcr:primaryType="jnt:contentReference"/>
@@ -162,7 +145,7 @@
                             <j:translation_fr jcr:language="fr"
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
-                                    jcr:title="Page Toutes les actualités"/>
+                                    jcr:title="Page Toutes les actualitÃ©s"/>
                             <menu jcr:primaryType="jnt:contentList">
                                 <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
                                      jcr:primaryType="jnt:contentReference"/>
@@ -185,7 +168,7 @@
                             <j:translation_fr jcr:language="fr"
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
-                                    jcr:title="Page Actualité"/>
+                                    jcr:title="Page ActualitÃ©"/>
                             <menu jcr:primaryType="jnt:contentList">
                                 <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
                                      jcr:primaryType="jnt:contentReference"/>
@@ -206,37 +189,36 @@
                                            jcr:primaryType="jnt:absoluteArea"/>
                             </droite>
                         </page-actualite>
-					<page-je-cherche-metier j:hiddenTemplate="false"
+                        <page-je-cherche-metier j:hiddenTemplate="false"
                                        j:view="recherche2"
                                        jcr:primaryType="jnt:pageTemplate">
                             <j:translation_fr jcr:language="fr"
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
-            jcr:title="Page je cherche metier"/>
+                                    jcr:title="Page je cherche metier"/>
                             <menu jcr:primaryType="jnt:contentList">
-        <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-             jcr:primaryType="jnt:contentReference"/>
+                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
+                                     jcr:primaryType="jnt:contentReference"/>
                             </menu>
                         </page-je-cherche-metier>
                         <page-mieux-connaitre-la-secu j:hiddenTemplate="false"
                                              j:view="mieux"
                                              jcr:primaryType="jnt:pageTemplate">
                             <j:translation_fr jcr:language="fr"
+                                    jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
-                                    jcr:title="Page mieux connaitre la sécu"/>
+                                    jcr:title="Page mieux connaitre la sÃ©cu"/>
                             <menu jcr:primaryType="jnt:contentList">
                                 <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                                jcr:primaryType="jnt:contentReference"/>
+                                     jcr:primaryType="jnt:contentReference"/>
                             </menu>
                         </page-mieux-connaitre-la-secu>
                     </base>
                 </templates>
                 
-                <home changefreq="monthly"
-               j:isHomePage="true"
+                <home j:isHomePage="true"
                j:templateName="home"
-               jcr:primaryType="jnt:page"
-               priority="0.5">
+               jcr:primaryType="jnt:page">
                     <j:translation_en jcr:language="en"
                               jcr:mixinTypes="mix:title"
                               jcr:primaryType="jnt:translation"

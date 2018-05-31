@@ -18,8 +18,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 <title>${fn:escapeXml(renderContext.mainResource.node.displayableName)}</title>
 
@@ -30,7 +29,7 @@
 <template:addResources type="css" resources="master.css" />
 <template:addResources type="css" resources="base-secu.css" />
 
-<link 	href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i"	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
 	<c:if test="${renderContext.editMode}">
 		<template:addResources type="css" resources="edit.css" />
 	</c:if>
@@ -51,7 +50,7 @@
 	<div class="container">
 		<div class="row mieux">
 			<div class="col-lg-9 col-md-8 col-sm-12">
-				<template:area path="file-d-ariane" />
+				<template:area path="file-d-ariane" moduleType="absoluteArea" level="0" />
 				<template:area path="pagecontent" />
 			</div>
 			<div class="col-lg-3 col-md-4 col-sm-12 nopadd">

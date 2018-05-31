@@ -10,8 +10,6 @@
 [lmix:actualite] > jmix:droppableContent mixin
 [lmix:composantslsr] > jmix:droppableContent mixin
 
-[lmix:metier] > jmix:droppableContent mixin
-
 [lmix:lsrOffresOptions] mixin
  extends=jnt:virtualsite
  itemtype=options
@@ -63,31 +61,43 @@
  - picto (weakreference, picker[type='image'])
  - texte (string, richtext)
 
-[lnt:actualite] > jnt:content , mix:title
- - datePublication (date, datepicker) mandatory
- - image (weakreference, picker[type='image']) mandatory
- - chapeau (string) mandatory
- - corps (string, richtext)
- + * (lnt:image)
 
 [lnt:image] >  jnt:content
  - image (weakreference, picker[type='image'])
 
-[lnt:famillemetier] > jnt:content, lmix:metier, mix:title
+[lnt:famillemetier] > jnt:content, lmix:recherche, mix:title
+[lnt:dernieresActualites] > jnt:content, lmix:actualite , mix:title
+ - nombre (long) = 3 mandatory
+ - pageToutesActus (weakreference, picker[type='page']) mandatory
+
+[lnt:actualitealaune] >  jnt:content, lmix:actualite
+ - actu (weakreference, picker[type='page'])
+
+//[lnt:article] > jnt:content, lmix:actualite
+
  - image (weakreference, picker[type='image'])
  - texte (string, richtext)
+ - link (weakreference, picker[type='page'])
+ + metiercaroussel (lnt:metiercaroussel)
+ + blocmetiers (lnt:blocmetiers)
  + *(lnt:metier)
 
-[lnt:metier] > jnt:content, lmix:metier, mix:title
+[lnt:metier] > jnt:content, lmix:recherche, mix:title
  - texte (string, richtext)
  - video (string)
  - doc (weakreference, picker[type='file'])
- + *(lnt:sousblocmetier)
+ + *(lnt:sousblocmetiergauche)
+ + *(lnt:sousblocmetierdroite)
 
-[lnt:sousblocmetier] > jnt:content, mix:title
+[lnt:sousblocmetiergauche] > jnt:content, mix:title
+ - texte (string, richtext)
+ 
+ [lnt:sousblocmetierdroite] > jnt:content, mix:title
  - texte (string, richtext)
 
-[lnt:metiercaroussel] > jnt:content, lmix:metier
+[lnt:metiercaroussel] > jnt:content
+
+[lnt:blocmetiers] > jnt:content
 
 [lnt:nombreOffres] > jnt:content
 
@@ -109,5 +119,13 @@
 [lnt:toutesActus] > jnt:content, lmix:actualite , mix:title
  - nombre (long) = 6 mandatory
 
+[lnt:mieux] > jnt:content, lmix:composantslsr, mix:title
+ - texte (string, richtext)
+ + *(lnt:logo)
+
+
+[lnt:logo] > jnt:content, mix:title
+ - imagelogo (weakreference, picker[type='image'])
+ - link (string)
 [lnt:actualaune] >  jnt:content,smix:component
  - actu (weakreference, picker[type='page'])

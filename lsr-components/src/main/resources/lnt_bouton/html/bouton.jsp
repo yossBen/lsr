@@ -13,6 +13,9 @@
 <jcr:nodeProperty var="texte"  node="${currentNode}" name="texte"/>
 <jcr:nodeProperty var="titre"  node="${currentNode}" name="titre"/>
 
-<button class="btn btn-primary titrerouge" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">${titre}</button>
-<div class="collapse" id="collapseExample"> ${texte} </div>
+<c:set var="id" value="${fn:escapeXml(id)}" />
+
+
+<button class="btn btn-primary titrerouge" type="button" data-toggle="collapse" data-target="#${id}" aria-expanded="false" aria-controls="collapseExample">${titre}</button>
+<div class="collapse" id="${id}"> ${texte} </div>
 <br>

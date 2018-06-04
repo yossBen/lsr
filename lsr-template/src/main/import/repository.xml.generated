@@ -36,19 +36,6 @@
                                 <BONNES_x0020_RAISONS jcr:primaryType="jnt:area"/>
                                 <ACTUALITES jcr:primaryType="jnt:area"/>
                             </pagecontent>
-                            <menu jcr:primaryType="jnt:contentList">
-                                <Menu_x0020_LSR j:maxDepth="2"
-                                     j:menuItemView="menuElement"
-                                     j:startLevel="0"
-                                     j:view="lsr"
-                                     jcr:mixinTypes="jmix:renderable"
-                                     jcr:primaryType="jnt:navMenu">
-                                    <j:translation_fr jcr:language="fr"
-                                          jcr:mixinTypes="mix:title"
-                                          jcr:primaryType="jnt:translation"
-                                          jcr:title="Menu LSR"/>
-                                </Menu_x0020_LSR>
-                            </menu>
                         </home>
                         <header jcr:primaryType="jnt:contentList">
                             <header j:allowedTypes="lnt:bandeauHeader"
@@ -67,10 +54,6 @@
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
                                     jcr:title="Simple"/>
-                            <menu jcr:primaryType="jnt:contentList">
-                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                     jcr:primaryType="jnt:contentReference"/>
-                            </menu>
                         </simple>
                         <page-recherche--page-resultat-de j:hiddenTemplate="false"
                                                  j:view="recherche"
@@ -79,10 +62,6 @@
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
                                     jcr:title="Page Recherche / Page Résultat de recherche"/>
-                            <menu jcr:primaryType="jnt:contentList">
-                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                     jcr:primaryType="jnt:contentReference"/>
-                            </menu>
                         </page-recherche--page-resultat-de>
                         <page-fiche-de-poste j:hiddenTemplate="false"
                                     j:view="fiche_poste"
@@ -91,10 +70,6 @@
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
                                     jcr:title="Page fiche de poste"/>
-                            <menu jcr:primaryType="jnt:contentList">
-                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                     jcr:primaryType="jnt:contentReference"/>
-                            </menu>
                         </page-fiche-de-poste>
                         <page-5-raisons j:hiddenTemplate="false"
                                j:view="raison"
@@ -103,10 +78,6 @@
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
                                     jcr:title="Page 5 raisons"/>
-                            <menu jcr:primaryType="jnt:contentList">
-                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                     jcr:primaryType="jnt:contentReference"/>
-                            </menu>
                         </page-5-raisons>
                         <page-je-suis j:hiddenTemplate="false"
                              j:view="jesuis"
@@ -115,10 +86,6 @@
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
                                     jcr:title="Page je suis"/>
-                            <menu jcr:primaryType="jnt:contentList">
-                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                     jcr:primaryType="jnt:contentReference"/>
-                            </menu>
                         </page-je-suis>
                         <page-je-postule j:hiddenTemplate="false"
                                 j:view="jepostule"
@@ -127,10 +94,6 @@
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
                                     jcr:title="Page je postule"/>
-                            <menu jcr:primaryType="jnt:contentList">
-                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                     jcr:primaryType="jnt:contentReference"/>
-                            </menu>
                         </page-je-postule>
                         <file-d-ariane jcr:primaryType="jnt:contentList">
                             <file-d-ariane j:allowedTypes="jnt:pageBreadcrumb"
@@ -139,6 +102,23 @@
                                  j:numberOfItems="1"
                                  jcr:primaryType="jnt:absoluteArea"/>
                         </file-d-ariane>
+                        <menu jcr:primaryType="jnt:contentList">
+                            <menu j:allowedTypes="jnt:navMenu"
+                        j:numberOfItems="1"
+                        jcr:primaryType="jnt:area">
+                                <area954382 jcr:primaryType="jnt:contentList"/>
+                                <menu jcr:primaryType="jnt:contentList">
+                                    <Menu_x0020_LSR j:maxDepth="2"
+                                        j:menuItemView="menuElement"
+                                        j:startLevel="0"
+                                        jcr:primaryType="jnt:navMenu">
+                                        <j:translation_fr jcr:language="fr"
+                                             jcr:primaryType="jnt:translation"
+                                             jcr:title="Menu SLR"/>
+                                    </Menu_x0020_LSR>
+                                </menu>
+                            </menu>
+                        </menu>
                         <page-toutes-les-actualites j:hiddenTemplate="false"
                                            j:view="actualites"
                                            jcr:primaryType="jnt:pageTemplate">
@@ -146,11 +126,10 @@
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
                                     jcr:title="Page Toutes les actualités"/>
-                            <menu jcr:primaryType="jnt:contentList">
-                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                     jcr:primaryType="jnt:contentReference"/>
-                            </menu>
                             <pagecontent jcr:primaryType="jnt:contentList">
+                                <A_x0020_la_x0020_une j:allowedTypes="lnt:actualaune"
+                                           j:numberOfItems="1"
+                                           jcr:primaryType="jnt:area"/>
                                 <Toutes_x0020_les_x0020_actualites j:allowedTypes="lnt:toutesActus"
                                                         j:numberOfItems="1"
                                                         jcr:primaryType="jnt:area"/>
@@ -169,17 +148,14 @@
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
                                     jcr:title="Page Actualité"/>
-                            <menu jcr:primaryType="jnt:contentList">
-                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                     jcr:primaryType="jnt:contentReference"/>
-                            </menu>
                             <pagecontent jcr:primaryType="jnt:contentList">
-                                <Actualite j:allowedTypes="lnt:actu lnt:actualaune lnt:toutesActus"
+                                <Actualite j:allowedTypes="lnt:actu"
                                 j:numberOfItems="1"
                                 jcr:primaryType="jnt:area"/>
                                 <Dernieres_x0020_actualites j:allowedTypes="lnt:dernieresActus"
                                                  j:level="1"
                                                  j:limitedAbsoluteAreaEdit="false"
+                                                 j:numberOfItems="1"
                                                  jcr:primaryType="jnt:absoluteArea"/>
                             </pagecontent>
                             <droite jcr:primaryType="jnt:contentList">
@@ -196,10 +172,6 @@
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
                                     jcr:title="Page je cherche metier"/>
-                            <menu jcr:primaryType="jnt:contentList">
-                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                     jcr:primaryType="jnt:contentReference"/>
-                            </menu>
                         </page-je-cherche-metier>
                         <page-mieux-connaitre-la-secu j:hiddenTemplate="false"
                                              j:view="mieux"
@@ -208,10 +180,6 @@
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
                                     jcr:title="Page mieux connaitre la sécu"/>
-                            <menu jcr:primaryType="jnt:contentList">
-                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
-                                     jcr:primaryType="jnt:contentReference"/>
-                            </menu>
                         </page-mieux-connaitre-la-secu>
                     </base>
                 </templates>

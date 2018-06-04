@@ -10,6 +10,6 @@ import fr.lsr.jahia.modules.utils.Lov;
 public class ChoiceListJobFamilyInitializers extends AbstractChoiceListLovsInitializers {
 	@Override
 	public Lov getLov() {
-		return Lov.JOB_FAMILY;
+		return Lov.JOB_FAMILY_EXTERNE;
 	}
 }

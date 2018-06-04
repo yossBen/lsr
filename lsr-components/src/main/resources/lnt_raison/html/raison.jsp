@@ -24,37 +24,18 @@
 <section class="cinq-br-bloc" >
     <div class="br-bloc-1">
         <section class="bloc-raisons" >
-            <a href="${url.base}${currentNode.parent.parent.parent.path}/contribuer-a-un-projet-de-societ.html" class="nbraison col-md-6 ${titre == 'contribuer' ? 'active' : ''}">
-                <i class="contribuer" data-line="1"></i>
-                <span>Contribuer à projet de société</span>
-            </a>
-            <a href="${url.base}${currentNode.parent.parent.parent.path}/construire-sa-carriere.html" class="nbraison col-md-6 ${titre == 'construire' ? 'active' : ''}">
-                <i class="construire" data-line="2"></i>
-                <span>Construire<br/>sa carrière</span>
-            </a>
-            <a href="${url.base}${currentNode.parent.parent.parent.path}/acceder-a-un-large-eventail-de-m.html" class="nbraison col-md-6 ${titre == 'acceder' ? 'active' : ''}">
-                <i class="acceder" data-line="3"></i>
-                <span>Accéder à un large éventail de métiers</span>
-            </a>
-            <a href="${url.base}${currentNode.parent.parent.parent.path}/rejoindre-un-employeur-engage.html" class="nbraison col-md-6 ${titre == 'rejoindre' ? 'active' : ''}">
-                <i class="rejoindre" data-line="4"></i>
-                <span>Rejoindre un employeur engagé</span>
-            </a>
-            <a href="${url.base}${currentNode.parent.parent.parent.path}/evoluer-dans-un-univers-performa.html" class="nbraison col-md-6 ${titre == 'evoluer' ? 'active' : ''}">
-                <i class="evoluer" data-line="5"></i>
-                <span>Evoluer dans un univers performant</span>
-            </a>
+            <template:module path="navGaucheBR"/>
         </section>
         <div class="btn-group etape-dr" role="group">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SELECTIONNER UNE ETAPE<span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                              <li><a href="${url.base}${currentNode.parent.parent.parent.path}/contribuer-a-un-projet-de-societ.html">Contribuer à un projet de société</a></li>
-                              <li><a href="${url.base}${currentNode.parent.parent.parent.path}/construire-sa-carriere.html">Construire sa carrière</a></li>
-                              <li><a href="${url.base}${currentNode.parent.parent.parent.path}/acceder-a-un-large-eventail-de-m.html">Accéder à un large éventail de métiers</a></li>
-                              <li><a href="${url.base}${currentNode.parent.parent.parent.path}/rejoindre-un-employeur-engage.html">Rejoindre un employeur engagé</a></li>
-                              <li><a href="${url.base}${currentNode.parent.parent.parent.path}/evoluer-dans-un-univers-performa.html">Evoluer dans un univers performant</a></li>
-                            </ul>
-                      </div>
+                             	<jcr:sql var="query" sql="select * from [lnt:raison] " />
+								<c:forEach items="${query.nodes}" var="node">
+									<jcr:nodeProperty var="link2" node="${node}" name="link"/>
+										<li><a
+										href="${link2.node.url}"><jcr:nodePropertyRenderer node="${node}" name="titre" renderer="resourceBundle"/></a></li>
+								</c:forEach></ul>
+					                      </div>
     </div>
     <div class="br-bloc-2">
         <section class="bloc-raisons-contenu">

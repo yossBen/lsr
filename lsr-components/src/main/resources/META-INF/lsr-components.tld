@@ -84,7 +84,7 @@
 	<function>
 		<name>getAdvertisements</name>
 		<function-class>fr.lsr.jahia.modules.tags.LsrTagUtils</function-class>
-		<function-signature>fr.lsr.jahia.modules.utils.Pair getAdvertisements(java.lang.String[], java.lang.String[], java.lang.String[], java.lang.String[], java.lang.String[], java.lang.String[], int,
+		<function-signature>fr.lsr.jahia.modules.utils.Pair getAdvertisements(java.lang.String, java.lang.String[], java.lang.String[], java.lang.String[], java.lang.String[], java.lang.String[], java.lang.String[], int,
 			int)
 		</function-signature>
 	</function>

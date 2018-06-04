@@ -19,7 +19,7 @@
 <c:set var="nombre" value="${!empty nombre ? nombre.long : 4  }" />
 <c:set var="classCol" value="${nombre mod 4 == 0 ?  'col-lg-3' : 'col-lg-4'}" />
 
-<c:set var="searchResult" value="${lsr:getAdvertisements(null,null,null,null,null,null,0,nombre)}" />
+<c:set var="searchResult" value="${lsr:getAdvertisements(null,null,null,null,null,null,null,0,nombre)}" />
 <section class="bloc-offres" role="contentinfo" aria-label="Consultez les dernières offres">
 	<h2 class="bloc-titre">${title.string}</h2>
 	<c:forEach items="${searchResult.value}" var="adv">

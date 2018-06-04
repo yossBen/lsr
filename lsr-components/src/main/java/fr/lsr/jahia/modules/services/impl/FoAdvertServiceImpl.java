@@ -7,14 +7,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.namespace.QName;
-
 import org.apache.commons.collections.CollectionUtils;
 import org.codehaus.plexus.util.StringUtils;
 import org.jahia.data.templates.JahiaTemplatesPackage;
 import org.jahia.registries.ServicesRegistry;
-import org.springframework.core.io.Resource;
 
 import com.mrted.ws.AdvertisementDto;
 import com.mrted.ws.AdvertisementResultDto;
@@ -105,7 +101,6 @@ public class FoAdvertServiceImpl implements FoAdvertService {
 	@Override
 	public SearchCriteriaDto createSearchCriteriaDto(String keywords, List<Long> jobFamilys, List<Long> typeOrganismes, List<Long> contractTypes, List<Long> regions, List<Long> classifications,
 			List<Long> regimes) {
-		Pair<Integer, List<Advertisement>> toReturn = null;
 		SearchCriteriaDto searchCriteriaDto = new SearchCriteriaDto();
 		if (StringUtils.isNotBlank(keywords)) {
 			searchCriteriaDto.setKeywords(keywords);

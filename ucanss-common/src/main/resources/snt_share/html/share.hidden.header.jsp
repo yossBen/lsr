@@ -27,3 +27,20 @@
 <c:set var="viadeoShareUrl" value="${fn:replace(viadeoShareUrl,'[url]',parentPageFullUrl)}" />
 <c:set var="viadeoShareUrl" value="${fn:replace(viadeoShareUrl,'[title]',parentPageTitle)}" />
 <c:url var="viadeoShareUrl" value="${viadeoShareUrl}" scope="request" />
+
+
+<fmt:message key="twitter.url.share" var="twitterShareUrl" />
+<c:set var="twitterShareUrl" value="${fn:replace(twitterShareUrl,'[url]',parentPageFullUrl)}" />
+<c:set var="twitterShareUrl" value="${fn:replace(twitterShareUrl,'[title]',parentPageTitle)}" />
+<c:url var="twitterShareUrl" value="${twitterShareUrl}" scope="request" />
+
+<fmt:message key="linkedin.url.share" var="linkedinShareUrl" />
+<c:set var="linkedinShareUrl" value="${fn:replace(linkedinShareUrl,'[url]',parentPageFullUrl)}" />
+<c:set var="linkedinShareUrl" value="${fn:replace(linkedinShareUrl,'[title]',parentPageTitle)}" />
+<c:url var="linkedinShareUrl" value="${linkedinShareUrl}" scope="request" />
+
+<fmt:message key="viadeo.url.share" var="viadeoShareUrl" />
+<c:set var="viadeoShareUrl" value="${fn:replace(viadeoShareUrl,'[url]',parentPageFullUrl)}" />
+<c:set var="viadeoShareUrl" value="${fn:replace(viadeoShareUrl,'[title]',parentPageTitle)}" />
+<c:url var="viadeoShareUrl" value="${viadeoShareUrl}" scope="request" />
+

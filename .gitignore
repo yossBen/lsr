@@ -1,0 +1,7 @@
+/lsr-components/.settings/*.prefs
+/lsr-components/*.project
+/ucanss-common/*.project
+/lsr-template/*.project
+/lsr-template/.settings/*.prefs
+/ucanss-common/.settings/*.prefs
+/.project

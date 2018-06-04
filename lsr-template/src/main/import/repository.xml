@@ -151,6 +151,9 @@
                                      jcr:primaryType="jnt:contentReference"/>
                             </menu>
                             <pagecontent jcr:primaryType="jnt:contentList">
+                                <A_x0020_la_x0020_une j:allowedTypes="lnt:actualaune"
+                                           j:numberOfItems="1"
+                                           jcr:primaryType="jnt:area"/>
                                 <Toutes_x0020_les_x0020_actualites j:allowedTypes="lnt:toutesActus"
                                                         j:numberOfItems="1"
                                                         jcr:primaryType="jnt:area"/>
@@ -174,12 +177,13 @@
                                      jcr:primaryType="jnt:contentReference"/>
                             </menu>
                             <pagecontent jcr:primaryType="jnt:contentList">
-                                <Actualite j:allowedTypes="lnt:actu lnt:actualaune lnt:toutesActus"
+                                <Actualite j:allowedTypes="lnt:actu"
                                 j:numberOfItems="1"
                                 jcr:primaryType="jnt:area"/>
                                 <Dernieres_x0020_actualites j:allowedTypes="lnt:dernieresActus"
                                                  j:level="1"
                                                  j:limitedAbsoluteAreaEdit="false"
+                                                 j:numberOfItems="1"
                                                  jcr:primaryType="jnt:absoluteArea"/>
                             </pagecontent>
                             <droite jcr:primaryType="jnt:contentList">

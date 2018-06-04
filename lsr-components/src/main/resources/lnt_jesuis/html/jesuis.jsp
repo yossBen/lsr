@@ -20,35 +20,22 @@
 
 <jcr:nodeProperty var="titre" node="${currentNode}" name="titre"/>
 <jcr:nodeProperty var="texte" node="${currentNode}" name="texte"/>
+                        <c:set var="index" value="0" scope="page"/>
 
 <section class="cinq-br-bloc" >
     <div class="br-bloc-1">
         <section class="bloc-raisons" >
-            <a href="${url.base}${currentNode.parent.parent.parent.parent.path}/etudiant.html" class="nbraison col-md-6 ${titre == 'etudiant' ? 'active' : ''}">
-                <i class="etudiant" data-line="1"></i>
-                <span>Étudiant</span>
-            </a>
-            <a href="${url.base}${currentNode.parent.parent.parent.parent.path}/jeune-diplome.html" class="nbraison col-md-6 ${titre == 'jeune-diplome' ? 'active' : ''}">
-                <i class="diplome" data-line="2"></i>
-                <span>Jeune diplômé</span>
-            </a>
-            <a href="${url.base}${currentNode.parent.parent.parent.path}/experimente.html" class="nbraison col-md-6 ${titre == 'experimente' ? 'active' : ''}">
-                <i class="experimente" data-line="3"></i>
-                <span>Expérimenté</span>
-            </a>
-            <a href="${url.base}${currentNode.parent.parent.parent.path}/salarie-de-linstitution.html" class="nbraison col-md-6 ${titre == 'salarie-de-l-institution' ? 'active' : ''}">
-                <i class="salarie" data-line="4"></i>
-                <span>Salarié<br/>de l’institution</span>
-            </a>
+            	<template:module path="navGaucheJS"/>
         </section>
         <div class="btn-group etape-dr" role="group">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SELECTIONNER UNE ETAPE<span class="caret"></span></button>
                             <ul class="dropdown-menu">
-                              <li><a href="${url.base}${currentNode.parent.parent.parent.path}/etudiant.html">Etudiant</a></li>
-                              <li><a href="${url.base}${currentNode.parent.parent.parent.parent.path}/jeune-diplome.html">Jeune diplômé</a></li>
-                              <li><a href="${url.base}${currentNode.parent.parent.parent.path}/experimente.html">Expérimenté</a></li>
-                              <li><a href="${url.base}${currentNode.parent.parent.parent.path}/salarie-de-linstitution.html">Salariéde l’institution</a></li>
-                            </ul>
+								<jcr:sql var="query" sql="select * from [lnt:jesuis] " />
+								<c:forEach items="${query.nodes}" var="node">
+									<jcr:nodeProperty var="link2" node="${node}" name="link"/>
+										<li><a
+										href="${link2.node.url}"><jcr:nodePropertyRenderer node="${node}" name="titre" renderer="resourceBundle"/></a></li>
+								</c:forEach> </ul>
                       </div>
     </div>
     <div class="br-bloc-2">
@@ -58,13 +45,13 @@
                   <c:when test="${titre == 'etudiant'}">
                     <c:set var="dataline" value="1"/>
                   </c:when>
-                  <c:when test="${titre == 'jeune-diplome'}">
+                  <c:when test="${titre == 'diplome'}">
                     <c:set var="dataline" value="2"/>
                   </c:when>
                   <c:when test="${titre == 'experimente'}">
                     <c:set var="dataline" value="3"/>
                   </c:when>
-                  <c:when test="${titre == 'salarie-de-l-institution'}">
+                  <c:when test="${titre == 'salarie'}">
                     <c:set var="dataline" value="4"/>
                   </c:when>
             </c:choose>
@@ -72,7 +59,11 @@
             <div class="bloc-titre"><jcr:nodePropertyRenderer node="${currentNode}" name="titre" renderer="resourceBundle"/></div>
             <div class="bloc-contenu-rz">${texte}<br/>
             <c:forEach items="${jcr:getChildrenOfType(currentNode,'lnt:bouton')}" var="child">
-                <template:module path="${child.path}" editable="true" />
+                <c:set var="index" value="${index + 1}" scope="page"/>
+
+                <template:module path="${child.path}" editable="true">
+					     <template:param name="id" value="collapse${index}"/>
+					 </template:module>
             </c:forEach>
             <c:if test="${renderContext.editMode}">
                 <template:module path="*" nodeTypes="lnt:bouton" />

@@ -17,6 +17,7 @@
 - pageResultat (weakreference, picker[type='page'])
 - pageFichePoste (weakreference, picker[type='page'])
 - pageRechercheSimple (weakreference, picker[type='page'])
+- pageRechercheAvancee (weakreference, picker[type='page'])
 
 [lnt:blocRecherche] > jnt:content, lmix:recherche , mix:title
 
@@ -35,46 +36,44 @@
 [lnt:blocRaisons] > jnt:content, lmix:raisons , mix:title
  + * (lnt:raison)
 
+[lnt:navGaucheJP] > jnt:content
+[lnt:navGaucheJS] > jnt:content
+[lnt:navGaucheBR] > jnt:content
+
 [lnt:raison] > jnt:content, lmix:raisons
  - titre (string, choicelist[resourceBundle])  < 'contribuer', 'construire', 'acceder', 'rejoindre', 'evoluer'
- - texte (string)
+ - texte (string, richtext)
  - link (weakreference, picker[type='page']) mandatory
+ + navGaucheBR (lnt:navGaucheBR)
+
 
 [lnt:jesuis] > jnt:content, lmix:jesuis
- - titre (string, choicelist[resourceBundle])  < 'etudiant', 'experimente', 'jeune-diplome', 'salarie-de-l-institution'
+ - titre (string, choicelist[resourceBundle])  < 'etudiant', 'experimente', 'diplome', 'salarie'
  - texte (string, richtext)
  - link (weakreference, picker[type='page']) mandatory
  + *(lnt:bouton)
+ + navGaucheJS (lnt:navGaucheJS)
 
 [lnt:bouton] > jnt:content
  - titre (string)
  - texte (string, richtext)
 
 [lnt:jepostule] > jnt:content, lmix:jepostule
- - titre (string, choicelist[resourceBundle])  < 'evolution', 'parcours-daccueil', 'processus-de-recrutement', 'renumeration'
+ - titre (string, choicelist[resourceBundle])  < 'evolution', 'parcours', 'processus', 'remuneration'
  - texte (string, richtext)
  - link (weakreference, picker[type='page']) mandatory
  + *(lnt:etape)
-
+ + navGaucheJP (lnt:navGaucheJP)
+ 
 [lnt:etape] > jnt:content
  - titre (string, choicelist[resourceBundle])  < 'candidature', 'preselection', 'entretien', 'decision', 'developpement', 'mobilite', 'devenir'
  - picto (weakreference, picker[type='image'])
  - texte (string, richtext)
 
-
 [lnt:image] >  jnt:content
  - image (weakreference, picker[type='image'])
 
 [lnt:famillemetier] > jnt:content, lmix:recherche, mix:title
-[lnt:dernieresActualites] > jnt:content, lmix:actualite , mix:title
- - nombre (long) = 3 mandatory
- - pageToutesActus (weakreference, picker[type='page']) mandatory
-
-[lnt:actualitealaune] >  jnt:content, lmix:actualite
- - actu (weakreference, picker[type='page'])
-
-//[lnt:article] > jnt:content, lmix:actualite
-
  - image (weakreference, picker[type='image'])
  - texte (string, richtext)
  - link (weakreference, picker[type='page'])
@@ -97,11 +96,14 @@
 
 [lnt:metiercaroussel] > jnt:content
 
-[lnt:blocmetiers] > jnt:content
+[lnt:blocmetiers] > jnt:content, lmix:recherche
+ - pageTousLesMetiers (weakreference, picker[type='page'])
 
 [lnt:nombreOffres] > jnt:content
-
+ 
 [lnt:bandeauHeader] > jnt:content, lmix:composantslsr
+ - logoSecu (weakreference, picker[type='image']) 
+ - logoSecuMobile (weakreference, picker[type='image']) 
  - imagesHome (weakreference, picker[type='image']) multiple
  - imagesSite (weakreference, picker[type='image']) multiple
  - urlEspacePerso (weakreference, picker[type='page'])
@@ -119,13 +121,13 @@
 [lnt:toutesActus] > jnt:content, lmix:actualite , mix:title
  - nombre (long) = 6 mandatory
 
+[lnt:actualaune] >  jnt:content,smix:component
+ - actu (weakreference, picker[type='page'])
+ 
 [lnt:mieux] > jnt:content, lmix:composantslsr, mix:title
  - texte (string, richtext)
  + *(lnt:logo)
 
-
 [lnt:logo] > jnt:content, mix:title
  - imagelogo (weakreference, picker[type='image'])
  - link (string)
-[lnt:actualaune] >  jnt:content,smix:component
- - actu (weakreference, picker[type='page'])

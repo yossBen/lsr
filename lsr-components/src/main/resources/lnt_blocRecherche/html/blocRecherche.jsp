@@ -8,8 +8,15 @@
 <jsp:useBean id="lovBean" scope="page" class="fr.lsr.jahia.modules.bean.LovBean" />
 <jcr:nodeProperty node="${currentNode.resolveSite}" name="pageResultat" var="pageResultat" />
 <jcr:nodeProperty node="${currentNode.resolveSite}" name="pageRechercheSimple" var="pageRechercheSimple" />
+<jcr:nodeProperty node="${currentNode.resolveSite}" name="pageRechercheAvancee" var="pageRechercheAvancee" />
 <jcr:nodeProperty node="${currentNode}" name="jcr:title" var="title" />
 <jcr:nodeProperty node="${currentNode}" name="displayResultat" var="displayResultat" />
+
+<%-- <script type="text/javascript">
+	$(document).ready(function() {
+		$("option:selected").removeAttr("selected");
+	});
+</script> --%>
 
 <c:set var="classCol" value="${!empty classColReq  ? classColReq : 'col-lg-2'}" />
 <section class="bloc-recherche" role="search" aria-label="Que recherchez-vous ?">
@@ -19,7 +26,9 @@
 		<div class="${classCol} paddno">
 			<div class="form-group">
 				<!-- Debut listing-->
-				<label for="jobFamilySelect" id="jobFamilyLabel" class="control-label">Famille de métiers</label>
+				<label for="jobFamilySelect" id="jobFamilyLabel" class="control-label">
+					<fmt:message key="search.metier.label" />
+				</label>
 				<div>
 					<select class="selectpicker show-menu-arrow form-control" id="jobFamilySelect" aria-labelledby="jobFamilyLabel" onchange="$('#jobFamilySelectHidden').val($(this).val());" multiple>
 						<c:forEach items="${lovBean.jobFamily}" var="item">
@@ -39,7 +48,9 @@
 		<c:set var="filtersParams" value="${fn:escapeXml(param['typeOrganisme'])}"></c:set>
 		<div class="${classCol} paddno">
 			<div class="form-group">
-				<label id="typeOrganismeLabel" for="typeOrganismeSelect" class="control-label">Type d'organisme</label>
+				<label id="typeOrganismeLabel" for="typeOrganismeSelect" class="control-label">
+					<fmt:message key="search.organization.label" />
+				</label>
 				<select id="typeOrganismeSelect" class="selectpicker show-menu-arrow form-control" aria-labelledby="typeOrganismeLabel" onchange="$('#typeOrganismeSelectHidden').val($(this).val());" multiple>
 					<c:forEach items="${lovBean.typeOrganisme}" var="item">
 						<c:forEach items="${fn:split(filtersParams , ',')}" var="filter">
@@ -57,7 +68,9 @@
 		<c:set var="filtersParams" value="${fn:escapeXml(param['contractType'])}"></c:set>
 		<div class="${classCol} paddno">
 			<div class="form-group">
-				<label for="contractTypeSelect" id="contractTypeLabel" class="control-label">Type de contrat</label>
+				<label for="contractTypeSelect" id="contractTypeLabel" class="control-label">
+					<fmt:message key="search.contractType.label" />
+				</label>
 				<select id="contractTypeSelect" class="selectpicker show-menu-arrow form-control" aria-labelledby="contractTypeLabel" onchange="$('#contractTypeSelectHidden').val($(this).val());" multiple>
 					<c:forEach items="${lovBean.contractTypeExterne}" var="item">
 						<c:forEach items="${fn:split(filtersParams , ',')}" var="filter">
@@ -75,7 +88,9 @@
 		<c:set var="filtersParams" value="${fn:escapeXml(param['region'])}"></c:set>
 		<div class="${classCol} paddno">
 			<div class="form-group">
-				<label for="regionSelect" id="regionLabel" class="control-label">Région</label>
+				<label for="regionSelect" id="regionLabel" class="control-label">
+					<fmt:message key="search.region.label" />
+				</label>
 				<div>
 					<select id="regionSelect" class="selectpicker show-menu-arrow form-control" aria-labelledby="regionLabel" onchange="$('#regionSelectHidden').val($(this).val());" multiple>
 						<c:forEach items="${lovBean.region}" var="item">
@@ -96,5 +111,7 @@
 			<button type="submit" class="btn btn-primary btorange">Rechercher</button>
 		</div>
 	</form>
+	<div class="clear"></div>
+	<a href="${pageRechercheAvancee.node.url}" title="Recherche avancée" style="color: white; font-size: 20px;">Plus de critères</a>
 </section>
 <c:set var="pageRechercheSession" value="${pageRechercheSimple.node.url}" scope="session" />

@@ -16,24 +16,7 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
-<title>${fn:escapeXml(renderContext.mainResource.node.displayableName)}</title>
-
-<template:addResources type="javascript" resources="jquery.min.js" />
-<template:addResources type="javascript" resources="bootstrap.min.js" />
-<template:addResources type="javascript" resources="bootstrap-select.js" />
-<template:addResources type="javascript" resources="script.js" />
-<template:addResources type="css" resources="master.css" />
-<template:addResources type="css" resources="base-secu.css" />
-<template:addResources type="css" resources="custom.css" />
-<link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i" rel="stylesheet">
-	<c:if test="${renderContext.editMode}">
-		<template:addResources type="css" resources="edit.css" />
-	</c:if>
-	<template:addResources type="css" resources="960.css,01web.css" />
+<%@include file="../../common/common.jspf"%>
 </head>
 
 <body role="document">

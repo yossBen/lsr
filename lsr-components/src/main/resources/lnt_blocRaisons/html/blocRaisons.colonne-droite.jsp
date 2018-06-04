@@ -25,10 +25,12 @@
 <section class="bloc-raisons" role="contentinfo" aria-label="${currentNode.properties['jcr:title']}">
             <h2 class="bloc-titre">${currentNode.properties['jcr:title']}</h2>
 
-            <c:forEach items="${jcr:getChildrenOfType(currentNode,'lnt:raison')}" var="child">
+
+        <jcr:sql var="query" sql="select * from [lnt:raison] as elements order by [j:lastPublished] asc" />
+	        <c:forEach items="${query.nodes}" var="child">
                                <template:module path="${child.path}" editable="true" view="droite">
                                     <c:set var="index" value="${index + 1}" scope="page"/>
-                                    <template:param name="listSize" value="${functions:length(jcr:getChildrenOfType(currentNode,'lnt:raison'))}"/>
+                                    <template:param name="listSize" value="${query.nodes.size}"/>
                                     <template:param name="index" value="${index}"/>
                                </template:module>
             </c:forEach>

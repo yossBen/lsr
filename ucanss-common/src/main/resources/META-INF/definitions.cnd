@@ -8,7 +8,7 @@
 [snt:footer] > jnt:content , smix:component
  - logoucanss (weakreference, picker[type='image']) mandatory
  - logoseculavieenplus (weakreference, picker[type='image']) mandatory
- - texte (string) mandatory
+ - texte (string, richtext)
  + * (snt:link)
  + share (snt:share)
 

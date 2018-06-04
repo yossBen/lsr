@@ -16,14 +16,15 @@
 <c:set var="contractTypes" value="${!empty param['contractType'] ? fn:split(fn:escapeXml(param['contractType']),',') : null}" />
 <c:set var="classifications" value="${!empty param['classification'] ? fn:split(fn:escapeXml(param['classification']),',') : null}" />
 <c:set var="regimes" value="${!empty param['regime'] ? fn:split(fn:escapeXml(param['regime']),',') : null}" />
-<c:set var="regions" value="${!empty param['region'] ? fn:split(fn:escapeXml(param['region']),',') : null}" />
+<c:set var="regions" value="${!empty param['region'] ? fn:split(fn:escapeXml(param['region']),'[,]') : null}" />
+<c:set var="oldRegions" value="${!empty param['region'] ? fn:split(fn:escapeXml(param['region']),'[-,]') : null}" />
 <c:set var="keywords" value="${fn:escapeXml(param['keywords'])}" />
 <%--calculer l'offset--%>
 <c:set var="pageSize" value="10" />
 <lsr:offsetPagination pageSize="${pageSize}" />
-<c:set var="searchResult" value="${lsr:getAdvertisements(jobFamilys,typeOrganismes,contractTypes,regions,classifications,regimes, paginationMap.begin , pageSize)}" />
+<c:set var="searchResult" value="${lsr:getAdvertisements(keywords,jobFamilys,typeOrganismes,contractTypes,oldRegions,classifications,regimes, paginationMap.begin , pageSize)}" />
 
-<c:set var="JOB_FAMILY"><%=fr.lsr.jahia.modules.utils.Lov.JOB_FAMILY%></c:set>
+<c:set var="JOB_FAMILY_EXTERNE"><%=fr.lsr.jahia.modules.utils.Lov.JOB_FAMILY_EXTERNE%></c:set>
 <c:set var="REGIME"><%=fr.lsr.jahia.modules.utils.Lov.REGIME%></c:set>
 <c:set var="TYPE_ORGANISME"><%=fr.lsr.jahia.modules.utils.Lov.TYPE_ORGANISME%></c:set>
 <c:set var="CLASSIFICATION"><%=fr.lsr.jahia.modules.utils.Lov.CLASSIFICATION%></c:set>
@@ -34,44 +35,73 @@
 		<h1>Résultats de recherche</h1>
 	</div>
 	<div class="table-wrap">
-		<c:if test="${!empty regimes or !empty typeOrganismes or !empty contractTypes or !empty regions or !empty keywords}">
+		<c:if test="${!empty jobFamilys or  !empty regimes or !empty typeOrganismes or !empty contractTypes or !empty regions or !empty keywords}">
 			<div class="criteres">
 				<h3>Critères de recherche</h3>
 				<c:set var="criterias">
 					<ul>
 						<c:if test="${!empty regimes}">
 							<li>
-								<b>Régime :</b>
+								<b>
+									<fmt:message key="search.regime.label" />
+									:
+								</b>
 								${fn:join(lsr:getLovById(REGIME,regimes), ', ')}
 							</li>
 						</c:if>
 						<c:if test="${!empty typeOrganismes}">
 							<li>
-								<b>Organisme :</b>
+								<b>
+									<fmt:message key="search.organization.label" />
+									:
+								</b>
 								${fn:join(lsr:getLovById(TYPE_ORGANISME,typeOrganismes), ', ')}
 							</li>
 						</c:if>
+						<c:if test="${!empty jobFamilys}">
+							<li>
+								<b>
+									<fmt:message key="search.metier.label" />
+									:
+								</b>
+								${fn:join(lsr:getLovById(JOB_FAMILY_EXTERNE,jobFamilys), ', ')}
+							</li>
+						</c:if>
+
+
 						<c:if test="${!empty contractTypes}">
 							<li>
-								<b>Type de contrat :</b>
+								<b>
+									<fmt:message key="search.contractType.label" />
+									:
+								</b>
 								${fn:join(lsr:getLovById(CONTRACT_TYPE,contractTypes), ', ')}
 							</li>
 						</c:if>
 						<c:if test="${!empty classifications}">
 							<li>
-								<b>Grille de classification :</b>
+								<b>
+									<fmt:message key="search.classification.label" />
+									:
+								</b>
 								${fn:join(lsr:getLovById(CLASSIFICATION,classifications), ', ')}
 							</li>
 						</c:if>
 						<c:if test="${!empty regions}">
 							<li>
-								<b>Région :</b>
+								<b>
+									<fmt:message key="search.region.label" />
+									:
+								</b>
 								${fn:join(lsr:getRegionsByIds(regions), ', ')}
 							</li>
 						</c:if>
 						<c:if test="${!empty keywords}">
 							<li>
-								<b>Mots clés :</b>
+								<b>
+									<fmt:message key="search.keyword.label" />
+									:
+								</b>
 								${keywords}
 							</li>
 						</c:if>
@@ -124,7 +154,7 @@
 					<c:forEach items="${searchResult.value}" var="adv">
 						<tr>
 							<td>
-								<a href="${pageFichePoste.node.url}?posteId=${adv.id}" role="link" aria-label="${adv.title}">${adv.title}</a>
+								<a href="${pageFichePoste.node.url}?posteId=${adv.id}" role="link" title="${adv.title}" aria-label="${adv.title}">${adv.title}</a>
 							</td>
 							<td>${adv.city}</td>
 							<td>${adv.organisme}</td>
@@ -172,7 +202,7 @@
 				</div>
 				<div class="modal-body">
 					<div class="criteres">
-						<h3>critères de recherche :</h3>
+						<h3>Critères de recherche :</h3>
 						<c:choose>
 							<c:when test="${!empty criterias}">
 								<ul>${criterias}
@@ -188,7 +218,7 @@
 						<input type="text" style="width: 100%; height: 30px;" placeholder="Entrez votre email" name="email">
 					</div>
 					<div>
-						<label class="titre" for="vDeliveryFrequency">Recevoir les offres:</label>
+						<label class="titre" for="vDeliveryFrequency">Recevoir les offres :</label>
 						<label class="iptlabel">
 							<input type="radio" name="frequency" value="ONCE_A_DAY" id="vDeliveryFrequency1">
 							Une fois par jour
@@ -199,7 +229,7 @@
 						</label>
 					</div>
 					<div>
-						<label class="titre" for="expiration">Validité de l'agent de recherche:</label>
+						<label class="titre" for="expiration">Validité de l'agent de recherche :</label>
 						<label class="iptlabel">
 							<input type="radio" name="expiration" value="15" id="expiration15">
 							2 semaines

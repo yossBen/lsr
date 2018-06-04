@@ -21,10 +21,10 @@ import fr.lsr.jahia.modules.utils.Regions;
 public class LsrTagUtils {
 	private static Logger LOGGER = Logger.getLogger(LsrTagUtils.class);
 
-	public static Pair<Integer, List<Advertisement>> getAdvertisements(String[] jobFamilys, String[] typeOrganismes, String[] contractTypes, String[] regions, String[] classifications,
+	public static Pair<Integer, List<Advertisement>> getAdvertisements(String keywords , String[] jobFamilys, String[] typeOrganismes, String[] contractTypes, String[] regions, String[] classifications,
 			String[] regimes, int firstResult, int maxResults) {
 		try {
-			return FoAdvertServiceImpl.getInstance().getAdvertisements(null, LsrUtils.valueOf(jobFamilys), LsrUtils.valueOf(typeOrganismes), LsrUtils.valueOf(contractTypes), LsrUtils.valueOf(regions),
+			return FoAdvertServiceImpl.getInstance().getAdvertisements(keywords, LsrUtils.valueOf(jobFamilys), LsrUtils.valueOf(typeOrganismes), LsrUtils.valueOf(contractTypes), LsrUtils.valueOf(regions),
 					LsrUtils.valueOf(classifications), LsrUtils.valueOf(regimes), firstResult, maxResults);
 		} catch (Exception e) {
 			LOGGER.error(e.getMessage(), e);

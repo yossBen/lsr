@@ -76,32 +76,30 @@
 			</c:forEach>
 		</c:if>
 
-		<c:set var="hasChildren" value="${navMenuLevel < maxDepth.long && jcr:hasChildrenOfType(menuItem,'jnt:page,jnt:nodeLink,jnt:externalLink')}" />
-		<c:choose>
-			<c:when test="${startLevelValue < navMenuLevel}">
-				<c:if test="${(startLevelValue < navMenuLevel or inpath) and correctType}">
-					<li class="dropdown">
-						<%--if level, path and type matches, display menu and its children--%>
-						<c:choose>
-							<c:when test="${navMenuLevel == 1}">
-								<a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">${ menuItem.properties['jcr:title'].string}</a>
-							</c:when>
-							<c:otherwise>
-								<a href="${menuItem.url}">${ menuItem.properties['jcr:title'].string}</a>
-							</c:otherwise>
-						</c:choose>
+		<c:if test="${startLevelValue < navMenuLevel}">
+			<c:if test="${(startLevelValue < navMenuLevel or inpath) and correctType}">
+				<c:set var="hasChildren" value="${navMenuLevel < maxDepth.long and !empty jcr:getChildrenOfType(menuItem,'jmix:navMenu')}" />
+				<li class="dropdown ${fn:startsWith(currentPage.path, menuItem.path) ? 'active' : ''}">
+					<%--if level, path and type matches, display menu and its children--%>
+					<c:choose>
+						<c:when test="${hasChildren}">
+							<a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">${ menuItem.properties['jcr:title'].string}</a>
+						</c:when>
+						<c:otherwise>
+							<a href="${menuItem.url}">${ menuItem.properties['jcr:title'].string}</a>
+						</c:otherwise>
+					</c:choose>
 
-						<c:if test="${hasChildren}">
-							<template:include view="hidden.lsr-simple">
-								<template:param name="base" value="${menuItem.identifier}" />
-								<template:param name="class" value="dropdown-menu" />
-								<template:param name="navMenuLevel" value="${navMenuLevel + 1}" />
-								<template:param name="omitFormatting" value="true" />
-							</template:include>
-						</c:if>
-					</li>
-				</c:if>
-			</c:when>
-		</c:choose>
+					<c:if test="${hasChildren}">
+						<template:include view="hidden.lsr-simple">
+							<template:param name="base" value="${menuItem.identifier}" />
+							<template:param name="class" value="dropdown-menu" />
+							<template:param name="navMenuLevel" value="${navMenuLevel + 1}" />
+							<template:param name="omitFormatting" value="true" />
+						</template:include>
+					</c:if>
+				</li>
+			</c:if>
+		</c:if>
 	</c:forEach>
 </ul>

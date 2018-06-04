@@ -2,6 +2,8 @@
 
 <c:set var="currentPage" value="${renderContext.mainResource.node}" />
 <c:set var="homeUrl" value="${renderContext.site.home.url}" />
+<jcr:nodeProperty node="${currentNode}" name="logoSecu" var="logoSecu" />
+<jcr:nodeProperty node="${currentNode}" name="logoSecuMobile" var="logoSecuMobile" />
 <jcr:nodeProperty node="${currentNode}" name="imagesHome" var="imagesHome" />
 <jcr:nodeProperty node="${currentNode}" name="imagesSite" var="imagesSite" />
 <jcr:nodeProperty node="${currentPage}" name="jcr:title" var="pageTitle" />
@@ -10,7 +12,7 @@
 
 <div class="logomobile">
 	<a href="${homeUrl}">
-		<img src="/modules/lsr-template/images/logos/logo-secu-mobile.svg" class="logosecumobile" alt="Logo LaSecuRecrute Mobile">
+		<img src="${logoSecuMobile.node.url}" class="logosecumobile" alt="Logo LaSecuRecrute Mobile">
 	</a>
 	<div id="btmobil" class="btmobile"></div>
 </div>
@@ -21,7 +23,7 @@
 		<div class="bloc-gauche"></div>
 		<div class="bloc-droit">
 			<a href="${homeUrl}">
-				<img src="/modules/lsr-template/images/logos/logo-secu.svg" class="logosecu" alt="Logo LaSecuRecrute Desktop">
+				<img src="${logoSecu.node.url}" class="logosecu" alt="Logo LaSecuRecrute Desktop">
 			</a>
 			<template:module path="nombreOffres" />
 		</div>
@@ -36,7 +38,7 @@
 		<div class="${displayBlocCss ? 'bloc' : ''}">
 			<div class="bloc-gauche"></div>
 			<div class="bloc-droit">
-				<img src="/modules/lsr-template/images/logos/logo-secu.svg" class="logosecu" alt="Logo LaSecuRecrute Desktop">
+				<img src="${logoSecu.node.url}" class="logosecu" alt="Logo LaSecuRecrute Desktop">
 			</div>
 		</div>
 	</a>

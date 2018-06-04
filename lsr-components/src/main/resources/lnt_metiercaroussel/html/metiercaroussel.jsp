@@ -23,26 +23,30 @@
 <c:url value="${image.node.url}" var="imageUrl"></c:url>
 
 <div class="metier-carousel">
+
 	<a href="" class="fleche gauche"
-		title="Les métiers de l'organisation, des études"
+		title="${titre}"
 		data-toggle="tooltip" data-placement="top" role="link"
-		aria-label="Les métiers de l'organisation, des études">
+		aria-label="${titre}">
 	</a> 
+	
 	<span>
 		${titre}
 	</span>
 	<div class="image" style="background-image: url('${imageUrl}');">
 	</div>
-	<a href="" class="fleche droite" title="Les métiers de la santé"
+	
+	<a href="" class="fleche droite" title="${titre}"
 		data-toggle="tooltip" data-placement="top" role="link"
-		aria-label="Les métiers de la santé">
+		aria-label="${titre}">
 	</a>
+	
 	<div class="bubble">
 		<ul>
 			<jcr:sql var="query" sql="select * from [lnt:famillemetier] " />
 
-			<c:forEach items="${query.nodes}" var="node">				
-				<c:choose>
+			<c:forEach items="${query.nodes}" var="node">		
+				<c:choose>	
 					<c:when test="${node == currentNode.parent}">
 						<li class="active"><a href="${node.properties['link'].node.url}"
 							title="${node.properties['jcr:title'].string}"

@@ -16,9 +16,7 @@ public class LovBean {
 	}
 
 	public List<LovDescendantDto> getJobFamily() {
-		List<LovDescendantDto> lovs = LovServiceImpl.getInstance().getLovs(Lov.JOB_FAMILY_EXTERNE);
-		lovs.addAll(LovServiceImpl.getInstance().getLovs(Lov.JOB_FAMILY));
-		return lovs;
+		return LovServiceImpl.getInstance().getLovs(Lov.JOB_FAMILY_EXTERNE);
 	}
 
 	public List<LovDescendantDto> getContractType() {

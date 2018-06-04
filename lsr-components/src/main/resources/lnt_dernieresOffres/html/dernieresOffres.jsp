@@ -23,18 +23,19 @@
 </c:forEach>
 
 <c:set var="number" value="${!empty number ? number.long : 4}" />
-<c:set var="searchResult" value="${lsr:getLastAdvertisements(fn:split(jobsFamilyList,','),fn:split(contractTypesList,','),number)}" />
-
 <section class="bloc-offres" role="contentinfo" aria-label="Consultez les dernières offres">
 	<h2 class="bloc-titre">${title.string}</h2>
-	<c:forEach items="${searchResult}" var="adv">
-		<div class="offre col-lg-12">
-			<div class="recruteur">${adv.organisme}</div>
-			<div class="titreoffre">
-				<a href="${pageFichePoste.node.url}?posteId=${adv.id}" role="link" aria-label="${adv.title}">${adv.title}</a>
+	<c:if test="${!renderContext.editMode}">
+		<c:set var="searchResult" value="${lsr:getLastAdvertisements(fn:split(jobsFamilyList,','),fn:split(contractTypesList,','),number)}" />
+		<c:forEach items="${searchResult}" var="adv">
+			<div class="offre col-lg-12">
+				<div class="recruteur">${adv.organisme}</div>
+				<div class="titreoffre">
+					<a href="${pageFichePoste.node.url}?posteId=${adv.id}" role="link" aria-label="${adv.title}">${adv.title}</a>
+				</div>
 			</div>
-		</div>
-	</c:forEach>
+		</c:forEach>
+	</c:if>
 	<div class="col-lg-12 touteslesoffres">
 		<a href="${pageResultat.node.url}" class="btoffres" role="link" aria-label="Voir toutes les offres">Voir toutes les offres</a>
 	</div>

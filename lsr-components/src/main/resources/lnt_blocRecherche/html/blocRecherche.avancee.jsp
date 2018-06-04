@@ -142,12 +142,9 @@
 				<input class="form-control" id="keywordsSelect" type="text" value="${fn:escapeXml(param['keywords'])}" aria-labelledby="keywordsLabel" name="keywords">
 			</div>
 			<div class="clearfix"></div>
-			<div class="row ">
-				<div class="col-lg-6 col-lg-offset-6">
-					<div class="col-lg-6 nopadd">
-						<button type="button" class="bt" onclick="createAlertEmail();">Créer une alerte mail</button>
-					</div>
-					<div class="col-lg-6 nopadd">
+			<div class="row btrecherche ">
+				<div class="col-lg-6 col-lg-offset-6 col-md-12">
+					<div class="col-lg-6 col-sm-6 col-xs-12 nopadd">
 						<button type="submit" role="button" class="bt">Rechercher</button>
 					</div>
 				</div>

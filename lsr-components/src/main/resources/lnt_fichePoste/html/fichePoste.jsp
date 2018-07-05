@@ -43,7 +43,23 @@
 											<fmt:message key="offer.publish.date.label" />
 										</td>
 										<td class="reponse">
+											<fmt:formatDate value="${offer.postingStartDate}" pattern="dd/MM/yyyy" />
+										</td>
+									</tr>
+									<tr>
+										<td class="titre">
+											<fmt:message key="offer.end.posting.date.label" />
+										</td>
+										<td class="reponse">
 											<fmt:formatDate value="${offer.postingEndDate}" pattern="dd/MM/yyyy" />
+										</td>
+									</tr>
+									<tr>
+										<td class="titre">
+											<fmt:message key="offer.number.label" />
+										</td>
+										<td class="reponse">
+											${offer.jobNumber}
 										</td>
 									</tr>
 									<c:if test="${!empty offer.compensation}">

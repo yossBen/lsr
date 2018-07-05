@@ -14,15 +14,21 @@
 <jcr:nodeProperty node="${currentNode}" name="nombre" var="number" />
 <jcr:nodeProperty node="${currentNode}" name="typesContrat" var="contractTypes" />
 <jcr:nodeProperty node="${currentNode}" name="metiers" var="jobsFamily" />
+<jcr:nodeProperty node="${currentNode}" name="metierSpec" var="jobs" />
 
 <c:forEach items="${contractTypes}" var="item" varStatus="loop">
 	<c:set var="contractTypesList" value="${contractTypesList}${!loop.first ? ',' : ''}${item.string}" />
 </c:forEach>
-<c:forEach items="${jobsFamily}" var="item" varStatus="loop">
-	<c:set var="jobsFamilyList" value="${jobsFamilyList}${!loop.first ? ',' : ''}${item.string}" />
+
+<c:set var="countJobs" value="0" />
+<c:forEach items="${jobsFamily}" var="item">
+	<c:set var="jobsFamilyList" value="${jobsFamilyList}${countJobs gt 0 ? ',' : ''}${item.string}" />
+</c:forEach>
+<c:forEach items="${jobs}" var="item">
+	<c:set var="jobsFamilyList" value="${jobsFamilyList}${countJobs gt 0 ? ',' : ''}${item.string}" />
 </c:forEach>
 
-<c:set var="number" value="${!empty number ? number.long : 4}" />
+<c:set var="number" value="${!empty number ? number.long : 3}" />
 <section class="bloc-offres" role="contentinfo" aria-label="Consultez les dernières offres">
 	<h2 class="bloc-titre">${title.string}</h2>
 	<c:if test="${!renderContext.editMode}">

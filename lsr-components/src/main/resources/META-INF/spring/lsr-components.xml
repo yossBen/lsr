@@ -26,6 +26,10 @@
 	<bean class="fr.lsr.jahia.modules.initializers.ChoiceListJobFamilyInitializers">
 		<property name="key" value="choiceListJobFamily" />
 	</bean>
+	<bean class="fr.lsr.jahia.modules.initializers.ChoiceListJobsInitializers">
+		<property name="key" value="choiceListJobs" />
+	</bean>
+
 
 	<bean class="fr.lsr.jahia.modules.action.CreateAlerteAction">
 		<property name="name" value="createAlerteAction" />

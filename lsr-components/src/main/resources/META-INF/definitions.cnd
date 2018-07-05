@@ -30,6 +30,7 @@
 - nombre (long) = 2 mandatory
 - typesContrat (string, choicelist[choiceListContractType]) multiple
 - metiers (string, choicelist[choiceListJobFamily]) multiple
+- metierSpec (string, choicelist[choiceListJobs]) multiple
 
 [lnt:fichePoste] > jnt:content, lmix:recherche
 

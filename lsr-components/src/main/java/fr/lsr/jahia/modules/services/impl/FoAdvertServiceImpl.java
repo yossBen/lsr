@@ -167,6 +167,8 @@ public class FoAdvertServiceImpl implements FoAdvertService {
 		private String organisme;
 		private String niveau;
 		private Date postingEndDate;
+		private Date postingStartDate;
+		private String jobNumber;
 		private String currency;
 		private String compensationPeriod;
 		private String compensation;
@@ -179,10 +181,13 @@ public class FoAdvertServiceImpl implements FoAdvertService {
 				this.title = advertisementDto.getJobTitle();
 				this.id = advertisementDto.getId();
 				this.city = advertisementDto.getLocation();
-				if (advertisementDto.getPostingStartDate() != null) {
-					this.postingEndDate = advertisementDto.getPostingStartDate().toGregorianCalendar().getTime();
+				if (advertisementDto.getPostingEndDate() != null) {
+					this.postingEndDate = advertisementDto.getPostingEndDate().toGregorianCalendar().getTime();
 				}
-
+				if (advertisementDto.getPostingStartDate() != null) {
+					this.postingStartDate = advertisementDto.getPostingStartDate().toGregorianCalendar().getTime();
+				}
+				jobNumber = advertisementDto.getJobNumber();
 				List<LovCriterion> list = new ArrayList<>();
 				if (advertisementDto.getCustomLovs() != null) {
 					list.addAll(advertisementDto.getCustomLovs().getCustomLov());
@@ -278,6 +283,14 @@ public class FoAdvertServiceImpl implements FoAdvertService {
 
 		public String getCompensation() {
 			return compensation;
+		}
+
+		public Date getPostingStartDate() {
+			return postingStartDate;
+		}
+
+		public String getJobNumber() {
+			return jobNumber;
 		}
 
 		public List<CustomField> getCustomFields() {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
     <modules jcr:primaryType="jnt:modules">
-        <lsr-template j:dependencies="default lsr-components ucanss-common"
+        <lsr-template j:dependencies="default lsr-components sitemap ucanss-common"
                     j:installedModules="lsr-template"
                     j:modulePriority="0"
                     j:moduleType="templatesSet"
@@ -36,6 +36,19 @@
                                 <BONNES_x0020_RAISONS jcr:primaryType="jnt:area"/>
                                 <ACTUALITES jcr:primaryType="jnt:area"/>
                             </pagecontent>
+                            <menu jcr:primaryType="jnt:contentList">
+                                <Menu_x0020_LSR j:maxDepth="2"
+                                     j:menuItemView="menuElement"
+                                     j:startLevel="0"
+                                     j:view="lsr"
+                                     jcr:mixinTypes="jmix:renderable"
+                                     jcr:primaryType="jnt:navMenu">
+                                    <j:translation_fr jcr:language="fr"
+                                          jcr:mixinTypes="mix:title"
+                                          jcr:primaryType="jnt:translation"
+                                          jcr:title="Menu LSR"/>
+                                </Menu_x0020_LSR>
+                            </menu>
                         </home>
                         <header jcr:primaryType="jnt:contentList">
                             <header j:allowedTypes="lnt:bandeauHeader"
@@ -70,6 +83,20 @@
                                     jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
                                     jcr:title="Page fiche de poste"/>
+                            <pagecontent jcr:primaryType="jnt:contentList">
+                                <FichePoste j:allowedTypes="lnt:fichePoste"
+                                 j:level="3"
+                                 j:limitedAbsoluteAreaEdit="false"
+                                 j:numberOfItems="1"
+                                 jcr:primaryType="jnt:absoluteArea"/>
+                            </pagecontent>
+                            <droite jcr:primaryType="jnt:contentList">
+                                <Savoir_x0020_plus j:allowedTypes="lnt:savoirplus" jcr:primaryType="jnt:area"/>
+                                <Colonne_x0020_droite j:allowedTypes="lnt:blocRaisons lnt:dernieresActus"
+                                           j:level="3"
+                                           j:limitedAbsoluteAreaEdit="false"
+                                           jcr:primaryType="jnt:absoluteArea"/>
+                            </droite>
                         </page-fiche-de-poste>
                         <page-5-raisons j:hiddenTemplate="false"
                                j:view="raison"
@@ -102,23 +129,6 @@
                                  j:numberOfItems="1"
                                  jcr:primaryType="jnt:absoluteArea"/>
                         </file-d-ariane>
-                        <menu jcr:primaryType="jnt:contentList">
-                            <menu j:allowedTypes="jnt:navMenu"
-                        j:numberOfItems="1"
-                        jcr:primaryType="jnt:area">
-                                <area954382 jcr:primaryType="jnt:contentList"/>
-                                <menu jcr:primaryType="jnt:contentList">
-                                    <Menu_x0020_LSR j:maxDepth="2"
-                                        j:menuItemView="menuElement"
-                                        j:startLevel="0"
-                                        jcr:primaryType="jnt:navMenu">
-                                        <j:translation_fr jcr:language="fr"
-                                             jcr:primaryType="jnt:translation"
-                                             jcr:title="Menu SLR"/>
-                                    </Menu_x0020_LSR>
-                                </menu>
-                            </menu>
-                        </menu>
                         <page-toutes-les-actualites j:hiddenTemplate="false"
                                            j:view="actualites"
                                            jcr:primaryType="jnt:pageTemplate">
@@ -181,6 +191,22 @@
                                     jcr:primaryType="jnt:translation"
                                     jcr:title="Page mieux connaitre la sécu"/>
                         </page-mieux-connaitre-la-secu>
+                        <page-plan-du-site j:hiddenTemplate="false"
+                                  j:view="plansite"
+                                  jcr:primaryType="jnt:pageTemplate">
+                            <j:translation_fr jcr:language="fr"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Page plan du site"/>
+                        </page-plan-du-site>
+                        <page-supervision j:hiddenTemplate="false"
+                                 j:view="supervision"
+                                 jcr:primaryType="jnt:pageTemplate">
+                            <j:translation_fr jcr:language="fr"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Page supervision"/>
+                        </page-supervision>
                     </base>
                 </templates>
                 

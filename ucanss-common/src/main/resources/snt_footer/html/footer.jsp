@@ -26,14 +26,14 @@
 <div class="container blocfooter">
         <div class="logolink">
           <div class="bloclogo">
-            <a href="https://www.securite-sociale.fr" role="link" alt="">
+            <a href="http://www.securite-sociale.fr" role="link" alt="" onclick="window.open(this.href); return false;">
             <c:if test="${!empty logoseculavieenplus && !empty logoseculavieenplus.node}">
                 <img width="100" src="${logoseculavieenplus.node.url}" alt="${logoseculavieenplus.node.displayableName}">
             </c:if>
             </a>
           </div>
           <div class="bloclogo">
-            <a href="http://extranet.ucanss.fr" role="link" alt="">
+            <a href="http://extranet.ucanss.fr" role="link" alt="" onclick="window.open(this.href); return false;">
              <c:if test="${!empty logoucanss && !empty logoucanss.node}">
                 <img src="${logoucanss.node.url}" alt="${logoucanss.node.displayableName}" >
              </c:if>

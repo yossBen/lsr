@@ -1,14 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <content xmlns:j="http://www.jahia.org/jahia/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0">
     <modules jcr:primaryType="jnt:modules">
-        <lsr-template j:dependencies="default lsr-components ucanss-common"
+        <lsr-template j:dependencies="default lsr-components sitemap ucanss-common"
                     j:installedModules="lsr-template"
                     j:modulePriority="0"
                     j:moduleType="templatesSet"
                     j:title="Template Jahia Ucanss"
                     jcr:mixinTypes="jmix:hasExternalProviderExtension"
                     jcr:primaryType="jnt:module">
-                
+            <sources jcr:mixinTypes="jmix:hasExternalProviderExtension jmix:sourceControl"
+                     jcr:primaryType="jnt:moduleVersionFolder"
+                     j:staticMountPointProviderKey="module-lsr-template-staging">
+                <src jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
+                    <main jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
+                        <resources jcr:mixinTypes="jmix:sourceControl" jcr:primaryType="jnt:folder">
+                            <jnt_template jcr:primaryType="jnt:nodeTypeFolder">
+                                <html jcr:primaryType="jnt:templateTypeFolder">
+                                    <template.plansite.jsp jcr:primaryType="jnt:viewFile"/>
+                                </html>
+                            </jnt_template>
+                        </resources>
+                    </main>
+                </src>
+            </sources>
                 <portlets jcr:primaryType="jnt:portletFolder"/>
                 <files jcr:primaryType="jnt:folder"/>
                 <contents jcr:primaryType="jnt:contentFolder"/>
@@ -95,6 +109,22 @@
                                 <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
                                      jcr:primaryType="jnt:contentReference"/>
                             </menu>
+                            <pagecontent jcr:primaryType="jnt:contentList">
+                                <FichePoste j:allowedTypes="lnt:fichePoste"
+                                 j:level="3"
+                                 j:limitedAbsoluteAreaEdit="false"
+                                 j:numberOfItems="1"
+                                 jcr:primaryType="jnt:absoluteArea"/>
+                            </pagecontent>
+                            <droite jcr:primaryType="jnt:contentList">
+                                <Savoir_plus j:allowedTypes="lnt:savoirplus"
+                                             j:numberOfItems="1"
+                                             jcr:primaryType="jnt:area"/>
+                                <Colonne_x0020_droite j:allowedTypes="lnt:blocRaisons lnt:dernieresActus"
+                                           j:level="3"
+                                           j:limitedAbsoluteAreaEdit="false"
+                                           jcr:primaryType="jnt:absoluteArea"/>
+                            </droite>
                         </page-fiche-de-poste>
                         <page-5-raisons j:hiddenTemplate="false"
                                j:view="raison"
@@ -217,6 +247,26 @@
                                      jcr:primaryType="jnt:contentReference"/>
                             </menu>
                         </page-mieux-connaitre-la-secu>
+                        <page-plan-du-site j:hiddenTemplate="false"
+                                  j:view="plansite"
+                                  jcr:primaryType="jnt:pageTemplate">
+                            <j:translation_fr jcr:language="fr"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Page plan du site"/>
+                            <menu jcr:primaryType="jnt:contentList">
+                                <Menu_x0020_LSR j:node="/modules/lsr-template/templates/base/home/menu/Menu_x0020_LSR"
+                                     jcr:primaryType="jnt:contentReference"/>
+                            </menu>
+                        </page-plan-du-site>
+                        <page-supervision j:hiddenTemplate="false"
+                                 j:view="supervision"
+                                 jcr:primaryType="jnt:pageTemplate">
+                            <j:translation_fr jcr:language="fr"
+                                    jcr:mixinTypes="mix:title"
+                                    jcr:primaryType="jnt:translation"
+                                    jcr:title="Page supervision"/>
+                        </page-supervision>
                     </base>
                 </templates>
                 

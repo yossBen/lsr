@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html;charset=UTF-8" %>
+<%@ page language="java" contentType="application/json;charset=UTF-8" %>
 <%@ taglib prefix="template" uri="http://www.jahia.org/tags/templateLib" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
@@ -17,10 +17,9 @@
 <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
-
-<jcr:nodeProperty var="texte"  node="${currentNode}" name="texte"/>
-<jcr:nodeProperty var="link"  node="${currentNode}" name="link"/>
-
-<c:url var="linkURL" value="${link.node.url}"/>
-
- <li><a href="${linkURL}">${texte.string}</a></li>
+<%
+String json = "{ \"lsr\": \"@@version@@\"}";
+response.getWriter().write(json);
+response.getWriter().flush();
+response.getWriter().close();
+%>

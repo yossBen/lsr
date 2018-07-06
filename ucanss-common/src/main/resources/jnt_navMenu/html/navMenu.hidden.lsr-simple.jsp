@@ -83,10 +83,15 @@
 					<%--if level, path and type matches, display menu and its children--%>
 					<c:choose>
 						<c:when test="${hasChildren}">
-							<a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">${ menuItem.properties['jcr:title'].string}</a>
+							    <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">${ menuItem.properties['jcr:title'].string}</a>
 						</c:when>
 						<c:otherwise>
-							<a href="${menuItem.url}">${ menuItem.properties['jcr:title'].string}</a>
+                            <c:if test="${jcr:isNodeType(menuItem,'jnt:nodeLink')}">
+						        <a href="${urlBase}${menuItem.properties['j:node'].node.url}" >${ menuItem.properties['jcr:title'].string}</a>
+						    </c:if>
+						    <c:if test="${!jcr:isNodeType(menuItem,'jnt:nodeLink')}">
+							    <a href="${menuItem.url}">${ menuItem.properties['jcr:title'].string}</a>
+						    </c:if>
 						</c:otherwise>
 					</c:choose>
 

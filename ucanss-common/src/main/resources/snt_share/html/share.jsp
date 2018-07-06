@@ -15,31 +15,29 @@
 
 <template:include view="hidden.header" />
 <div class="blocshare">
-	<div class="share">
-		<ul>
+          <ul class="share">
 			<li>
-				<a id="facebook" href="${facebookShareUrl}" title="<fmt:message key="facebook"/>" rel="nofollow" target="_blank">
+				<a id="facebook" href="${facebookShareUrl}" title="facebook" rel="nofollow" target="_blank">
 					<i class="fa fa-facebook"></i>
 				</a>
 			</li>
 
 			<li>
-				<a id="twitter" href="${twitterShareUrl}" title="<fmt:message key="twitter"/>" rel="nofollow" target="_blank">
+				<a id="twitter" href="${twitterShareUrl}" title="twitter" rel="nofollow" target="_blank">
 					<i class="fa fa-twitter"></i>
 				</a>
 			</li>
 
 			<li>
-				<a id="linkedin" href="${linkedinShareUrl}" title="<fmt:message key="linkedin"/>" rel="nofollow" target="_blank">
+				<a id="linkedin" href="${linkedinShareUrl}" title="linkedin" rel="nofollow" target="_blank">
 					<i class="fa fa-linkedin"></i>
 				</a>
 			</li>
 
 			<li>
-				<a id="viadeo" href="${viadeoShareUrl}" title="<fmt:message key="viadeo"/>" rel="nofollow" target="_blank">
+				<a id="viadeo" href="${viadeoShareUrl}" title="viadeo" rel="nofollow" target="_blank">
 					<i class="fa fa-viadeo"></i>
 				</a>
 			</li>
 		</ul>
 	</div>
-</div>

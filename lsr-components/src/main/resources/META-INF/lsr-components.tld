@@ -103,4 +103,14 @@
 		<function-class>fr.lsr.jahia.modules.tags.LsrTagUtils</function-class>
 		<function-signature>java.lang.Integer countAdvertisements()</function-signature>
 	</function>
+	<function>
+		<name>getRandomNodes</name>
+		<function-class>fr.lsr.jahia.modules.tags.LsrTagUtils</function-class>
+		<function-signature>java.util.List getRandomNodes(org.jahia.services.content.JCRNodeWrapper,java.lang.String,int)</function-signature>
+	</function>	
+	<function>
+		<name>getLinksCarousel</name>
+		<function-class>fr.lsr.jahia.modules.tags.LsrTagUtils</function-class>
+		<function-signature>fr.lsr.jahia.modules.utils.Pair getLinksCarousel(org.jahia.services.content.JCRNodeWrapper)</function-signature>
+	</function>	
 </taglib>

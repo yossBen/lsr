@@ -37,15 +37,13 @@
 [lnt:blocRaisons] > jnt:content, lmix:raisons , mix:title
  + * (lnt:raison)
 
-[lnt:navGaucheJP] > jnt:content
-[lnt:navGaucheJS] > jnt:content
-[lnt:navGaucheBR] > jnt:content
+[lnt:navGauche] > jnt:content, jmix:editorialContent
 
 [lnt:raison] > jnt:content, lmix:raisons
  - titre (string, choicelist[resourceBundle])  < 'contribuer', 'construire', 'acceder', 'rejoindre', 'evoluer'
  - texte (string, richtext)
  - link (weakreference, picker[type='page']) mandatory
- + navGaucheBR (lnt:navGaucheBR)
+ + navGauche (lnt:navGauche)
 
 
 [lnt:jesuis] > jnt:content, lmix:jesuis
@@ -53,9 +51,9 @@
  - texte (string, richtext)
  - link (weakreference, picker[type='page']) mandatory
  + *(lnt:bouton)
- + navGaucheJS (lnt:navGaucheJS)
+ + navGauche (lnt:navGauche)
 
-[lnt:bouton] > jnt:content
+[lnt:bouton] > jnt:content, jmix:editorialContent
  - titre (string)
  - texte (string, richtext)
 
@@ -64,17 +62,17 @@
  - texte (string, richtext)
  - link (weakreference, picker[type='page']) mandatory
  + *(lnt:etape)
- + navGaucheJP (lnt:navGaucheJP)
+ + navGauche (lnt:navGauche)
  
-[lnt:etape] > jnt:content
+[lnt:etape] > jnt:content, jmix:editorialContent
  - titre (string, choicelist[resourceBundle])  < 'candidature', 'preselection', 'entretien', 'decision', 'developpement', 'mobilite', 'devenir'
- - picto (weakreference, picker[type='image'])
  - texte (string, richtext)
 
-[lnt:image] >  jnt:content
+[lnt:image] >  jnt:content, jmix:editorialContent
  - image (weakreference, picker[type='image'])
 
-[lnt:famillemetier] > jnt:content, lmix:recherche, mix:title
+[lnt:famillemetier] > jnt:content, lmix:recherche, mix:title, jmix:list
+ orderable
  - image (weakreference, picker[type='image'])
  - texte (string, richtext)
  - link (weakreference, picker[type='page'])
@@ -82,25 +80,24 @@
  + blocmetiers (lnt:blocmetiers)
  + *(lnt:metier)
 
-[lnt:metier] > jnt:content, lmix:recherche, mix:title
- - texte (string, richtext)
+[lnt:metier] > jnt:content, lmix:recherche, mix:title, jmix:list
  - video (string)
  - doc (weakreference, picker[type='file'])
  + *(lnt:sousblocmetiergauche)
  + *(lnt:sousblocmetierdroite)
 
-[lnt:sousblocmetiergauche] > jnt:content, mix:title
+[lnt:sousblocmetiergauche] > jnt:content, mix:title, jmix:editorialContent
  - texte (string, richtext)
  
- [lnt:sousblocmetierdroite] > jnt:content, mix:title
+ [lnt:sousblocmetierdroite] > jnt:content, mix:title, jmix:editorialContent
  - texte (string, richtext)
 
-[lnt:metiercaroussel] > jnt:content
+[lnt:metiercaroussel] > jnt:content, jmix:editorialContent
 
-[lnt:blocmetiers] > jnt:content, lmix:recherche
+[lnt:blocmetiers] > jnt:content, lmix:recherche, mix:title
  - pageTousLesMetiers (weakreference, picker[type='page'])
 
-[lnt:nombreOffres] > jnt:content
+[lnt:nombreOffres] > jnt:content, jmix:editorialContent
  
 [lnt:bandeauHeader] > jnt:content, lmix:composantslsr
  - logoSecu (weakreference, picker[type='image']) 
@@ -129,6 +126,13 @@
  - texte (string, richtext)
  + *(lnt:logo)
 
-[lnt:logo] > jnt:content, mix:title
+[lnt:logo] > jnt:content, mix:title, jmix:editorialContent
  - imagelogo (weakreference, picker[type='image'])
  - link (string)
+
+[lnt:mentionslegales] > jnt:content, lmix:composantslsr
+ - texte (string, richtext)
+
+[lnt:savoirplus] > jnt:content, lmix:composantslsr
+ - video (string)
+ - doc (weakreference, picker[type='file'])

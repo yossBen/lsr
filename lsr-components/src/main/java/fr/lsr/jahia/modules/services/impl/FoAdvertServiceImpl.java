@@ -174,6 +174,7 @@ public class FoAdvertServiceImpl implements FoAdvertService {
 		private String compensation;
 		private String title;
 		private Long id;
+		private String metier;
 		private List<CustomField> customFields;
 
 		public Advertisement(AdvertisementDto advertisementDto) {
@@ -200,10 +201,12 @@ public class FoAdvertServiceImpl implements FoAdvertService {
 				LovWithActivatorsCriterion criterion = null;
 				for (LovCriterion lovCriterion : list) {
 					String label = null;
+					String value = null;
 					if (lovCriterion.getCriteria() != null && !lovCriterion.getCriteria().getCriterion().isEmpty()) {
 						criterion = lovCriterion.getCriteria().getCriterion().get(0);
 						if (criterion != null) {
 							label = criterion.getLabel();
+							value = criterion.getValue();
 						}
 					}
 
@@ -219,6 +222,8 @@ public class FoAdvertServiceImpl implements FoAdvertService {
 							this.currency = label;
 						} else if (Lov.COMPENSATION_PERIOD.getName().equals(lovValue)) {
 							this.compensationPeriod = label;
+						}else if (Lov.METIERS.getName().equals(lovValue)) {
+							this.metier = value;
 						}
 					}
 
@@ -293,6 +298,13 @@ public class FoAdvertServiceImpl implements FoAdvertService {
 			return jobNumber;
 		}
 
+		public String getMetier() {
+			return metier;
+		}
+
+		public void setMetier(String metier) {
+			this.metier = metier;
+		}
 		public List<CustomField> getCustomFields() {
 			return customFields;
 		}

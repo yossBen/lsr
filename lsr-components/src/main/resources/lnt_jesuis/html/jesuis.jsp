@@ -25,7 +25,7 @@
 <section class="cinq-br-bloc" >
     <div class="br-bloc-1">
         <section class="bloc-raisons" >
-            	<template:module path="navGaucheJS"/>
+            	<template:module path="navGauche"/>
         </section>
         <div class="btn-group etape-dr" role="group">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SELECTIONNER UNE ETAPE<span class="caret"></span></button>
@@ -33,8 +33,9 @@
 								<jcr:sql var="query" sql="select * from [lnt:jesuis] " />
 								<c:forEach items="${query.nodes}" var="node">
 									<jcr:nodeProperty var="link2" node="${node}" name="link"/>
+									    <c:url var="link2URL" value="${link2.node.url}"/>
 										<li><a
-										href="${link2.node.url}"><jcr:nodePropertyRenderer node="${node}" name="titre" renderer="resourceBundle"/></a></li>
+										href="${link2URL}"><jcr:nodePropertyRenderer node="${node}" name="titre" renderer="resourceBundle"/></a></li>
 								</c:forEach> </ul>
                       </div>
     </div>

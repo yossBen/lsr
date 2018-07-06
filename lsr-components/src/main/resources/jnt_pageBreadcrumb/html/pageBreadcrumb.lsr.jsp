@@ -20,7 +20,7 @@
 <jcr:nodeProperty node="${renderContext.mainResource.node}" name="j:isHomePage" var="isHomePage" />
 <c:if test="${!isHomePage.boolean}">
 	<section class="bloc-fildariane">
-		<c:set var="pageNodes" value="${jcr:getMeAndParentsOfType(renderContext.mainResource.node, 'jnt:page')}" />
+		<c:set var="pageNodes" value="${jcr:getMeAndParentsOfType(renderContext.mainResource.node, 'jmix:navMenuItem')}" />
 		<c:if test="${displayOnFirstLevel.boolean || fn:length(pageNodes) > 1}">
 			<ul class="fildariance">
 				<c:forEach items="${functions:reverse(pageNodes)}" var="pageNode" varStatus="status">
@@ -45,6 +45,7 @@
 								<c:out value="${pageNode.properties['jcr:title'].string}" />
 							</c:otherwise>
 						</c:choose> --%>
+						    <template:addCacheDependency node="${pageNode}" />
 							<c:out value="${pageNode.properties['jcr:title'].string}" />
 						</li>
 					</c:if>

@@ -14,18 +14,12 @@
 <jcr:nodeProperty node="${currentNode}" name="nombre" var="number" />
 <jcr:nodeProperty node="${currentNode}" name="typesContrat" var="contractTypes" />
 <jcr:nodeProperty node="${currentNode}" name="metiers" var="jobsFamily" />
-<jcr:nodeProperty node="${currentNode}" name="metierSpec" var="jobs" />
 
 <c:forEach items="${contractTypes}" var="item" varStatus="loop">
 	<c:set var="contractTypesList" value="${contractTypesList}${!loop.first ? ',' : ''}${item.string}" />
 </c:forEach>
-
-<c:set var="countJobs" value="0" />
-<c:forEach items="${jobsFamily}" var="item">
-	<c:set var="jobsFamilyList" value="${jobsFamilyList}${countJobs gt 0 ? ',' : ''}${item.string}" />
-</c:forEach>
-<c:forEach items="${jobs}" var="item">
-	<c:set var="jobsFamilyList" value="${jobsFamilyList}${countJobs gt 0 ? ',' : ''}${item.string}" />
+<c:forEach items="${jobsFamily}" var="item" varStatus="loop">
+	<c:set var="jobsFamilyList" value="${jobsFamilyList}${!loop.first ? ',' : ''}${item.string}" />
 </c:forEach>
 
 <c:set var="number" value="${!empty number ? number.long : 4}" />
@@ -48,4 +42,13 @@
 	    <c:url var="pageResultatURL" value="${pageResultat.node.url}"/>
 		<a href="${pageResultatURL}" class="btoffres" role="link" aria-label="Voir toutes les offres">Voir toutes les offres</a>
 	</div>
+	<div class="col-lg-12 touteslesoffres">
+    	 <c:url var="pageMobilitehorsADD" value="https://emea3.recruitmentplatform.com/appproc/index.cfm?event=createSessionAfterSessionClear&ID=QMOFK026203F3VBQB8MLO8MJ3&nPTID=49110&bSessionClear=true"/>
+         <a href="${pageMobilitehorsADD}" class="btoffres" role="link" aria-label="Souhaits mobilité hors ADD" onclick="window.open(this.href); return false;">&nbsp;&nbsp;Mobilité hors ADD&nbsp;&nbsp;</a>
+    </div>
+    <div class="col-lg-12 touteslesoffres">
+        	 <c:url var="pageMobiliteADD" value="https://emea3.recruitmentplatform.com/appproc/index.cfm?event=createSessionAfterSessionClear&ID=QMOFK026203F3VBQB8MLO8MJ3&nPTID=48589&bSessionClear=true"/>
+             <a href="${pageMobiliteADD}" class="btoffres" role="link" aria-label="Souhaits de mobilité ADD" onclick="window.open(this.href); return false;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mobilité ADD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    </div>
+
 </section>

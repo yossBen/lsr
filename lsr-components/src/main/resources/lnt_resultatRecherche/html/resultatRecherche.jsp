@@ -19,10 +19,6 @@
 <c:set var="regions" value="${!empty param['region'] ? fn:split(fn:escapeXml(param['region']),'[,]') : null}" />
 <c:set var="oldRegions" value="${!empty param['region'] ? fn:split(fn:escapeXml(param['region']),'[-,]') : null}" />
 <c:set var="keywords" value="${fn:escapeXml(param['keywords'])}" />
-<%--calculer l'offset--%>
-<c:set var="pageSize" value="10" />
-<lsr:offsetPagination pageSize="${pageSize}" />
-<c:set var="searchResult" value="${lsr:getAdvertisements(keywords,jobFamilys,typeOrganismes,contractTypes,oldRegions,classifications,regimes, paginationMap.begin , pageSize)}" />
 
 <c:set var="JOB_FAMILY_EXTERNE"><%=fr.lsr.jahia.modules.utils.Lov.JOB_FAMILY_EXTERNE%></c:set>
 <c:set var="REGIME"><%=fr.lsr.jahia.modules.utils.Lov.REGIME%></c:set>
@@ -42,143 +38,138 @@
 					<ul>
 						<c:if test="${!empty regimes}">
 							<li>
-								<b>
-									<fmt:message key="search.regime.label" />
-									:
-								</b>
-								${fn:join(lsr:getLovById(REGIME,regimes), ', ')}
+								<b> <fmt:message key="search.regime.label" /> :
+								</b> ${fn:join(lsr:getLovById(REGIME,regimes), ', ')}
 							</li>
 						</c:if>
 						<c:if test="${!empty typeOrganismes}">
 							<li>
-								<b>
-									<fmt:message key="search.organization.label" />
-									:
-								</b>
-								${fn:join(lsr:getLovById(TYPE_ORGANISME,typeOrganismes), ', ')}
+								<b> <fmt:message key="search.organization.label" /> :
+								</b> ${fn:join(lsr:getLovById(TYPE_ORGANISME,typeOrganismes), ', ')}
 							</li>
 						</c:if>
 						<c:if test="${!empty jobFamilys}">
 							<li>
-								<b>
-									<fmt:message key="search.metier.label" />
-									:
-								</b>
-								${fn:join(lsr:getLovById(JOB_FAMILY_EXTERNE,jobFamilys), ', ')}
+								<b> <fmt:message key="search.metier.label" /> :
+								</b> ${fn:join(lsr:getLovById(JOB_FAMILY_EXTERNE,jobFamilys), ', ')}
 							</li>
 						</c:if>
 
 
 						<c:if test="${!empty contractTypes}">
 							<li>
-								<b>
-									<fmt:message key="search.contractType.label" />
-									:
-								</b>
-								${fn:join(lsr:getLovById(CONTRACT_TYPE,contractTypes), ', ')}
+								<b> <fmt:message key="search.contractType.label" /> :
+								</b> ${fn:join(lsr:getLovById(CONTRACT_TYPE,contractTypes), ', ')}
 							</li>
 						</c:if>
 						<c:if test="${!empty classifications}">
 							<li>
-								<b>
-									<fmt:message key="search.classification.label" />
-									:
-								</b>
-								${fn:join(lsr:getLovById(CLASSIFICATION,classifications), ', ')}
+								<b> <fmt:message key="search.classification.label" /> :
+								</b> ${fn:join(lsr:getLovById(CLASSIFICATION,classifications), ', ')}
 							</li>
 						</c:if>
 						<c:if test="${!empty regions}">
 							<li>
-								<b>
-									<fmt:message key="search.region.label" />
-									:
-								</b>
-								${fn:join(lsr:getRegionsByIds(regions), ', ')}
+								<b> <fmt:message key="search.region.label" /> :
+								</b> ${fn:join(lsr:getRegionsByIds(regions), ', ')}
 							</li>
 						</c:if>
 						<c:if test="${!empty keywords}">
 							<li>
-								<b>
-									<fmt:message key="search.keyword.label" />
-									:
-								</b>
-								${keywords}
+								<b> <fmt:message key="search.keyword.label" /> :
+								</b> ${keywords}
 							</li>
 						</c:if>
 					</ul>
 				</c:set>${criterias}
 			</div>
 		</c:if>
-	</div>
-	<div class="nombredoffres row">
-		<div class="col-lg-6 mrg20 nombreresultats">Offres correspondant à votre recherche : ${searchResult.key}</div>
-		<!-- 			<div class="col-lg-6 mrg20 nombreaffiches">
-					Nombre de résultats affichés
-					<select aria-labelledby="" class="selectpicker show-menu-arrow form-control">
-						<option>10</option>
-						<option>15</option>
-						<option>20</option>
-						<option>50</option>
-					</select>
-				</div> -->
-	</div>
-	<div class="table-wrap">
-		<c:if test="${!empty searchResult.value}">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>
-							<fmt:message key="offer.offerTitle.label" />
-						</th>
-						<th>
-							<fmt:message key="offer.city.label" />
-						</th>
-						<th>
-							<fmt:message key="offer.organization.label" />
-						</th>
-						<th>
-							<fmt:message key="offer.remuneration.label" />
-						</th>
-						<th>
-							<fmt:message key="offer.qualification.label" />
-						</th>
-						<th>
-							<fmt:message key="offer.contractType.label" />
-						</th>
-						<th>
-							<fmt:message key="offer.publish.date.label" />
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${searchResult.value}" var="adv">
-						<tr>
-							<td>
-								<a href="${pageFichePoste.node.url}?posteId=${adv.id}" role="link" title="${adv.title}" aria-label="${adv.title}">${adv.title}</a>
-							</td>
-							<td>${adv.city}</td>
-							<td>${adv.organisme}</td>
-							<td>${adv.compensation}</td>
-							<td>${adv.niveau}</td>
-							<td>${adv.contractType}</td>
-							<td>
-								<fmt:formatDate value="${adv.postingEndDate}" pattern="dd/MM/yyyy" />
-							</td>
-						</tr>
+
+
+		<%--calculer l'offset--%>
+		<c:set var="pageSize" value="${!empty param['pageSize'] ?  param['pageSize'] : 10}" />
+		<lsr:offsetPagination pageSize="${pageSize}" />
+		<c:set var="searchResult" value="${lsr:getAdvertisements(keywords,jobFamilys,typeOrganismes,contractTypes,oldRegions,classifications,regimes, paginationMap.begin , pageSize)}" />
+
+		<div class="nombredoffres row">
+			<div class="col-lg-6 mrg20 nombreresultats">Offres correspondant à votre recherche : ${searchResult.key}</div>
+			<div class="col-lg-6 mrg20 nombreaffiches">
+				Nombre de résultats affichés
+
+				<c:url value="${pageContext.request.requestURI}" context="/" var="pageUrl">
+					<c:forEach var="originalParam" items="${param}">
+						<c:if test="${originalParam.key ne 'pageSize'}">
+							<c:param name="${originalParam.key}" value="${originalParam.value}" />
+							<c:set var="hasParams" value="${true}" />
+						</c:if>
 					</c:forEach>
-				</tbody>
-			</table>
-		</c:if>
-		<c:if test="${empty searchResult.value}">
-			<div class="aucune">Aucune offre ne correspond à vos critères</div>
-		</c:if>
-		<div class="clearfix"></div>
-		<div class="row ">
-			<div class="col-lg-12">
-				<a class="bt" href="${pageRechercheSession}">Nouvelle recherche</a>
-				<button type="button" class="bt blanc" data-toggle="modal" data-target="#modalAlerte">Créer une alerte mail</button>
+				</c:url>
+				<select data-url="${pageUrl}${hasParams ? '&' : '?'}" class="selectpicker show-menu-arrow form-control" onchange="document.location.href=$(this).data('url') + 'pageSize='+ $(this).val();">
+					<c:forTokens items="10,20,30,50" delims="," var="page">
+						<option ${pageSize eq page ? "selected='selected'" : ""}>${page}</option>
+ 					</c:forTokens>
+				</select>
 			</div>
 		</div>
+		<div class="table-wrap">
+			<c:if test="${!empty searchResult.value}">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>
+								<fmt:message key="offer.offerTitle.label" />
+							</th>
+							<th>
+								<fmt:message key="offer.city.label" />
+							</th>
+							<th>
+								<fmt:message key="offer.organization.label" />
+							</th>
+							<th>
+								<fmt:message key="offer.remuneration.label" />
+							</th>
+							<th>
+								<fmt:message key="offer.qualification.label" />
+							</th>
+							<th>
+								<fmt:message key="offer.contractType.label" />
+							</th>
+							<th>
+								<fmt:message key="offer.publish.date.label" />
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${searchResult.value}" var="adv">
+							<tr>
+								<td>
+									<a href="${pageFichePoste.node.url}?posteId=${adv.id}" role="link" title="${adv.title}" aria-label="${adv.title}">${adv.title}</a>
+								</td>
+								<td>${adv.city}</td>
+								<td>${adv.organisme}</td>
+								<td>${adv.compensation}</td>
+								<td>${adv.niveau}</td>
+								<td>${adv.contractType}</td>
+								<td>
+									<fmt:formatDate value="${adv.postingEndDate}" pattern="dd/MM/yyyy" />
+								</td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</c:if>
+			<c:if test="${empty searchResult.value}">
+				<div class="aucune">Aucune offre ne correspond à vos critères</div>
+			</c:if>
+			<div class="clearfix"></div>
+			<div class="row ">
+				<div class="col-lg-12">
+					<a class="bt" href="${pageRechercheSession}">Nouvelle recherche</a>
+					<button type="button" class="bt blanc" data-toggle="modal" data-target="#modalAlerte">Créer une alerte mail</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <%--Display Pagination--%>
@@ -218,33 +209,17 @@
 						<input type="text" style="width: 100%; height: 30px;" placeholder="Entrez votre email" name="email">
 					</div>
 					<div>
-						<label class="titre" for="vDeliveryFrequency">Recevoir les offres :</label>
-						<label class="iptlabel">
-							<input type="radio" name="frequency" value="ONCE_A_DAY" id="vDeliveryFrequency1">
+						<label class="titre" for="vDeliveryFrequency">Recevoir les offres :</label> <label class="iptlabel"> <input type="radio" name="frequency" value="ONCE_A_DAY" id="vDeliveryFrequency1">
 							Une fois par jour
-						</label>
-						<label class="iptlabel">
-							<input type="radio" name="frequency" value="ONCE_A_WEEK" id="vDeliveryFrequency7">
-							Une fois par semaine
+						</label> <label class="iptlabel"> <input type="radio" name="frequency" value="ONCE_A_WEEK" id="vDeliveryFrequency7"> Une fois par semaine
 						</label>
 					</div>
 					<div>
-						<label class="titre" for="expiration">Validité de l'agent de recherche :</label>
-						<label class="iptlabel">
-							<input type="radio" name="expiration" value="15" id="expiration15">
-							2 semaines
-						</label>
-						<label class="iptlabel">
-							<input type="radio" name="expiration" value="30" id="expiration30">
-							1 mois
-						</label>
-						<label class="iptlabel">
-							<input type="radio" name="expiration" value="90" id="expiration90">
-							3 mois
-						</label>
-						<label class="iptlabel">
-							<input type="radio" name="expiration" value="180" id="expiration180">
-							6 mois
+						<label class="titre" for="expiration">Validité de l'agent de recherche :</label> <label class="iptlabel"> <input type="radio" name="expiration" value="15" id="expiration15"> 2
+							semaines
+						</label> <label class="iptlabel"> <input type="radio" name="expiration" value="30" id="expiration30"> 1 mois
+						</label> <label class="iptlabel"> <input type="radio" name="expiration" value="90" id="expiration90"> 3 mois
+						</label> <label class="iptlabel"> <input type="radio" name="expiration" value="180" id="expiration180"> 6 mois
 						</label>
 					</div>
 				</div>

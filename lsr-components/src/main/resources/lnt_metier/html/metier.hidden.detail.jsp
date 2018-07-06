@@ -21,25 +21,37 @@
 <jcr:nodeProperty var="titre" node="${currentNode}" name="jcr:title" />
 <jcr:nodeProperty var="video" node="${currentNode}" name="video" />
 <jcr:nodeProperty var="doc" node="${currentNode}" name="doc" />
-<div class="metierEditMode">
- <h1>${titre}</h1>
-    <p>
-    							<br><b><h3>Colonne gauche :</h3></b>
-    							<c:forEach items="${jcr:getChildrenOfType(currentNode,'lnt:sousblocmetiergauche')}"
-                                    			var="child">
-                                    	<template:module path="${child.path}" editable="true" />
-                                 </c:forEach>
-                                 <template:module path="*" nodeTypes="lnt:sousblocmetiergauche" />
 
-                                <br><b><h3>Colonne droite :</h3></b>
 
-    							<c:forEach items="${jcr:getChildrenOfType(currentNode,'lnt:sousblocmetierdroite')}"
-                                    			var="child">
-                                    	<template:module path="${child.path}" editable="true" />
-                                </c:forEach>
-                                <template:module path="*" nodeTypes="lnt:sousblocmetierdroite" />
-                              <br><b>Lien vidéo : ${video}
-</b>
-                              <br><b>Lien doc : ${doc.node.url}</b>
-</p>
+<h2>${titre}</h2>
+<div class="contenu">
+	<div class="colcontenu">
+		<c:forEach items="${jcr:getChildrenOfType(currentNode,'lnt:sousblocmetiergauche')}"
+			var="child">
+			<template:module path="${child.path}" editable="true" />
+		</c:forEach>
+		<c:if test="${renderContext.editMode}">
+			<template:module path="*" nodeTypes="lnt:sousblocmetiergauche" />
+		</c:if>
+
+	</div>
+	<div class="colcontenu">
+		<c:forEach items="${jcr:getChildrenOfType(currentNode,'lnt:sousblocmetierdroite')}"
+			var="child">
+			<template:module path="${child.path}" editable="true" />
+		</c:forEach>
+		<c:if test="${renderContext.editMode}">
+			<template:module path="*" nodeTypes="lnt:sousblocmetierdroite" />
+		</c:if>
+
+		<ul class="lienensavoir">
+		<c:if test="${!empty video}">
+			<li class="video"><a href="${video}" role="link" alt="" onclick="window.open(this.href); return false;">voir la vidéo métier</a></li>
+		</c:if>
+		<c:if test="${!empty doc}">
+			<li class="telecharger"><a href="${doc.node.url}" alt="" onclick="window.open(this.href); return false;">télécharger la fiche</a></li>
+		</c:if>
+		</ul>
+
+	</div>
 </div>

@@ -17,29 +17,24 @@
 <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
+ <c:set var="type" value="${currentNode.parent.primaryNodeType}" />
 
-<jcr:nodeProperty var="titre" node="${currentNode}" name="jcr:title" />
-<jcr:nodeProperty var="video" node="${currentNode}" name="video" />
-<jcr:nodeProperty var="doc" node="${currentNode}" name="doc" />
-<div class="metierEditMode">
- <h1>${titre}</h1>
-    <p>
-    							<br><b><h3>Colonne gauche :</h3></b>
-    							<c:forEach items="${jcr:getChildrenOfType(currentNode,'lnt:sousblocmetiergauche')}"
-                                    			var="child">
-                                    	<template:module path="${child.path}" editable="true" />
-                                 </c:forEach>
-                                 <template:module path="*" nodeTypes="lnt:sousblocmetiergauche" />
+ <c:set var="squery" value="select * from [${type}] as elements order by [jcr:created] asc" />
 
-                                <br><b><h3>Colonne droite :</h3></b>
+  <jcr:sql var="query" sql="${squery}" />
+	<c:forEach items="${query.nodes}" var="node" varStatus="status">
+ 		<jcr:nodeProperty var="titre" node="${node}" name="titre"/>
+		<jcr:nodeProperty var="texte" node="${node}" name="texte"/>
+		<jcr:nodeProperty var="link" node="${node}" name="link"/>
 
-    							<c:forEach items="${jcr:getChildrenOfType(currentNode,'lnt:sousblocmetierdroite')}"
-                                    			var="child">
-                                    	<template:module path="${child.path}" editable="true" />
-                                </c:forEach>
-                                <template:module path="*" nodeTypes="lnt:sousblocmetierdroite" />
-                              <br><b>Lien vidéo : ${video}
-</b>
-                              <br><b>Lien doc : ${doc.node.url}</b>
-</p>
-</div>
+		<c:url var="linkURL" value="${link.node.url}"/>
+
+		<a	href="${linkURL}"
+			class="nbraison col-md-6 ${currentNode.parent == node ? 'active' : ''}">
+			<i class="${titre}" data-line="${status.index+1}"></i>
+			<span>
+				<jcr:nodePropertyRenderer node="${node}" name="titre" renderer="resourceBundle"/>
+			</span>
+		</a>
+	</c:forEach>
+

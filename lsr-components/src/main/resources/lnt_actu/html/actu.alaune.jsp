@@ -9,6 +9,8 @@
 <%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions"%>
 
 <template:include view="hidden.header" />
+
+<c:set var="corps" value="${functions:removeHtmlTags(corps.string)}" />
 <section class="bloc-a-la-une">
 	<div class="bloc-titre">A la une</div>
 	<div class="bloc-une">
@@ -20,8 +22,9 @@
 			<div class="date">
 				<fmt:formatDate value="${lastPublished.time}" pattern="dd MMMMMMMMMM yyyy" />
 			</div>
-			<div class="contenu-art">${chapeau.string}${functions:abbreviate(corps.string ,500,-1,'...')}</div>
-			<a href="${currentPage.url}" class="lire" role="link" title="${titre.string}">Lire l’article</a>
+
+			<div class="contenu-art">${chapeau.string}${functions:abbreviate(corps ,500,-1,'...')}</div>
+			<a href="${currentPage.url}" class="lire" role="link" title="${titre.string}">Lire l'article</a>
 		</div>
 	</div>
 </section>

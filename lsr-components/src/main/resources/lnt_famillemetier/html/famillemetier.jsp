@@ -33,36 +33,46 @@
 		<p>${texte}</p>
 	</div>
 
-	<div class="infobloc-metiers" role="contentinfo" aria-label="${titre}">
+	<jcr:sql var="query" sql="select * from [lnt:metier] as metiers where ISDESCENDANTNODE(metiers,'${currentNode.path}') " />
 
-		<button class="btn btn-primary titrebloc" type="button"
-			data-toggle="collapse" data-target="#collapseExample"
-			aria-expanded="false" aria-controls="collapseExample">${titre}</button>
+    <c:if test="${!renderContext.editMode}">
+        <div class="infobloc-metiers" role="contentinfo" aria-label="${titre}">
 
-		<jcr:sql var="query" sql="select * from [lnt:metier] as metiers where ISDESCENDANTNODE(metiers,'${currentNode.path}') " />
+            <button class="btn btn-primary titrebloc" type="button"
+                data-toggle="collapse" data-target="#collapseExample"
+                aria-expanded="false" aria-controls="collapseExample">${titre}</button>
 
+            <div class="collapse" id="collapseExample">
+                <div class="blocselect">
+                    <ul>
+                        <c:forEach items="${query.nodes}" var="node" varStatus="status">
+                                <template:addCacheDependency node="${node}" />
+                                <li ${fn:startsWith(currentPage.path, metier.path) ? 'class="active"' : ''}><a href='javascript:updateDetailMetier("${node.path}")'>${node.displayableName}</a></li>
+                                <c:if test="${status.first}">
+                                    <script type="text/javascript">updateDetailMetier("${node.path}")</script>
+                                </c:if>
 
-		<div class="collapse" id="collapseExample">
-			<div class="blocselect">
-				<ul>
-					<c:forEach items="${query.nodes}" var="node">
-						<li>${node.properties['jcr:title'].string}</li>
-					</c:forEach>
-					<c:if test="${renderContext.editMode}">
-						<template:module path="*" nodeTypes="lnt:metier" />
-					</c:if>
-				</ul>
-			</div>
-			<div class="select-contenu">
-					<c:forEach items="${query.nodes}" var="node" >
-						<template:module path="${node}"/>
-					</c:forEach>
-					<c:if test="${renderContext.editMode}">
-						<template:module path="*" nodeTypes="lnt:metier" />
-					</c:if>
-			</div>
-		</div>
-	</div>
+                        </c:forEach>
+                    </ul>
+                </div>
+
+                <div class="select-contenu">
+             <div id="productDetail"></div>
+                </div>
+
+            </div>
+        </div>
+	</c:if>
+	<c:if test="${renderContext.editMode}">
+    					<c:forEach items="${query.nodes}" var="node">
+    					    <template:module node="${node}" editable="true" />
+    					    <br>
+                        </c:forEach>
+
+    		    <template:module path="*" nodeTypes="lnt:metier" />
+
+	</c:if>
+
 </section>
 
 <section class="bloc-metiers" role="contentinfo">
@@ -70,3 +80,19 @@
 	<template:module path="blocmetiers" />
 
 </section>
+
+<template:addResources type="javascript" resources="jquery.min.js" />
+<template:addResources key="detailMetierJS">
+	<script type="text/javascript">
+		function updateDetailMetier(path) {
+		    console.log("Details de " + path);
+            jQuery.ajax({
+                url : "${url.base}" + path + ".hidden.detail.html.ajax",
+                type : "GET",
+                success : function(data) {
+                    jQuery("#productDetail").html(data);
+                }
+            });
+		}
+	</script>
+</template:addResources>

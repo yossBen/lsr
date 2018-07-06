@@ -27,13 +27,16 @@
 		<c:set var="description" value="${functions:removeHtmlTags(description)}" />
 		<c:set var="description" value="${functions:abbreviate(description ,150,-1,'...')}" />
 		<div class="offre ${classCol} col-md-6 col-xs-12">
+		<c:url var="fichePosteURL" value="${pageFichePoste.node.url}?posteId=${adv.id}"/>
+
+		<a href="${fichePosteURL}" role="link" aria-label="Lire le descriptif de l'offre - ${fn:escapeXml(adv.title)}">
 			<div class="recruteur">${adv.organisme}</div>
 			<div class="titreoffre">${adv.title}</div>
 			<div class="extrait">${description}</div>
 			<div class="ensavoirplus">
-				<a href="${pageFichePoste.node.url}?posteId=${adv.id}" role="link" aria-label="Lire le descriptif de l'offre - ${fn:escapeXml(adv.title)}">Lire le descriptif</a>
+				Lire le descriptif
 			</div>
-
+        </a>
 			<template:include view="hidden.social">
 				<template:param name="posteId" value="${adv.id}" />
 				<template:param name="posteTitle" value="${adv.title}" />
@@ -67,7 +70,9 @@
 		</div>
 	</c:forEach>
 	<div class="col-lg-12 touteslesoffres">
-		<a href="${pageResultat.node.url}" class="btoffres" role="link" aria-label="Voir toutes les offres">Voir toutes les offres</a>
+	    <c:url var="pageResultatURL" value="${pageResultat.node.url}"/>
+
+		<a href="${pageResultatURL}" class="btoffres" role="link" aria-label="Voir toutes les offres">Voir toutes les offres</a>
 	</div>
 </section>
 <%@include file="../../common/popin.jsp"%>

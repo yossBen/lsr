@@ -18,7 +18,7 @@
 	});
 </script> --%>
 
-<c:set var="classCol" value="${!empty classColReq  ? classColReq : 'col-lg-2'}" />
+<c:set var="classCol" value="${!empty classColReq  ? classColReq : 'col-lg-2 col-md-2'}" />
 <section class="bloc-recherche" role="search" aria-label="Que recherchez-vous ?">
 	<h2>${title.string}</h2>
 	<form id="filterForm" action="<c:url value='${!empty pageResultat ? pageResultat.node.url : renderContext.mainResource.node.url}'/>" method="get">
@@ -112,6 +112,8 @@
 		</div>
 	</form>
 	<div class="clear"></div>
-	<a href="${pageRechercheAvancee.node.url}" title="Recherche avancée" style="color: white; font-size: 20px;">Plus de critères</a>
+	<c:url var="pageRechercheAvanceeURL" value="${pageRechercheAvancee.node.url}"/>
+
+	<a href="${pageRechercheAvanceeURL}" title="Recherche avancée"  class="criteres">Plus de critères</a>
 </section>
 <c:set var="pageRechercheSession" value="${pageRechercheSimple.node.url}" scope="session" />

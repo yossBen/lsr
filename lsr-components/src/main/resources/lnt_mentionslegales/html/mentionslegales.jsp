@@ -18,28 +18,5 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<jcr:nodeProperty var="titre" node="${currentNode}" name="jcr:title" />
-<jcr:nodeProperty var="video" node="${currentNode}" name="video" />
-<jcr:nodeProperty var="doc" node="${currentNode}" name="doc" />
-<div class="metierEditMode">
- <h1>${titre}</h1>
-    <p>
-    							<br><b><h3>Colonne gauche :</h3></b>
-    							<c:forEach items="${jcr:getChildrenOfType(currentNode,'lnt:sousblocmetiergauche')}"
-                                    			var="child">
-                                    	<template:module path="${child.path}" editable="true" />
-                                 </c:forEach>
-                                 <template:module path="*" nodeTypes="lnt:sousblocmetiergauche" />
-
-                                <br><b><h3>Colonne droite :</h3></b>
-
-    							<c:forEach items="${jcr:getChildrenOfType(currentNode,'lnt:sousblocmetierdroite')}"
-                                    			var="child">
-                                    	<template:module path="${child.path}" editable="true" />
-                                </c:forEach>
-                                <template:module path="*" nodeTypes="lnt:sousblocmetierdroite" />
-                              <br><b>Lien vidéo : ${video}
-</b>
-                              <br><b>Lien doc : ${doc.node.url}</b>
-</p>
-</div>
+<jcr:nodeProperty var="texte" node="${currentNode}" name="texte" />
+<section class="bloc-contenu-page"> ${texte} </section>

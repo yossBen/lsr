@@ -23,6 +23,7 @@
 
 <section class="cinq-br-bloc">
 	<div class="br-bloc-1">
+	            <ul class="logo-lsr">
 		<c:forEach items="${jcr:getChildrenOfType(currentNode,'lnt:logo')}"
 			var="child">
 			<template:module path="${child.path}" editable="true" />
@@ -30,6 +31,7 @@
 		<c:if test="${renderContext.editMode}">
 			<template:module path="*" nodeTypes="lnt:logo" />
 		</c:if>
+		</ul>
 	</div>
 	<div class="br-bloc-2">
 		<section class="bloc-raisons-contenu">

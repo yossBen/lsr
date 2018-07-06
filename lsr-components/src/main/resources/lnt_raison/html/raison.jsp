@@ -24,7 +24,7 @@
 <section class="cinq-br-bloc" >
     <div class="br-bloc-1">
         <section class="bloc-raisons" >
-            <template:module path="navGaucheBR"/>
+            <template:module path="navGauche"/>
         </section>
         <div class="btn-group etape-dr" role="group">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">SELECTIONNER UNE ETAPE<span class="caret"></span></button>
@@ -59,7 +59,7 @@
             </c:choose>
             <div class="numero-raison"><i class="${titre}" data-line="${dataline}"></i></div>
             <div class="bloc-titre"><jcr:nodePropertyRenderer node="${currentNode}" name="titre" renderer="resourceBundle"/></div>
-            <div class="bloc-contenu-rz">${texte}<br/><br/>Emplacement Infographie ...</div>
+            <div class="bloc-contenu-rz">${texte}<br/></div>
         </section>
     </div>
 </section>

@@ -9,12 +9,13 @@
 <%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions"%>
 <%@ taglib uri="http://www.LaSecuRecrute.fr/lsr-components/tags" prefix="lsr"%>
 
+
 <c:set var="classCol" value="${ index mod listSize == 1 ?  'col-md-offset-1' : ''}" />
 <jcr:nodeProperty var="titre" node="${currentNode}" name="titre"/>
 <jcr:nodeProperty var="link" node="${currentNode}" name="link"/>
 
-
-<a href="${link.node.url}" class="nbraison col-md-2 ${classCol}">
+<c:url var="linkURL" value="${link.node.url}"/>
+<a href="${linkURL}" class="nbraison col-md-2 ${classCol}">
    <i class="${titre}" data-line="${index}"></i>
    <span><jcr:nodePropertyRenderer node="${currentNode}" name="titre" renderer="resourceBundle"/></span>
 </a>

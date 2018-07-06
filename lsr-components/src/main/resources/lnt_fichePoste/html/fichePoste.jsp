@@ -21,23 +21,13 @@
 					<h1 id="offerTitle">${offer.title}</h1>
 				</div>
 				<div class="bloc-contenu-rz">
-					<a href="${pageResultat.node.url}" class="lienback">Retour aux résulats</a>
+					<c:url var="pageResultatURL" value="${pageResultat.node.url}"/>
+
+					<a href="${pageResultatURL}" class="lienback">Retour aux résulats</a>
 					<div class="blockinfo">
 						<div class="tableau">
 							<table>
 								<tbody>
-									<tr>
-										<td class="titre">
-											<fmt:message key="offer.city.label" />
-										</td>
-										<td class="reponse">${offer.city}</td>
-									</tr>
-									<tr>
-										<td class="titre">
-											<fmt:message key="offer.contractType.label" />
-										</td>
-										<td class="reponse">${offer.contractType}</td>
-									</tr>
 									<tr>
 										<td class="titre">
 											<fmt:message key="offer.publish.date.label" />
@@ -61,6 +51,18 @@
 										<td class="reponse">
 											${offer.jobNumber}
 										</td>
+									</tr>
+									<tr>
+										<td class="titre">
+											<fmt:message key="offer.city.label" />
+										</td>
+										<td class="reponse">${offer.city}</td>
+									</tr>
+									<tr>
+										<td class="titre">
+											<fmt:message key="offer.contractType.label" />
+										</td>
+										<td class="reponse">${offer.contractType}</td>
 									</tr>
 									<c:if test="${!empty offer.compensation}">
 										<tr>
@@ -115,7 +117,8 @@
 							<a href="" class="bt blanc" onclick="javascript:window.print();">Imprimer</a>
 						</div>
 					</div>
-					<a href="${pageResultat.node.url}?${searchQuerySession}" class="lienback">Retour aux résulats</a>
+				    <c:url var="pageResultatURL" value="${pageResultat.node.url}?${searchQuerySession}"/>
+					<a href="${pageResultatURL}" class="lienback">Retour aux résulats</a>
 				</div>
 			</section>
 		</div>

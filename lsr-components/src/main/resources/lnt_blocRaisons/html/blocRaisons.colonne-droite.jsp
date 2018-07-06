@@ -26,7 +26,7 @@
             <h2 class="bloc-titre">${currentNode.properties['jcr:title']}</h2>
 
 
-        <jcr:sql var="query" sql="select * from [lnt:raison] as elements order by [j:lastPublished] asc" />
+        <jcr:sql var="query" sql="select * from [lnt:raison] as elements order by [jcr:created] asc" />
 	        <c:forEach items="${query.nodes}" var="child">
                                <template:module path="${child.path}" editable="true" view="droite">
                                     <c:set var="index" value="${index + 1}" scope="page"/>
@@ -34,8 +34,5 @@
                                     <template:param name="index" value="${index}"/>
                                </template:module>
             </c:forEach>
-            <c:if test="${renderContext.editMode}">
-                             <template:module path="*" nodeTypes="lnt:raison" view="droite"/>
-            </c:if>
 
 </section>

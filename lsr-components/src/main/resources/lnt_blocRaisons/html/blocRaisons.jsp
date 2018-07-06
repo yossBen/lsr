@@ -9,15 +9,18 @@
 <%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions"%>
 <%@ taglib uri="http://www.LaSecuRecrute.fr/lsr-components/tags" prefix="lsr"%>
 
+<c:set var="index" value="0" scope="page" />
 
 <section class="bloc-raisons" role="contentinfo" aria-label="${currentNode.properties['jcr:title']}">
             <h2 class="bloc-titre">${currentNode.properties['jcr:title']}</h2>
 
-             <jcr:sql var="query" sql="select * from [lnt:raison] as elements order by [j:lastPublished] asc" />
-	         <c:forEach items="${query.nodes}" var="child">
-                   <template:module path="${child.path}" editable="true" view="detail"/>
-             </c:forEach>
-             <c:if test="${renderContext.editMode}">
-                 <template:module path="*" nodeTypes="lnt:raison" />
-             </c:if>
+             <jcr:sql var="query" sql="select * from [lnt:raison] as elements order by [jcr:created] asc" />
+	        <c:forEach items="${query.nodes}" var="child">
+                               <template:module path="${child.path}" editable="true" view="detail">
+                                    <c:set var="index" value="${index + 1}" scope="page"/>
+                                    <template:param name="listSize" value="${query.nodes.size}"/>
+                                    <template:param name="index" value="${index}"/>
+                               </template:module>
+            </c:forEach>
+
 </section>

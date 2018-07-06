@@ -12,8 +12,9 @@
 <jcr:nodeProperty var="titre" node="${currentNode}" name="titre"/>
 <jcr:nodeProperty var="link" node="${currentNode}" name="link"/>
 
+<c:url var="linkURL" value="${link.node.url}"/>
 
-<a href="${link.node.url}" class="nbraison col-md-12">
+<a href="${linkURL}" class="nbraison col-md-12">
    <i class="${titre}" data-line="${index}"></i>
    <span><jcr:nodePropertyRenderer node="${currentNode}" name="titre" renderer="resourceBundle"/></span>
 </a>

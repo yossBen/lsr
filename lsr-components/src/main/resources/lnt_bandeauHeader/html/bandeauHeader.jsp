@@ -8,7 +8,7 @@
 <jcr:nodeProperty node="${currentNode}" name="imagesSite" var="imagesSite" />
 <jcr:nodeProperty node="${currentPage}" name="jcr:title" var="pageTitle" />
 <jcr:nodeProperty node="${currentPage}" name="j:isHomePage" var="isHomePage" />
-<jcr:nodeProperty node="${currentPage}" name="urlEspacePerso" var="urlEspacePerso" />
+<jcr:nodeProperty node="${currentNode}" name="urlEspacePerso" var="urlEspacePerso" />
 
 <div class="logomobile">
 	<a href="${homeUrl}">

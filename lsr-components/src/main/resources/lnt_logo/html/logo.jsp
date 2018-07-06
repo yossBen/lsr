@@ -22,9 +22,10 @@
 <jcr:nodeProperty var="imagelogo" node="${currentNode}" name="imagelogo"/>
 <jcr:nodeProperty var="link" node="${currentNode}" name="link"/>
 
-
-<a href="${link}" role="link" alt="${titre}"> 
+<li>
+<a href="${link}" role="link" alt="${titre}" onclick="window.open(this.href); return false;">
 	<c:if test="${!empty imagelogo && !empty imagelogo.node}">
-		<img width="300" src="${imagelogo.node.url}" 	alt="${imagelogo.node.displayableName}">
+		<img  src="${imagelogo.node.url}" 	alt="${imagelogo.node.displayableName}">
 	</c:if>
 </a>
+</li>

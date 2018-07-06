@@ -21,7 +21,7 @@
 
 
 <section class="bloc-metiers" role="contentinfo">
-	<jcr:sql var="query" sql="select * from [lnt:famillemetier] " />
+	<jcr:sql var="query" sql="select * from [lnt:famillemetier] order by [jcr:created] asc" />
 
 		<c:forEach items="${query.nodes}" var="node">
 			<jcr:nodeProperty var="titre" node="${node}" name="jcr:title" />
@@ -29,7 +29,7 @@
 			<jcr:nodeProperty var="image" node="${node}" name="image" />
 			<c:url value="${image.node.url}" var="imageUrl"></c:url>
 		
-			<a href="${link.node.url}" class="metier col-lg-4 col-sm-6 col-xs-12"
+			<a href="${link.node.url}" class="metier col-lg-4 col-md-4 col-xs-12"
 				style="background-image: url('${imageUrl}');" role="link"
 				aria-label="${titre}"> <span>${titre}</span>
 			</a>
